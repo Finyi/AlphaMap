@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "leaflet-geosearch": "^3.7.0",
+    "leaflet-switch-basemap": "^1.0.4"
+  }
+}
