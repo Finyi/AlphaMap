@@ -14,16 +14,16 @@
 
 .basemapImg{
     filter: drop-shadow(4px 3px 0px rgba(0, 0, 0, 0.39));
-    background-color: rgba(201, 201, 201, 0.836);
+    background-color: rgba(0, 0, 0, 0.7);
     margin:5px;
     padding:5px;
     border-radius: 7px 7px;
 }
 
 .basemapImg div{
-    background-size: 75px 75px;
-    width: 70px;
-    height: 70px;
+    background-size: 120px 110px;
+    width: 120px;
+    height: 120px;
     border-radius: 3px 3px;
     display: flex;
     flex-direction: column;
