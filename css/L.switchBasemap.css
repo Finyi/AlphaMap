@@ -33,7 +33,7 @@
 .basemapImg div .name{
     width:100%;
     height:auto;
-    background-color: rgba(48, 48, 48, 0.788);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 0;
     color:rgb(240, 240, 240);
     display: flex;
