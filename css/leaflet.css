@@ -282,7 +282,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-radius: 4px;
 	}
 .leaflet-bar a {
-	background-color: rgb(238, 238, 238);
+	background-color: gba(0, 0, 0, 0.7);
 	border-bottom: 1px solid rgb(41, 43, 54);
 	width: 26px;
 	height: 26px;
@@ -290,7 +290,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
@@ -300,7 +300,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a:hover,
 .leaflet-bar a:focus {
-	background-color: rgb(180, 180, 180);
+	background-color: rgb(34, 34, 34, 0.7);
 	}
 .leaflet-bar a:first-child {
 	border-top-left-radius: 4px;
@@ -313,8 +313,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
-	background-color: rgb(180, 180, 180);
-	color: #424242;
+	background-color: rgb(34, 34, 34, 0.7);
+	color: #ffffff;
 	}
 
 .leaflet-touch .leaflet-bar a {
