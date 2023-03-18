@@ -1233,6 +1233,28 @@ var enemy = L.marker([48.55630, 37.90215], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада').openPopup()
 popup.addTo(map);	
 	
+L.Control.Watermark = L.Control.extend({
+    onAdd: function(map) {
+        var img = L.DomUtil.create('img');
+
+        img.src = 'img/NATO.png';
+        img.style.width = '420px';
+        img.style.height = '320px';
+
+        return img;
+    },
+
+    onRemove: function(map) {
+        // Nothing to do here
+    }
+});
+
+L.control.watermark = function(opts) {
+    return new L.Control.Watermark(opts);
+}
+
+L.control.watermark({ position: 'topright' }).addTo(map)	
+	
 </script>
 
 
