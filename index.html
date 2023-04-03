@@ -75,7 +75,7 @@ L.control.mapCenterCoord({
       attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e"
     }),
     icon: 'img/HybridMap.png',
-    name: 'Hybridd'
+    name: 'Hybrid'
   },
 ], { position: 'bottomright' }).addTo(map);
 
@@ -1779,6 +1779,75 @@ var firstpolyline = new L.Polyline(pointList, {
 });
 firstpolyline.addTo(map);
 
+
+
+
+
+
+var pointA1 = new L.LatLng(46.53744, 32.32551);
+var pointA2 = new L.LatLng(46.54033, 32.33377);
+
+var pointList2 = [pointA1, pointA2 ]
+
+var polylines = new L.Polyline(pointList2, {
+    color: '#072bf7',
+    weight: 3,
+    dashArray: '7, 7',
+    dashOffset: '0'
+});
+polylines.addTo(map);
+
+
+
+
+var bakhmut = L.circle([48.59334, 37.98896], {
+    color: '#000000',
+    radius: 5700,
+    weight: 2,
+    dashArray: '7, 7',
+    dashOffset: 0,
+});
+var popup = bakhmut.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
+popup.addTo(map);
+
+
+
+
+var kreminna = L.circle([49.04735, 38.21577], {
+    color: '#000000',
+    radius: 3000,
+    weight: 2,
+    dashArray: '7, 7',
+    dashOffset: 0,
+});
+var popup = kreminna.bindPopup('<font face="Montserrat">Сватівсько-Кремінна лінія оборони <br>Svativsko-Kreminna line of defense</br>').openPopup()
+popup.addTo(map);
+
+
+
+
+var svatove = L.circle([49.41268, 38.14685], {
+    color: '#000000',
+    radius: 4500,
+    weight: 2,
+    dashArray: '7, 7',
+    dashOffset: 0,
+});
+var popup = svatove.bindPopup('<font face="Montserrat">Сватівсько-Кремінна лінія оборони <br>Svativsko-Kreminna line of defense</br>').openPopup()
+popup.addTo(map);
+
+
+
+
+var orikhiv = L.circle([47.56755, 35.78573], {
+    color: '#000000',
+    radius: 5500,
+    weight: 2,
+    dashArray: '7, 7',
+    dashOffset: 0,
+});
+var popup = orikhiv.bindPopup('<font face="Montserrat">Оборона Оріхова, точка маневру на мапі <br>Defense of Orikhov, point of maneuver on the map</br>').openPopup()
+popup.addTo(map);
 </script>
 
 
