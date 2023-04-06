@@ -671,7 +671,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 
 	:root {
-		--map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.5) brightness(0.8);
+		--map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.8) brightness(0.8);
 	}
 	
 	@media (prefers-color-scheme: dark) {
