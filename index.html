@@ -46,15 +46,6 @@ L.control.mapCenterCoord({
 
 // maps-switch
     new L.basemapsSwitcher([
-    {
-    layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	  maxZoom: 16,
-      minZoom: 7,
-	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }),
-    icon: 'img/InteractiveMap.png',
-    name: 'OSM'
-  },
   {
      layer: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -66,16 +57,13 @@ L.control.mapCenterCoord({
     name: 'Dark OSM'
   },
   {
-    layer: L.tileLayer(`https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=kKhYNaLtgJhUBX5XNL9q`,{
-      tileSize: 512,
-      zoomOffset: -1,
-      crossOrigin: true,
+    layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	  maxZoom: 16,
       minZoom: 7,
-      maxZoom: 16,      
-      attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e"
+	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }),
-    icon: 'img/HybridMap.png',
-    name: 'Hybrid'
+    icon: 'img/InteractiveMap.png',
+    name: 'OSM'
   },
 ], { position: 'bottomright' }).addTo(map);
 
