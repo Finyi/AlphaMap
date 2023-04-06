@@ -790,6 +790,30 @@ popup.addTo(map);
 
 // Бригади/Батальйони ЗСУ
 var enemy = L.icon({
+    iconUrl: 'img/ua/6-SRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([48.20134, 37.68517], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">6-й окремий стрілецький батальйон').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/ua/36-MCB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([48.12565, 37.59470], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">36-та окрема бригада морської піхоти').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/ua/59-Motor.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([48.06254, 37.51574], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">59-та окрема мотопіхотна бригада').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
     iconUrl: 'img/ua/132-SV.png',
     iconSize: [56, 56],
 });
@@ -881,7 +905,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/125-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.61007, 37.88318], { icon:enemy });
+var enemy = L.marker([48.39667, 37.87176], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">125-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
@@ -1111,7 +1135,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/123-tro.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([46.96445, 32.07896], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">123-тя окрема бригада ТРО').openPopup()
@@ -1135,7 +1159,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/5-mb.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.57923, 37.93191], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">5-та окрема механізована бригада').openPopup()
@@ -1143,7 +1167,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/77-db.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.59825, 37.93695], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">77-ма окрема аеромобільна бригада').openPopup()
@@ -1158,22 +1182,12 @@ var popup = enemy.bindPopup('<font face="Montserrat">67-ма окрема мех
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/ua/71-gb.png',
-    iconSize: [52, 52],
-});
-var enemy = L.marker([48.60762, 37.85043], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">71-ша окрема єгерська бригада').openPopup()
-popup.addTo(map);
-
-
-var enemy = L.icon({
     iconUrl: 'img/ua/4-op.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.62994, 37.79644], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">4-та бригада оперативного призначення').openPopup()
 popup.addTo(map);
-
 
 var enemy = L.icon({
     iconUrl: 'img/ua/107-am.png',
@@ -1193,7 +1207,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/30-mb.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.72776, 37.93995], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">30-та окрема механізована бригада').openPopup()
@@ -1241,7 +1255,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/113-tro.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.72414, 37.86665], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">113-та окрема бригада ТРО').openPopup()
@@ -1377,7 +1391,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/7-pz.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.57736, 37.91561], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">7-й окремий полк зв`язку').openPopup()
@@ -1401,15 +1415,15 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/110-b.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
-var enemy = L.marker([48.13468, 37.75117], { icon:enemy });
+var enemy = L.marker([48.30461, 37.79108], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">110-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/115-b.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.12922, 37.66877], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">115-та окрема механізована бригада').openPopup()
@@ -1417,7 +1431,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/503-bm.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([47.94479, 37.49149], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">503-й окремий батальйон морської піхоти').openPopup()
@@ -1440,10 +1454,10 @@ var popup = enemy.bindPopup('<font face="Montserrat">68-ма окрема єге
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/ua/56-b.png',
-    iconSize: [52, 52],
+    iconUrl: 'img/ua/56-Motor.png',
+    iconSize: [56, 56],
 });
-var enemy = L.marker([48.69783, 37.85554], { icon:enemy });
+var enemy = L.marker([48.00583, 37.51900], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">56-та окрема мотопіхотна бригада').openPopup()
 popup.addTo(map);
 
