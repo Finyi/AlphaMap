@@ -50,7 +50,7 @@ L.control.mapCenterCoord({
      layer: L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
        className: 'map-tiles',
-       minZoom: 7,
+       minZoom: 6,
        maxZoom: 16,
     }).addTo(map),
     icon: 'img/DarkMap.png',
@@ -59,7 +59,7 @@ L.control.mapCenterCoord({
   {
     layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	  maxZoom: 16,
-      minZoom: 7,
+      minZoom: 6,
 	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }),
     icon: 'img/OSM.png',
