@@ -1491,28 +1491,6 @@ var enemy = L.marker([48.52691, 37.88034], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада').openPopup()
 popup.addTo(map);
 
-L.Control.Watermark = L.Control.extend({
-    onAdd: function(map) {
-        var img = L.DomUtil.create('img');
-
-        img.src = 'img/NATO.png';
-        img.style.width = '320px';
-        img.style.height = '220px';
-
-        return img;
-    },
-
-    onRemove: function(map) {
-        // Nothing to do here
-    }
-});
-
-L.control.watermark = function(opts) {
-    return new L.Control.Watermark(opts);
-}
-
-L.control.watermark({ position: 'topright' }).addTo(map)
-
 // Kherson Regions
 var pointA1 = new L.LatLng(46.49250, 32.28405);
 var pointA2 = new L.LatLng(46.49619, 32.30448);
