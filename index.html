@@ -32,8 +32,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div id="map"></div>
 
-
 <script>
+// create map
     var map = L.map('map').setView([49.0139, 31.2858], 7);
 // zoom control
 map.zoomControl.setPosition('topleft');
@@ -71,12 +71,12 @@ L.control.mapCenterCoord({
 // scale data
 L.control.scale().addTo(map);
 
+
 // kmz data
 var kmz = L.kmzLayer().addTo(map);
 
 kmz.on('load', function(e) {
   control.addOverlay(e.layer, e.name);
-  // e.layer.addTo(map);
 });
 
 // Добавить удаленные файлы KMZ в качестве слоев (если это сторонние серверы, на них ДОЛЖЕН быть включен CORS)
@@ -95,7 +95,7 @@ kmz.load('data/Road.kmz')
 </script>
 
 <script>
-// КОРПУСИ
+// Russian Army Corps (NATO - Images)
 var enemy = L.icon({
     iconUrl: 'img/rus/1-a-p.png',
     iconSize: [56, 56],
@@ -122,7 +122,11 @@ popup.addTo(map);
 
 
 
-// АРМІЇ 
+
+
+
+
+// Armies of the Russian (NATO - Images)
 var enemy = L.icon({
     iconUrl: 'img/rus/1-ta.png',
     iconSize: [56, 56],
@@ -150,7 +154,10 @@ popup.addTo(map);
 
 
 
-// ДИВІЗІЇ
+
+
+
+// Russian army divisions (NATO - Images)
 var enemy = L.icon({
     iconUrl: 'img/rus/90-td.png',
     iconSize: [56, 56],
@@ -211,7 +218,9 @@ popup.addTo(map);
 
 
 
-// ПОЛКИ
+
+
+// Russian Army Regiments (NATO - Images)
 var enemy = L.icon({
     iconUrl: 'img/rus/345-GAAR.png',
     iconSize: [56, 56],
@@ -442,8 +451,31 @@ popup.addTo(map);
 
 
 
+// Russian Army Brigades/Battalions/Combat Teams (NATO - Images)
+var enemy = L.icon({
+    iconUrl: 'img/rus/45-GSB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([47.47757, 35.35967], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">45-а окрема гвардійська бригада спеціального призначення').openPopup()
+popup.addTo(map);
 
-// БРИГАДИ/БАТАЛЬЙОНИ
+var enemy = L.icon({
+    iconUrl: 'img/rus/Wagner.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([47.25238, 35.89972], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">ПВК "Вагнер"').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/Wagner.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([47.44054, 35.24174], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">ПВК "Вагнер"').openPopup()
+popup.addTo(map);
+
 var enemy = L.icon({
     iconUrl: 'img/rus/80-SMRB.png',
     iconSize: [56, 56],
@@ -693,14 +725,6 @@ var popup = enemy.bindPopup('<font face="Montserrat">57-ма окрема мот
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/rus/Wagner.png',
-    iconSize: [56, 56],
-});
-var enemy = L.marker([48.62725, 37.92429], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">ПВК "Вагнер"').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
     iconUrl: 'img/rus/11-db-p.png',
     iconSize: [56, 56],
 });
@@ -721,7 +745,8 @@ popup.addTo(map);
 
 
 
-// АЕРОДРОМИ
+
+// Military airfields of the Russian army (Images)
 var enemy = L.icon({
     iconUrl: 'img/fly.png',
     iconSize: [32, 32],
@@ -901,7 +926,10 @@ popup.addTo(map);
 
 
 
-// Полігони
+
+
+
+// Military training grounds of the Russian army (Images)
 var polygon = L.icon({
     iconUrl: 'img/dislocation.png',
     iconSize: [12, 12],
@@ -941,13 +969,21 @@ var polygon = L.icon({
 var polygon = L.marker([47.54791, 40.20035], { icon:polygon });
 var popup = polygon.bindPopup('<font face="Montserrat">Кадамовський полігон').openPopup()
 popup.addTo(map);
-	
-	
-	
-	
-	
 
-// Бригади/Батальйони ЗСУ
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------- \\
+
+
+
+
+
+
+
+// Brigades / Battalions / Other forces of the Ukrainian army
 var enemy = L.icon({
     iconUrl: 'img/ua/6-SRB.png',
     iconSize: [56, 56],
@@ -1504,7 +1540,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/103-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.63292, 37.88575], { icon:enemy });
+var enemy = L.marker([49.66004, 37.92438], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">103-тя окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
@@ -1652,7 +1688,13 @@ var enemy = L.marker([48.52691, 37.88034], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада').openPopup()
 popup.addTo(map);
 
-// Kherson Regions
+
+
+
+
+
+
+// points of contact
 var pointA1 = new L.LatLng(46.49250, 32.28405);
 var pointA2 = new L.LatLng(46.49619, 32.30448);
 var pointA3 = new L.LatLng(46.50103, 32.31862);
@@ -1757,7 +1799,6 @@ var pointD11 = new L.LatLng(47.28045, 33.98380);
 var pointD12 = new L.LatLng(47.33562, 33.99530);
 var pointD13 = new L.LatLng(47.38841, 34.00698);
 var pointD14 = new L.LatLng(47.42562, 34.02234);
-// Zaporizhzhia region
 var pointD15 = new L.LatLng(47.43816, 34.06277);
 var pointD16 = new L.LatLng(47.43868, 34.09530);
 var pointD17 = new L.LatLng(47.43619, 34.12345);
@@ -1899,7 +1940,6 @@ var pointI2 = new L.LatLng(47.78781, 36.88276);
 var pointI3 = new L.LatLng(47.78122, 36.90737);
 var pointI4 = new L.LatLng(47.77170, 36.93923);
 var pointI5 = new L.LatLng(47.76373, 36.96290);
-// Donetks regions
 var pointI6 = new L.LatLng(47.75264, 36.97294);
 var pointI7 = new L.LatLng(47.74670, 36.99839);
 var pointI8 = new L.LatLng(47.73960, 37.02015);
@@ -2218,6 +2258,8 @@ firstpolyline.addTo(map);
 
 
 
+
+// points of contact
 var pointA1 = new L.LatLng(46.53744, 32.32551);
 var pointA2 = new L.LatLng(46.54033, 32.33377);
 var pointA3 = new L.LatLng(46.54544, 32.34154);
@@ -2437,6 +2479,59 @@ var pointH6 = new L.LatLng(47.59530, 36.12858);
 var pointH7 = new L.LatLng(47.60690, 36.17193);
 var pointH8 = new L.LatLng(47.61222, 36.22476);
 var pointH9 = new L.LatLng(47.61104, 36.27192);
+var pointH10 = new L.LatLng(47.62309, 36.30544);
+var pointH11 = new L.LatLng(47.64894, 36.33119);
+var pointH12 = new L.LatLng(47.66409, 36.36123);
+var pointH13 = new L.LatLng(47.67345, 36.41255);
+var pointH14 = new L.LatLng(47.67380, 36.46122);
+var pointH15 = new L.LatLng(47.67380, 36.48208);
+var pointH16 = new L.LatLng(47.68483, 36.51692);
+var pointH17 = new L.LatLng(47.69951, 36.57640);
+var pointH18 = new L.LatLng(47.71851, 36.59615);
+var pointH19 = new L.LatLng(47.73300, 36.61846);
+var pointH20 = new L.LatLng(47.75955, 36.63649);
+var pointH21 = new L.LatLng(47.79514, 36.67906);
+var pointH22 = new L.LatLng(47.80592, 36.70421);
+var pointH23 = new L.LatLng(47.83093, 36.80154);
+var pointH24 = new L.LatLng(47.82817, 36.82119);
+var pointH25 = new L.LatLng(47.81307, 36.85407);
+var pointH26 = new L.LatLng(47.80125, 36.91106);
+var pointH27 = new L.LatLng(47.78960, 36.94367);
+var pointH28 = new L.LatLng(47.77224, 36.99895);
+var pointH29 = new L.LatLng(47.76371, 37.10083);
+var pointH30 = new L.LatLng(47.76324, 37.15473);
+var pointI1 = new L.LatLng(47.77276, 37.19052);
+var pointI2 = new L.LatLng(47.77086, 37.23395);
+var pointI3 = new L.LatLng(47.78147, 37.26623);
+var pointI4 = new L.LatLng(47.77859, 37.30021);
+var pointI5 = new L.LatLng(47.76549, 37.35543);
+var pointI6 = new L.LatLng(47.76117, 37.39703);
+var pointI7 = new L.LatLng(47.76746, 37.40330);
+var pointI8 = new L.LatLng(47.79652, 37.44930);
+var pointI9 = new L.LatLng(47.83243, 37.48595);
+var pointI10 = new L.LatLng(47.84960, 37.50647);
+var pointI11 = new L.LatLng(47.87580, 37.51513);
+var pointI12 = new L.LatLng(47.88380, 37.46613);
+var pointI13 = new L.LatLng(47.90999, 37.47059);
+var pointI14 = new L.LatLng(47.93414, 37.47960);
+var pointI15 = new L.LatLng(47.94258, 37.48887);
+var pointI16 = new L.LatLng(47.94437, 37.49784);
+var pointI17 = new L.LatLng(47.94937, 37.50093);
+var pointI18 = new L.LatLng(47.95463, 37.49338);
+var pointI19 = new L.LatLng(47.96281, 37.48242);
+var pointI20 = new L.LatLng(47.97743, 37.49445);
+var pointI21 = new L.LatLng(47.98679, 37.50278);
+var pointI22 = new L.LatLng(47.99667, 37.52475);
+var pointI23 = new L.LatLng(48.01539, 37.53960);
+var pointI24 = new L.LatLng(48.06027, 37.58251);
+var pointI25 = new L.LatLng(48.08229, 37.60483);
+var pointI26 = new L.LatLng(48.09302, 37.61169);
+var pointI27 = new L.LatLng(48.10929, 37.58921);
+var pointI28 = new L.LatLng(48.12190, 37.65161);
+var pointI29 = new L.LatLng(48.12889, 37.71761);
+var pointI30 = new L.LatLng(48.12064, 37.75211);
+var pointJ1 = new L.LatLng(48.11640, 37.77743);
+
 
 
 
@@ -2449,7 +2544,9 @@ pointD23, pointD24, pointD25, pointD26, pointD27, pointD28, pointD29, pointD30, 
 pointE16, pointE17, pointE18, pointE19, pointE20, pointE21, pointE22, pointE23, pointE24, pointE25, pointE26, pointE27, pointE28, pointE29, pointE30, pointF1, pointF2, pointF3, pointF4, pointF5, pointF6, pointF7, pointF8,
 pointF9, pointF10, pointF11, pointF12, pointF13, pointF14, pointF15, pointF16, pointF17, pointF18, pointF19, pointF20, pointF21, pointF22, pointF23, pointF24, pointF25, pointF26, pointF27, pointF28, pointF29, pointF30,
 pointG1, pointG2, pointG3, pointG4, pointG5, pointG6, pointG7, pointG8, pointG9, pointG10, pointG11, pointG12, pointG13, pointG14, pointG15, pointG16, pointG17, pointG18, pointG19, pointG20, pointG21, pointG22, pointG23,
-pointG24, pointG25, pointG26, pointG27, pointG28, pointG29, pointG30, pointH1, pointH2, pointH3, pointH4, pointH5, pointH6, pointH7, pointH8, pointH9]
+pointG24, pointG25, pointG26, pointG27, pointG28, pointG29, pointG30, pointH1, pointH2, pointH3, pointH4, pointH5, pointH6, pointH7, pointH8, pointH9, pointH10, pointH11, pointH12, pointH13, pointH14, pointH15, pointH16,
+pointH17, pointH18, pointH19, pointH20, pointH21, pointH22, pointH23, pointH24, pointH25, pointH26, pointH27, pointH28, pointH29, pointH30, pointI1, pointI2, pointI3, pointI4, pointI5, pointI6, pointI7, pointI8, pointI9, 
+pointI10, pointI11, pointI12, pointI13, pointI14, pointI15, pointI16, pointI17, pointI18, pointI19, pointI20, pointI21, pointI22, pointI23, pointI24, pointI25, pointI26, pointI27, pointI28, pointI29, pointI30, pointJ1]
 
 var polylines = new L.Polyline(pointList2, {
     color: '#072bf7',
@@ -2462,6 +2559,10 @@ polylines.addTo(map);
 
 
 
+
+
+
+// Maneuver points
 var bakhmut = L.circle([48.59334, 37.98896], {
     color: '#000000',
     radius: 5700,
@@ -2487,4 +2588,5 @@ popup.addTo(map);
 </script>
 
 
-</body></html>
+</body>
+</html>
