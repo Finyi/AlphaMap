@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/controls.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/map.js"></script>
@@ -28,12 +29,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/Control.MiniMap.css">
 <script src="js/Control.MiniMap.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div id="map"></div>
-
 <script>
 // create map
     var map = L.map('map').setView([49.0139, 31.2858], 7);
@@ -131,6 +131,14 @@ popup.addTo(map);
 
 // Armies of the Russian (NATO - Images)
 var enemy = L.icon({
+    iconUrl: 'img/rus/6-AFADA.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([50.60470, 36.58516], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">6-а загальновійськова армія').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
     iconUrl: 'img/rus/58-CAA.png',
     iconSize: [56, 56],
 });
@@ -169,6 +177,30 @@ popup.addTo(map);
 
 
 // Russian army divisions (NATO - Images)
+var enemy = L.icon({
+    iconUrl: 'img/rus/127-GMRD.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.44218, 38.16273], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">127-а мотострілецька дивізія').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/47-GTD.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.76829, 38.16032], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">47-ма танкова дивізія').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/2-GMRD.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.89591, 38.28547], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">2-га мотострілецька дивізія').openPopup()
+popup.addTo(map);
+
 var enemy = L.icon({
     iconUrl: 'img/rus/18-MGAD.png',
     iconSize: [56, 56],
@@ -240,6 +272,86 @@ popup.addTo(map);
 
 
 // Russian Army Regiments (NATO - Images)
+var enemy = L.icon({
+    iconUrl: 'img/rus/394-MRR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.37415, 37.98224], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">394-й мотострілковий полк <br><b>в/ч 25573</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/1-MRR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.78203, 37.94578], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">1-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/26-GTR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.80154, 38.09097], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">26-й гвардійський танковий полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/12-GTR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.72716, 37.96511], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">12-й гвардійський танковий полк <br><b>в/ч 31985</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/147-GSPAR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.87190, 38.14899], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">47-й гвардійський самохідний артилерійський полк <br><b>в/ч 73966</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/11-TR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([50.18330, 38.13190], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">11-й танковий полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/1007-MRR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([50.54289, 36.70326], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">1007-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/14-GFAR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([51.65115, 36.19411], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">14-й гвардійський винищувальний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/380-MRR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([51.31495, 34.66393], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">380-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/352-MRR.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([52.37219, 33.48871], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">352-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
 var enemy = L.icon({
     iconUrl: 'img/rus/102-MRR.png',
     iconSize: [56, 56],
@@ -513,10 +625,10 @@ var popup = enemy.bindPopup('<font face="Montserrat">137-й парашутно-�
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/rus/423-p.png',
+    iconUrl: 'img/rus/423-GMRR.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.37694, 37.96403], { icon:enemy });
+var enemy = L.marker([52.46145, 33.02902], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">423-й мотострілецький полк <br><b>в/ч 91701</b></br>').openPopup()
 popup.addTo(map);
 
@@ -532,8 +644,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/9-mp.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.45958, 37.98677], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">9-й мотострілецький полк  <br><b>в/ч 08819</b></br>').openPopup()
+var enemy = L.marker([49.52223, 37.98523], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">9-й мотострілецький полк <br><b>в/ч 08819</b></br>').openPopup()
 popup.addTo(map);
 
 
@@ -543,6 +655,86 @@ popup.addTo(map);
 
 
 // Russian Army Brigades/Battalions/Combat Teams (NATO - Images)
+var enemy = L.icon({
+    iconUrl: 'img/rus/224-AB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.40469, 38.09870], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">244-та артилерійська бригада <br><b>в/ч 41603</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/60-SGMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.55200, 38.11998], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">60-а окрема мотострілецька бригада <br><b>в/ч 16871</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/236-AGB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.56208, 38.47000], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">236-я гвардійська артилерійська бригада <br><b>в/ч 53195</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/27-SGMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.58573, 37.97424], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">27-а окрема гвардійська мотострілецька бригада <br><b>в/ч 61899</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/38-SGMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.62222, 38.11604], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">38-ма окрема мотострілецька бригада <br><b>в/ч 21720</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/61-NIB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.83067, 37.87502], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">61-а окрема бригада морської піхоти <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/138-SGMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.80863, 37.84893], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">138-а окрема гвардійська мотострілецька бригада <br><b>в/ч 02511</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/200-SAMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.86504, 37.76379], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">200-а окрема мотострілецька бригада <br><b>в/ч 08275</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/9-GAB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([49.90072, 37.86095], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">9-а гвардійська артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/25-SGMRB.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([50.37284, 36.27136], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">25-а окрема гвардійська мотострілецька бригада <br><b>в/ч 297604</b></br>').openPopup()
+popup.addTo(map);
+
 var enemy = L.icon({
     iconUrl: 'img/rus/1539-SSPB.png',
     iconSize: [56, 56],
@@ -2740,10 +2932,51 @@ var pointK14 = new L.LatLng(48.73160, 37.98789);
 var pointK15 = new L.LatLng(48.75067, 38.00583);
 var pointK16 = new L.LatLng(48.76476, 38.03793);
 var pointK17 = new L.LatLng(48.76188, 38.06857);
-
-
-
-
+var pointK18 = new L.LatLng(48.76220, 38.08505);
+var pointK19 = new L.LatLng(48.75683, 38.11363);
+var pointK20 = new L.LatLng(48.74486, 38.13479);
+var pointK21 = new L.LatLng(48.73948, 38.15625);
+var pointK22 = new L.LatLng(48.75003, 38.18075);
+var pointK23 = new L.LatLng(48.76930, 38.19933);
+var pointK24 = new L.LatLng(48.78461, 38.21534);
+var pointK25 = new L.LatLng(48.80192, 38.24264);
+var pointK26 = new L.LatLng(48.81752, 38.25723);
+var pointK27 = new L.LatLng(48.83453, 38.24770);
+var pointK28 = new L.LatLng(48.86316, 38.23800);
+var pointK29 = new L.LatLng(48.88755, 38.24186);
+var pointK30 = new L.LatLng(48.90363, 38.24358);
+var pointL1 = new L.LatLng(48.91895, 38.24727);
+var pointL2 = new L.LatLng(48.91969, 38.24985);
+var pointL3 = new L.LatLng(48.91819, 38.26253);
+var pointL4 = new L.LatLng(48.92449, 38.26341);
+var pointL5 = new L.LatLng(48.93167, 38.25663);
+var pointL6 = new L.LatLng(48.93997, 38.24062);
+var pointL7 = new L.LatLng(48.93940, 38.22792);
+var pointL8 = new L.LatLng(48.94439, 38.20667);
+var pointL9 = new L.LatLng(48.95247, 38.16530);
+var pointL10 = new L.LatLng(48.96030, 38.10857);
+var pointL11 = new L.LatLng(48.98075, 38.07921);
+var pointL12 = new L.LatLng(49.00260, 38.05295);
+var pointL13 = new L.LatLng(49.01105, 37.99544);
+var pointL14 = new L.LatLng(49.03394, 37.97532);
+var pointL15 = new L.LatLng(49.05954, 37.99000);
+var pointL16 = new L.LatLng(49.08085, 38.01386);
+var pointL17 = new L.LatLng(49.09155, 38.03278);
+var pointL18 = new L.LatLng(49.10728, 38.06145);
+var pointL19 = new L.LatLng(49.13351, 38.06952);
+var pointL20 = new L.LatLng(49.16226, 38.05561);
+var pointL21 = new L.LatLng(49.20596, 38.03741);
+var pointL22 = new L.LatLng(49.22643, 37.98810);
+var pointL23 = new L.LatLng(49.24313, 37.97708);
+var pointL24 = new L.LatLng(49.26537, 37.98823);
+var pointL25 = new L.LatLng(49.29085, 37.99115);
+var pointL26 = new L.LatLng(49.35188, 37.96472);
+var pointL27 = new L.LatLng(49.36216, 37.96461);
+var pointL28 = new L.LatLng(49.38038, 37.94287);
+var pointL29 = new L.LatLng(49.40592, 37.91073);
+var pointL30 = new L.LatLng(49.42647, 37.92086);
+var pointM1 = new L.LatLng(49.44706, 37.91064);
+var pointM2 = new L.LatLng(49.47261, 37.90154);
 
 var pointList2 = [pointA1, pointA2, pointA3, pointA4, pointA5, pointA6, pointA7, pointA8, pointA9, pointA10, pointA11, pointA12, pointA13, pointA14, pointA15, pointA16, pointA17, pointA18, pointA19, pointA20, pointA21,
 pointA22, pointA23, pointA24, pointA25, pointA26, pointA27, pointA28, pointA29, pointA30, pointB1, pointB2, pointB3, pointB4, pointB5, pointB6, pointB7, pointB8, pointB9, pointB10, pointB11, pointB12, pointB13, pointB14,
@@ -2758,7 +2991,9 @@ pointG24, pointG25, pointG26, pointG27, pointG28, pointG29, pointG30, pointH1, p
 pointH17, pointH18, pointH19, pointH20, pointH21, pointH22, pointH23, pointH24, pointH25, pointH26, pointH27, pointH28, pointH29, pointH30, pointI1, pointI2, pointI3, pointI4, pointI5, pointI6, pointI7, pointI8, pointI9, 
 pointI10, pointI11, pointI12, pointI13, pointI14, pointI15, pointI16, pointI17, pointI18, pointI19, pointI20, pointI21, pointI22, pointI23, pointI24, pointI25, pointI26, pointI27, pointI28, pointI29, pointI30, pointJ1,
 pointJ2, pointJ3, pointJ4, pointJ5, pointJ6, pointJ7, pointJ8, pointJ9, pointJ10, pointJ11, pointJ12, pointJ13 ,pointJ14, pointJ15, pointJ16, pointJ17, pointJ18, pointJ19, pointJ20, pointJ21, pointJ22, pointJ23, pointJ24,
-pointJ25, pointJ26, pointJ27, pointJ28, pointJ29, pointJ30, pointK1, pointK2, pointK3, pointK4, pointK5, pointK6, pointK7, pointK8, pointK9, pointK10, pointK11, pointK12, pointK13, pointK14, pointK15, pointK16, pointK17]
+pointJ25, pointJ26, pointJ27, pointJ28, pointJ29, pointJ30, pointK1, pointK2, pointK3, pointK4, pointK5, pointK6, pointK7, pointK8, pointK9, pointK10, pointK11, pointK12, pointK13, pointK14, pointK15, pointK16, pointK17,
+pointK18, pointK19, pointK20, pointK21, pointK22, pointK23, pointK24, pointK25, pointK26, pointK27, pointK28, pointK29, pointK30, pointL1, pointL2, pointL3, pointL4, pointL5, pointL6, pointL7, pointL8, pointL9, pointL10,
+pointL11, pointL12, pointL13, pointL14, pointL15, pointL16, pointL17, pointL18, pointL19, pointL20, pointL21, pointL22, pointL23, pointL24, pointL25, pointL26, pointL27, pointL28, pointL29, pointL30, pointM1, pointM2]
 
 var polylines = new L.Polyline(pointList2, {
     color: '#2b7cff',
@@ -2786,8 +3021,6 @@ var popup = bakhmut.bindPopup('<font face="Montserrat">Точка маневру
 popup.addTo(map);
 
 
-
-
 var orikhiv = L.circle([47.56755, 35.78573], {
     color: '#000000',
     radius: 5500,
@@ -2797,8 +3030,18 @@ var orikhiv = L.circle([47.56755, 35.78573], {
 });
 var popup = orikhiv.bindPopup('<font face="Montserrat">Оборона Оріхова, точка маневру на мапі <br>Defense of Orikhov, point of maneuver on the map</br>').openPopup()
 popup.addTo(map);
-</script>
 
+
+var kupyansk = L.circle([49.70916, 37.61204], {
+    color: '#000000',
+    radius: 5000,
+    weight: 2,
+    dashArray: '7, 7',
+    dashOffset: 0,
+});
+var popup = kupyansk.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
+popup.addTo(map);
+</script>
 
 </body>
 </html>
