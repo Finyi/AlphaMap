@@ -31,6 +31,8 @@
 <script src="js/Control.MiniMap.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+<script src="data/map.js"></script>
+
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div id="map"></div>
@@ -83,18 +85,8 @@ kmz.on('load', function(e) {
 });
 
 // Добавить удаленные файлы KMZ в качестве слоев (если это сторонние серверы, на них ДОЛЖЕН быть включен CORS)
-kmz.load('data/territory.kmz');
 kmz.load('data/Road.kmz')
-
-    $.getJSON("points.json", function(json) {
-
-      var testlayer = L.geoJson(json);
-      var sliderControl = L.control.sliderControl({
-        position: "topright",
-        layer: testlayer,
-        range: true
-      });
-    });
+kmz.load('data/territory.kmz')
 </script>
 
 <script>
@@ -1870,7 +1862,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/kraken.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([49.68044, 37.63354], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Спецпідрозділ «Kraken»').openPopup()
@@ -1878,7 +1870,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/kraken.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([49.51600, 37.96309], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Спецпідрозділ «Kraken»').openPopup()
