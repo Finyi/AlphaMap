@@ -99,6 +99,7 @@
 	-moz-user-select: none;
 	}
 
+
 .leaflet-pane         { z-index: 400; }
 
 .leaflet-tile-pane    { z-index: 200; }
@@ -278,12 +279,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* general toolbar styles */
 
 .leaflet-bar {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.65);
 	border-radius: 4px;
 	}
 .leaflet-bar a {
 	background-color: rgba(0, 0, 0, 0.7);
-	border-bottom: 1px solid rgb(41, 43, 54);
+	border-bottom: 0px solid rgb(41, 43, 54);
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -321,7 +322,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	width: 32px;
 	height: 32px;
 	line-height: 30px;
-	filter: drop-shadow(4px 3px 0px rgba(0, 0, 0, 0.39));
+	filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.39));
 	}
 .leaflet-touch .leaflet-bar a:first-child {
 	border-top-left-radius: 2px;
@@ -416,7 +417,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-container .leaflet-control-attribution {
 	background: #fff;
 	background: rgba(0, 0, 0, 0.7);
-	margin: 0;
+	margin: 0px;
 	font-family: 'Montserrat';
 	}
 .leaflet-control-attribution,
@@ -529,7 +530,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
 	background: rgba(44, 44, 44, 0.863);
-	color: rgb(252, 252, 252);
+	color: rgb(255, 255, 255);
 	box-shadow: 0 3px 14px rgba(0, 0, 0, 0.356);
 	font-family: 'Montserrat';
 	}
