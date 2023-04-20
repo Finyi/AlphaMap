@@ -33,6 +33,7 @@
 
 <script src="data/line.js"></script>
 <script src="data/line2.js"></script>
+<script src="data/line3.js"></script>
 
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -84,6 +85,13 @@ L.geoJSON(line, {
     weight: 3,
     dashArray: '7, 7',
     dashOffset: '0' 
+    }
+}).addTo(map);
+
+L.geoJSON(line78, {
+    style: {
+    color: '#ff0000',
+    weight: 3,
     }
 }).addTo(map);
 
