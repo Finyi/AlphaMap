@@ -31,6 +31,9 @@
 <script src="js/Control.MiniMap.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
+<script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+
 <script src="data/line.js"></script>
 <script src="data/line2.js"></script>
 <script src="data/line3.js"></script>
@@ -102,6 +105,11 @@ L.geoJSON(line21, {
     dashArray: '7, 7',
     dashOffset: '0' 
     }
+}).addTo(map);
+
+// polylineMeasure
+L.control.polylineMeasure({
+    position: 'bottomright'
 }).addTo(map);
 
 // kmz data
