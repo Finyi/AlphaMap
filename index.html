@@ -2199,6 +2199,27 @@ var kupyansk = L.circle([49.70916, 37.61204], {
 });
 var popup = kupyansk.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
 popup.addTo(map);
+
+L.Control.Watermark = L.Control.extend({
+    onAdd: function(map) {
+        var img = L.DomUtil.create('img');
+
+        img.src = 'img/AlphaLogo.png';
+        img.style.width = '380px';
+
+        return img;
+    },
+
+    onRemove: function(map) {
+    }
+});
+
+L.control.watermark = function(opts) {
+    return new L.Control.Watermark(opts);
+}
+
+L.control.watermark({ position: 'topright' }).addTo(map);
+
 </script>
 
 </body>
