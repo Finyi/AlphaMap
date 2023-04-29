@@ -109,7 +109,7 @@ L.geoJSON(line21, {
 
 // polylineMeasure
 L.control.polylineMeasure({
-    position: 'bottomright'
+    position: 'topleft'
 }).addTo(map);
 
 // kmz data
@@ -1211,226 +1211,211 @@ popup.addTo(map);
 
 // Military airfields of the Russian army (Images)
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
-var enemy = L.marker([44.78123, 33.57061], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Кача ✈').openPopup()
+var enemy = L.marker([53.76964, 27.58058], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Мачулищі ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
-var enemy = L.marker([44.57849, 33.39505], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Херсонес ✈').openPopup()
+var enemy = L.marker([53.10260, 29.20913], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Бобруйськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
-var enemy = L.marker([46.34565, 33.54244], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Чаплинка ✈').openPopup()
+var enemy = L.marker([53.09191, 26.04618], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Барановичі ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
+});
+var enemy = L.marker([52.27496, 26.79471], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Аеродром Лунинець ✈').openPopup()
+popup.addTo(map);
+
+var fly = L.icon({
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
+});
+var fly = L.marker([44.78123, 33.57061], { icon:fly });
+var popup = fly.bindPopup('<font face="Montserrat">Аеродром Кача ✈').openPopup()
+popup.addTo(map);
+
+var fly = L.icon({
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
+});
+var fly = L.marker([44.57849, 33.39505], { icon:fly });
+var popup = fly.bindPopup('<font face="Montserrat">Аеродром Херсонес ✈').openPopup()
+popup.addTo(map);
+
+var fly = L.icon({
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
+});
+var fly = L.marker([46.34565, 33.54244], { icon:fly });
+var popup = fly.bindPopup('<font face="Montserrat">Аеродром Чаплинка ✈').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([45.70071, 34.41995], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Джанкой ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([45.09100, 33.60211], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Саки ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([44.68943, 33.57422], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Бельбек ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([44.96355, 37.99999], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Кримськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([45.44547, 39.41792], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Коренівськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([46.67986, 38.21045], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Єйськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([52.30058, 31.16899], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Зябрівка ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([51.98343, 29.16819], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Мозирь ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([51.47644, 46.21871], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Енгельс ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([48.63696, 43.78979], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Маріновка ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([53.71284, 33.33793], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Сеща ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([51.32824, 37.76872], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Старий-Оскіл ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([52.33864, 32.17501], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Климово ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([46.05587, 38.23491], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Приморсько-Ахтарськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([46.53593, 39.54555], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Кущевська ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([46.81325, 36.75227], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеропорт Бердянськ ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([46.83339, 40.39252], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Зерноград ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([45.88466, 40.12533], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Аеродром Тихорецьк ✈').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/fly.png',
-    iconSize: [32, 32],
+    iconUrl: 'img/rus/airport.png',
+    iconSize: [46, 46],
 });
 var enemy = L.marker([45.17931, 35.19453], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Авіабаза Кіровське ✈').openPopup()
-popup.addTo(map);
-
-
-
-
-
-
-
-// Military training grounds of the Russian army (Images)
-var polygon = L.icon({
-    iconUrl: 'img/dislocation.png',
-    iconSize: [12, 12],
-});
-var polygon = L.marker([44.77254, 37.55977], { icon:polygon });
-var popup = polygon.bindPopup('<font face="Montserrat">Раєвський полігон').openPopup()
-popup.addTo(map);
-
-var polygon = L.icon({
-    iconUrl: 'img/dislocation.png',
-    iconSize: [12, 12],
-});
-var polygon = L.marker([44.78643, 39.15871], { icon:polygon });
-var popup = polygon.bindPopup('<font face="Montserrat">243-й загальновійськовий полігон').openPopup()
-popup.addTo(map);
-
-var polygon = L.icon({
-    iconUrl: 'img/dislocation.png',
-    iconSize: [12, 12],
-});
-var polygon = L.marker([44.59401, 40.35313], { icon:polygon });
-var popup = polygon.bindPopup('<font face="Montserrat">Майкопський бригадний полігон').openPopup()
-popup.addTo(map);
-
-var polygon = L.icon({
-    iconUrl: 'img/dislocation.png',
-    iconSize: [12, 12],
-});
-var polygon = L.marker([47.39690, 39.30685], { icon:polygon });
-var popup = polygon.bindPopup('<font face="Montserrat">Кузьминський полігон').openPopup()
-popup.addTo(map);
-
-var polygon = L.icon({
-    iconUrl: 'img/dislocation.png',
-    iconSize: [12, 12],
-});
-var polygon = L.marker([47.54791, 40.20035], { icon:polygon });
-var popup = polygon.bindPopup('<font face="Montserrat">Кадамовський полігон').openPopup()
 popup.addTo(map);
 
 
@@ -2049,7 +2034,7 @@ popup.addTo(map);
 
 var enemy = L.icon({
     iconUrl: 'img/ua/45-art.png',
-    iconSize: [52, 52],
+    iconSize: [56, 56],
 });
 var enemy = L.marker([48.80544, 38.01282], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">45-та окрема артилерійська бригада').openPopup()
@@ -2160,47 +2145,14 @@ var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема шту�
 popup.addTo(map);
 
 // Maneuver points
-var bakhmut = L.circle([48.59334, 37.98896], {
-    color: '#000000',
-    radius: 5700,
-    weight: 2,
-    dashArray: '7, 7',
-    dashOffset: 0,
-});
-var popup = bakhmut.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
-popup.addTo(map);
-
-
-var orikhiv = L.circle([47.56755, 35.78573], {
-    color: '#000000',
-    radius: 5500,
-    weight: 2,
-    dashArray: '7, 7',
-    dashOffset: 0,
-});
-var popup = orikhiv.bindPopup('<font face="Montserrat">Оборона Оріхова, точка маневру на мапі <br>Defense of Orikhov, point of maneuver on the map</br>').openPopup()
-popup.addTo(map);
-
-
-var kupyansk = L.circle([49.70916, 37.61204], {
-    color: '#000000',
-    radius: 5000,
-    weight: 2,
-    dashArray: '7, 7',
-    dashOffset: 0,
-});
-var popup = kupyansk.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
-popup.addTo(map);
-
-
-var avdiivka = L.circle([48.14066, 37.74920], {
-    color: '#000000',
+var orikhiv = L.circle([47.56720, 35.78685], {
+    color: '#bfa900',
     radius: 6000,
     weight: 2,
     dashArray: '7, 7',
     dashOffset: 0,
 });
-var popup = avdiivka.bindPopup('<font face="Montserrat">Точка маневру на мапі <br>Maneuver point on the map</br>').openPopup()
+var popup = orikhiv.bindPopup('<font face="Montserrat">Оборона Оріхова').openPopup()
 popup.addTo(map);
 
 L.Control.Watermark = L.Control.extend({
