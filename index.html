@@ -716,6 +716,14 @@ popup.addTo(map);
 
 // Russian Army Brigades/Battalions/Combat Teams (NATO - Images)
 var enemy = L.icon({
+    iconUrl: 'img/rus/akhmat-s.png',
+    iconSize: [56, 56],
+});
+var enemy = L.marker([47.48078, 34.57758], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">«Ахмат-Південь» <br><b>в/ч -</b></br>').openPopup()
+popup.addTo(map);
+
+var enemy = L.icon({
     iconUrl: 'img/rus/88-SMRB.png',
     iconSize: [56, 56],
 });
@@ -920,7 +928,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/83-GAAB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.01988, 35.33358], { icon:enemy });
+var enemy = L.marker([47.49366, 34.63697], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">83-я окрема гвардійська десантно-штурмова бригада <br><b>в/ч 71289</b></br>').openPopup()
 popup.addTo(map);
 
