@@ -72,15 +72,6 @@ var miniMap = new L.Control.MiniMap(osm2).addTo(map);
     name: 'Dark OSM'
   },
   {
-     layer: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-       minZoom: 6,
-       maxZoom: 16,
-    }),
-    icon: 'img/CartoDB.png',
-    name: 'CartoDB, Dark'
-  },
-  {
     layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	  maxZoom: 16,
       minZoom: 6,
