@@ -2161,6 +2161,48 @@ var enemy = L.marker([48.58914, 37.96369], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада «Азов»').openPopup()
 popup.addTo(map);
 
+// Neutral forces
+var moldova = L.icon({
+    iconUrl: 'img/neutral/1-MB.png',
+    iconSize: [56, 56],
+});
+var moldova = L.marker([47.75776, 28.01007], { icon:moldova });
+var popup = moldova.bindPopup('<font face="Montserrat">1-ша мотопіхотна бригада «Молдова»').openPopup()
+popup.addTo(map);
+	
+var moldova = L.icon({
+    iconUrl: 'img/neutral/2-MB.png',
+    iconSize: [56, 56],
+});
+var moldova = L.marker([47.04545, 28.69663], { icon:moldova });
+var popup = moldova.bindPopup('<font face="Montserrat">2-га мотопіхотна бригада «Штефан Великий»').openPopup()
+popup.addTo(map);
+	
+var moldova = L.icon({
+    iconUrl: 'img/neutral/3-MB.png',
+    iconSize: [56, 56],
+});
+var moldova = L.marker([45.87400, 28.24190], { icon:moldova });
+var popup = moldova.bindPopup('<font face="Montserrat">3-тя мотопіхотна бригада «Дакія»').openPopup()
+popup.addTo(map);
+	
+var moldova = L.icon({
+    iconUrl: 'img/neutral/ARBn.png',
+    iconSize: [56, 56],
+});
+var moldova = L.marker([47.21129, 27.84399], { icon:moldova });
+var popup = moldova.bindPopup('<font face="Montserrat">Артилерійський батальйон «Прут»').openPopup()
+popup.addTo(map);
+	
+var moldova = L.icon({
+    iconUrl: 'img/neutral/SSPBn.png',
+    iconSize: [56, 56],
+});
+var moldova = L.marker([47.20418, 28.90126], { icon:moldova });
+var popup = moldova.bindPopup('<font face="Montserrat">Окремий батальйон особливого призначення «Фулджер»[').openPopup()
+popup.addTo(map);
+	
+
 // Maneuver points
 var orikhiv = L.circle([47.56720, 35.78685], {
     color: '#bfa900',
