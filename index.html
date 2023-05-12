@@ -62,6 +62,16 @@ var miniMap = new L.Control.MiniMap(osm2).addTo(map);
 // maps-switch
     new L.basemapsSwitcher([
   {
+     layer: L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}', {
+       attribution: '&copy; Google',
+       subdomains:['mt0','mt1','mt2','mt3'],
+       minZoom: 6,
+       maxZoom: 16,
+    }),
+    icon: 'img/google.png',
+    name: 'Google Maps'
+  },
+  {
      layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
        className: 'map-tiles',
@@ -129,7 +139,6 @@ kmz.on('load', function(e) {
 });
 
 // Добавить удаленные файлы KMZ в качестве слоев (если это сторонние серверы, на них ДОЛЖЕН быть включен CORS)
-kmz.load('data/Road.kmz')
 kmz.load('data/territory.kmz')
 </script>
 
