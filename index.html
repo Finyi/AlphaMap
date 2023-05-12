@@ -57,7 +57,7 @@ L.control.mapCenterCoord({
 
 var osm = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
 var osm2 = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {className: 'map-tiles', minZoom: 1, maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
-var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+var miniMap = new L.Control.MiniMap(osm).addTo(map);
 
 // maps-switch
     new L.basemapsSwitcher([
