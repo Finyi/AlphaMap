@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="css/Control.MiniMap.css">
 <script src="js/Control.MiniMap.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/modules.js"></script>
 
 <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
@@ -42,9 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div id="map"></div>
 <script>
-// create map
-    var map = L.map('map').setView([49.0139, 31.2858], 7);
-// zoom control
+    const map = L.map('map').setView([49.0139, 31.2858], 7);
 map.zoomControl.setPosition('topleft');
 
 // scale data
@@ -1209,7 +1208,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/57-b-p.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.62034, 37.95742], { icon:enemy });
+var enemy = L.marker([48.60179, 37.99270], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">57-ма окрема мотострілецька бригада <br><b>в/ч </b>46102</br>').openPopup()
 popup.addTo(map);
 
@@ -1598,7 +1597,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/kalinouski.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.60244, 37.92523], { icon:enemy });
+var enemy = L.marker([48.62368, 37.92131], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">Полк імені Кастуся Калиновського').openPopup()
 popup.addTo(map);
 
@@ -1814,7 +1813,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/108-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.58440, 37.90352], { icon:enemy });
+var enemy = L.marker([48.59917, 37.93759], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">108-ма окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
@@ -1838,7 +1837,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/109-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.59707, 37.95193], { icon:enemy });
+var enemy = L.marker([48.58982, 37.95879], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">109-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
@@ -1846,16 +1845,8 @@ var enemy = L.icon({
     iconUrl: 'img/ua/5-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.57098, 37.84052], { icon:enemy });
+var enemy = L.marker([48.58901, 37.89416], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">5-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/ua/77-db.png',
-    iconSize: [56, 56],
-});
-var enemy = L.marker([48.59825, 37.93695], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">77-ма окрема аеромобільна бригада').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1950,7 +1941,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/4-t.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.62216, 37.87614], { icon:enemy });
+var enemy = L.marker([48.61687, 37.94086], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">4-та окрема танкова бригада').openPopup()
 popup.addTo(map);
 
@@ -2030,8 +2021,8 @@ var enemy = L.icon({
     iconUrl: 'img/ua/241-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.58714, 37.84472], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">241-ша окрема бригада бригада ТРО').openPopup()
+var enemy = L.marker([48.59141, 37.95038], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">241-ша окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2078,7 +2069,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/28-b.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.49362, 37.88562], { icon:enemy });
+var enemy = L.marker([48.46743, 37.92360], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">28-ма окрема механізована бригада').openPopup()
 popup.addTo(map);
 
@@ -2158,7 +2149,7 @@ var enemy = L.icon({
     iconUrl: 'img/ua/93-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.57770, 37.95296], { icon:enemy });
+var enemy = L.marker([48.58221, 37.96467], { icon:enemy });
 var popup = enemy.bindPopup('<font face="Montserrat">93-тя окрема механізована бригада «Холодний Яр»').openPopup()
 popup.addTo(map);
 
@@ -2166,8 +2157,8 @@ var enemy = L.icon({
     iconUrl: 'img/ua/3-b.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.58914, 37.96369], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада «Азов»').openPopup()
+var enemy = L.marker([48.55500, 37.92043], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада <sup>«Азов»</sup> <br><i><b>3rd Separate Assault Brigade <sup>"Azov"').openPopup()
 popup.addTo(map);
 
 // Neutral forces
@@ -2176,7 +2167,7 @@ var moldova = L.icon({
     iconSize: [56, 56],
 });
 var moldova = L.marker([47.75776, 28.01007], { icon:moldova });
-var popup = moldova.bindPopup('<font face="Montserrat">1-ша мотопіхотна бригада «Молдова»').openPopup()
+var popup = moldova.bindPopup('<font face="Montserrat">1-ша мотопіхотна бригада <sup>«Молдова»</sup> <br><i><b>1st Motorized Infantry Brigade <sup>"Moldova"').openPopup()
 popup.addTo(map);
 
 var moldova = L.icon({
@@ -2184,7 +2175,7 @@ var moldova = L.icon({
     iconSize: [56, 56],
 });
 var moldova = L.marker([47.04545, 28.69663], { icon:moldova });
-var popup = moldova.bindPopup('<font face="Montserrat">2-га мотопіхотна бригада «Штефан Великий»').openPopup()
+var popup = moldova.bindPopup('<font face="Montserrat">2-га мотопіхотна бригада <sup>«Штефан Великий»</sup> <br><i><b>2nd motorized infantry brigade <sup>"Stefan the Great"').openPopup()
 popup.addTo(map);
 
 var moldova = L.icon({
@@ -2192,7 +2183,7 @@ var moldova = L.icon({
     iconSize: [56, 56],
 });
 var moldova = L.marker([45.87400, 28.24190], { icon:moldova });
-var popup = moldova.bindPopup('<font face="Montserrat">3-тя мотопіхотна бригада «Дакія»').openPopup()
+var popup = moldova.bindPopup('<font face="Montserrat">3-тя мотопіхотна бригада <sup>«Дакія»</sup> <br><i><b>3rd Motorized Infantry Brigade <sup>"Dakia"').openPopup()
 popup.addTo(map);
 
 var moldova = L.icon({
@@ -2200,7 +2191,7 @@ var moldova = L.icon({
     iconSize: [56, 56],
 });
 var moldova = L.marker([47.21129, 27.84399], { icon:moldova });
-var popup = moldova.bindPopup('<font face="Montserrat">Артилерійський батальйон «Прут»').openPopup()
+var popup = moldova.bindPopup('<font face="Montserrat">Артилерійський батальйон <sup>«Прут»</sup> <br><i><b>Artillery Battalion <sup>"Prut"').openPopup()
 popup.addTo(map);
 
 var moldova = L.icon({
@@ -2208,19 +2199,19 @@ var moldova = L.icon({
     iconSize: [56, 56],
 });
 var moldova = L.marker([47.20418, 28.90126], { icon:moldova });
-var popup = moldova.bindPopup('<font face="Montserrat">Окремий батальйон особливого призначення «Фулджер»[').openPopup()
+var popup = moldova.bindPopup('<font face="Montserrat">Окремий батальйон особливого призначення <sup>«Фулджер»</sup> <br><i><b>Separate special purpose battalion <sup>"Fulger"</i>').openPopup()
 popup.addTo(map);
 
 
 // Maneuver points
 var orikhiv = L.circle([47.56720, 35.78685], {
-    color: '#bfa900',
+    color: '#71cde5',
     radius: 6000,
     weight: 2,
     dashArray: '7, 7',
     dashOffset: 0,
 });
-var popup = orikhiv.bindPopup('<font face="Montserrat">Оборона Оріхова').openPopup()
+var popup = orikhiv.bindPopup('<font face="Montserrat">Оріхів / Orikhiv').openPopup()
 popup.addTo(map);
 
 L.Control.Watermark = L.Control.extend({
