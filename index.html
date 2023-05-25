@@ -31,6 +31,8 @@
 <script src="js/Control.MiniMap.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="js/modules.js"></script>
+<script src="js/leaflet-compass.js"></script>
+<link rel="stylesheet" href="css/leaflet-compass.css">
 
 <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
@@ -129,6 +131,11 @@ L.geoJSON(line21, {
 L.control.polylineMeasure({
     position: 'bottomleft'
 }).addTo(map);
+
+// compass
+map.addControl( new L.Control.Compass({
+    position: 'bottomleft'
+}) );
 
 // kmz data
 var kmz = L.kmzLayer().addTo(map);
