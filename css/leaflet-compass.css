@@ -30,7 +30,7 @@
 	height: 32px;
 	width: 32px;
 	margin: 0px;
-	background: url('/img/compass-icon.png')
+	background: url('img/compass-icon.png')
 }
 
 .leaflet-compass .compass-digit {
