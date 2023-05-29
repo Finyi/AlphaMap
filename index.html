@@ -22,8 +22,6 @@
 <script src="js/leaflet-kmz.js"></script>
 <link rel="stylesheet" href="css/L.Control.MapCenterCoord.css">
 <script src="js/L.Control.MapCenterCoord.js"></script>
-<link rel="stylesheet" href="css/Control.MiniMap.css">
-<script src="js/Control.MiniMap.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
@@ -33,6 +31,8 @@
 <script src="js/modules.js"></script>
 <script src="js/leaflet-compass.js"></script>
 <link rel="stylesheet" href="css/leaflet-compass.css">
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<link rel="stylesheet" href="css/Control.Geocoder.css">
 
 <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
@@ -55,6 +55,22 @@ L.control.scale().addTo(map);
 L.control.mapCenterCoord({
     position: 'bottomright'
 }).addTo(map);
+
+var geocoder = L.Control.geocoder({
+  defaultMarkGeocode: false,
+  position: 'topleft'
+})
+  .on('markgeocode', function(e) {
+    var bbox = e.geocode.bbox;
+    var poly = L.polygon([
+      bbox.getSouthEast(),
+      bbox.getNorthEast(),
+      bbox.getNorthWest(),
+      bbox.getSouthWest()
+    ]).addTo(map);
+    map.fitBounds(poly.getBounds());
+  })
+  .addTo(map);
 
 var osm = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
 var osm2 = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {className: 'map-tiles', minZoom: 1, maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
@@ -146,6 +162,7 @@ kmz.on('load', function(e) {
 
 // Добавить удаленные файлы KMZ в качестве слоев (если это сторонние серверы, на них ДОЛЖЕН быть включен CORS)
 kmz.load('data/territory.kmz')
+
 </script>
 
 <script>
