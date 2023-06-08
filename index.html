@@ -728,8 +728,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/385-p.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.70453, 32.97649], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">385-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
+var enemy = L.marker([46.52911, 32.93152], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">385-й мотострілецький полк <br><b>в/ч ?</b></br> <br><i>385th motorized rifle regiment').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1032,8 +1032,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/25-GRU.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.72845, 33.29990], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">25-та окрема бригада спеціального призначення <br><b>в/ч ?</b></br>').openPopup()
+var enemy = L.marker([46.80969, 33.60975], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">25-та окрема бригада спеціального призначення <br><b>в/ч ?</b></br> <br><i>25th separate special purpose brigade').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1208,8 +1208,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/205-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.75251, 33.37372], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">205-та окрема мотострілецька бригада <br><b>в/ч 74814</b></br>').openPopup()
+var enemy = L.marker([46.80752, 33.49165], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">205-та окрема мотострілецька бригада <br><b>в/ч 74814</b></br> <br><i>205th separate motorized rifle brigade <br><b>m/b 74814').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1513,236 +1513,244 @@ popup.addTo(map);
 
 
 // Brigades / Battalions / Other forces of the Ukrainian army
-var enemy = L.icon({
+var friendly = L.icon({
+    iconUrl: 'img/ua/5-AASLT.png',
+    iconSize: [56, 56],
+});
+var friendly = L.marker([48.63213, 37.95272], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">5-та окрема штурмова бригада <br><i>5th separate assault brigade').openPopup()
+popup.addTo(map);
+
+var friendly = L.icon({
     iconUrl: 'img/ua/104-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([51.72958, 26.27792], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">104-та окрема бригада ТРО <br><i>104th Separate Territorial Defense Brigade').openPopup()
+var friendly = L.marker([51.72958, 26.27792], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">104-та окрема бригада ТРО <br><i>104th Separate Territorial Defense Brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/100-TRO.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([51.70597, 24.58843], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">100-та окрема бригада ТРО <br><i>100th Separate Territorial Defense Brigade').openPopup()
+var friendly = L.marker([51.70597, 24.58843], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">100-та окрема бригада ТРО <br><i>100th Separate Territorial Defense Brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/31-MB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.17644, 34.48840], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">31-ша окрема механізована бригада <br><i>31st separate mechanized brigade').openPopup()
+var friendly = L.marker([48.17644, 34.48840], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">31-ша окрема механізована бригада <br><i>31st separate mechanized brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/32-MB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.00129, 34.20113], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">32-га окрема механізована бригада <br><i>32nd separate mechanized brigade').openPopup()
+var friendly = L.marker([48.00129, 34.20113], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">32-га окрема механізована бригада <br><i>32nd separate mechanized brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/44-ARB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.65605, 37.80876], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">44-та окрема артилерійська бригада <br><i>44th separate artillery brigade').openPopup()
+var friendly = L.marker([48.65605, 37.80876], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">44-та окрема артилерійська бригада <br><i>44th separate artillery brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/kryvbas.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.90064, 33.37904], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Рота поліції «Кривбас» <br><i>Police Company "Kryvbas"').openPopup()
+var friendly = L.marker([47.90064, 33.37904], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">Рота поліції «Кривбас» <br><i>Police Company "Kryvbas"').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/39-AAMR.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.74095, 35.86984], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">39-й зенітний ракетний полк <br><i>39th anti-aircraft missile regiment').openPopup()
+var friendly = L.marker([47.74095, 35.86984], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">39-й зенітний ракетний полк <br><i>39th anti-aircraft missile regiment').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/301-AAMR.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.57867, 34.39905], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">301-й зенітний ракетний полк <br><i>301st anti-aircraft missile regiment').openPopup()
+var friendly = L.marker([47.57867, 34.39905], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">301-й зенітний ракетний полк <br><i>301st anti-aircraft missile regiment').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/25-TAB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.84364, 35.26182], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">25-та бригада транспортної авіації <br><i>25th transport aviation brigade').openPopup()
+var friendly = L.marker([47.84364, 35.26182], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">25-та бригада транспортної авіації <br><i>25th transport aviation brigade').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/47-SMB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([50.51725, 30.24433], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">47-ма окрема механізована бригада').openPopup()
+var friendly = L.marker([50.51725, 30.24433], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">47-ма окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/120-TRO.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([50.96837, 29.86633], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">120-та окрема бригада ТРО').openPopup()
+var friendly = L.marker([50.96837, 29.86633], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">120-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/6-SRB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.20134, 37.68517], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">6-й окремий стрілецький батальйон').openPopup()
+var friendly = L.marker([48.20134, 37.68517], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">6-й окремий стрілецький батальйон').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/36-MCB.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.12565, 37.59470], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">36-та окрема бригада морської піхоти').openPopup()
+var friendly = L.marker([48.12565, 37.59470], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">36-та окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/59-Motor.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.06254, 37.51574], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">59-та окрема мотопіхотна бригада').openPopup()
+var friendly = L.marker([48.06254, 37.51574], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">59-та окрема мотопіхотна бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/132-SV.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.71710, 37.72070], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">132-й окремий розвідувальний батальйон').openPopup()
+var friendly = L.marker([49.71710, 37.72070], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">132-й окремий розвідувальний батальйон').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/3-SSF.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.36784, 37.89150], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">3-й окремий полк спеціального призначення').openPopup()
+var friendly = L.marker([49.36784, 37.89150], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">3-й окремий полк спеціального призначення').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/66-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.28539, 37.96257], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">66-та окрема механізована бригада').openPopup()
+var friendly = L.marker([49.28539, 37.96257], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">66-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/111-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.10124, 38.02402], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">111-та окрема бригада ТРО').openPopup()
+var friendly = L.marker([49.10124, 38.02402], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">111-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/140-VMSU.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.99700, 37.83451], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">140-й окремий розвідувальний батальйон').openPopup()
+var friendly = L.marker([48.99700, 37.83451], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">140-й окремий розвідувальний батальйон').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/115-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.96295, 38.12805], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">115-та окрема бригада ТРО').openPopup()
+var friendly = L.marker([48.96295, 38.12805], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">115-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/kulchytskyi.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([49.08393, 37.61238], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Батальйон оперативного призначення НГУ ім. Сергія Кульчицького').openPopup()
+var friendly = L.marker([49.08393, 37.61238], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">Батальйон оперативного призначення НГУ ім. Сергія Кульчицького').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/54-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.92002, 38.12599], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">54-та окрема механізована бригада').openPopup()
+var friendly = L.marker([48.92002, 38.12599], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">54-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/101-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.92433, 38.18204], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">101-ша окрема бригада ТРО').openPopup()
+var friendly = L.marker([48.92433, 38.18204], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">101-ша окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/108-Mtn.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.81808, 38.24444], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">108-й окремий гірсько-штурмовий батальйон').openPopup()
+var friendly = L.marker([48.81808, 38.24444], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">108-й окремий гірсько-штурмовий батальйон').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/109-Mtn.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.77030, 38.13930], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">109-й окремий гірсько-штурмовий батальйон').openPopup()
+var friendly = L.marker([48.77030, 38.13930], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">109-й окремий гірсько-штурмовий батальйон').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/125-tro.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.39667, 37.87176], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">125-та окрема бригада ТРО').openPopup()
+var friendly = L.marker([48.39667, 37.87176], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">125-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/kalinouski.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.62368, 37.92131], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">Полк імені Кастуся Калиновського').openPopup()
+var friendly = L.marker([48.62368, 37.92131], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">Полк імені Кастуся Калиновського').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/63-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.56726, 37.89041], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">63-тя окрема механізована бригада').openPopup()
+var friendly = L.marker([48.56726, 37.89041], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">63-тя окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/60-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.56986, 37.94193], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">60-та окрема механізована бригада').openPopup()
+var friendly = L.marker([48.56986, 37.94193], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">60-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2229,64 +2237,64 @@ var enemy = L.icon({
     iconUrl: 'img/ua/503-bm.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.94479, 37.49149], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">503-й окремий батальйон морської піхоти').openPopup()
+var friendly = L.marker([47.94479, 37.49149], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">503-й окремий батальйон морської піхоти').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/72-b.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.77935, 37.25189], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">72-га окрема механізована бригада').openPopup()
+var friendly = L.marker([47.77935, 37.25189], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">72-га окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/68-Jager.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.77934, 37.06959], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">68-ма окрема єгерська бригада').openPopup()
+var friendly = L.marker([47.77934, 37.06959], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">68-ма окрема єгерська бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/56-Motor.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.00583, 37.51900], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">56-та окрема мотопіхотна бригада').openPopup()
+var friendly = L.marker([48.00583, 37.51900], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">56-та окрема мотопіхотна бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/65-b.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([47.51100, 35.81474], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">65-та окрема механізована бригада').openPopup()
+var friendly = L.marker([47.51100, 35.81474], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">65-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/46-db.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.82272, 38.07758], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">46-та окрема аеромобільна бригада').openPopup()
+var friendly = L.marker([48.82272, 38.07758], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">46-та окрема аеромобільна бригада').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/93-mb.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.56931, 37.95334], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">93-тя окрема механізована бригада «Холодний Яр»').openPopup()
+var friendly = L.marker([48.56931, 37.95334], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">93-тя окрема механізована бригада «Холодний Яр»').openPopup()
 popup.addTo(map);
 
-var enemy = L.icon({
+var friendly = L.icon({
     iconUrl: 'img/ua/3-b.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([48.53505, 37.91528], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада <sup>«Азов»</sup> <br><i><b>3rd Separate Assault Brigade <sup>"Azov"').openPopup()
+var friendly = L.marker([48.53505, 37.91528], { icon:friendly });
+var popup = friendly.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада <sup>«Азов»</sup> <br><i><b>3rd Separate Assault Brigade <sup>"Azov"').openPopup()
 popup.addTo(map);
 
 // Neutral forces
