@@ -11,7 +11,7 @@ L.EdgeScaleBar = L.Layer.extend({
     options: {
         opacity: 1,
         weight: 1,
-        color: '#000000',
+        color: '#7977b5',
         font: '18px Montserrat',
         zoomInterval: [
             {start: 1, end: 2, interval: 5000000},
