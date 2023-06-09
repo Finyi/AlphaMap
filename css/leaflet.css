@@ -1,4 +1,4 @@
-/* required styles */   /* обязательные стили */
+/* required styles */  /* обязательные стили */
 
 .leaflet-pane,
 .leaflet-tile,
@@ -408,7 +408,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* Default icon URLs */
 .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
-	background-image: url(img/marker-icon.png);
+	background-image: url(https://cdn.discordapp.com/attachments/902207809385533481/1116645569755091034/marker-icon.png);
 	}
 
 
