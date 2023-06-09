@@ -33,9 +33,10 @@
 <link rel="stylesheet" href="css/leaflet-compass.css">
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <link rel="stylesheet" href="css/Control.Geocoder.css">
-
 <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+<link rel="stylesheet" href="css/MarkerCluster.css">
+<script src="js/leaflet.markercluster.js"></script>
 
 <script src="data/line.js"></script>
 <script src="data/line2.js"></script>
@@ -166,6 +167,7 @@ kmz.load('data/territory.kmz')
 </script>
 
 <script>
+
 // Russian Army Corps (NATO - Images)
 var enemy = L.icon({
     iconUrl: 'img/rus/1-a-p.png',
@@ -2369,6 +2371,10 @@ L.control.watermark = function(opts) {
 }
 
 L.control.watermark({ position: 'topright' }).addTo(map);
+
+let AllUa = L.icon({iconUrl: 'img/ua/all-ua', iconSize: [56, 56], });
+let AllRus = L.icon({iconUrl: 'img/rus/all-rus', iconSize: [56, 56], });
+
 
 </script>
 
