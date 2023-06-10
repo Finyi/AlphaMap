@@ -423,8 +423,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
 	padding: 0 5px;
-	color: #ffffff;
-	line-height: 1.4;
+	color: #0088ff;
+	line-height: 2;
 	font-family: 'Montserrat';
 	}
 .leaflet-control-attribution a {
@@ -441,26 +441,26 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	height: 0.6669em;
 	}
 .leaflet-left .leaflet-control-scale {
-	margin-left: 5px;
+	margin-left: 8px;
 	}
 .leaflet-bottom .leaflet-control-scale {
-	margin-bottom: 5px;
+	margin-bottom: 9px;
 	}
 .leaflet-control-scale-line {
-	border: 2px solid #414141;
+	border: 2px solid #000000;
 	border-top: none;
-	line-height: 1.1;
-	padding: 2px 5px 2px;
+	line-height: 1.5;
+	padding: 1px 5px 2px;
 	white-space: nowrap;
 	overflow: hidden;
 	-moz-box-sizing: border-box;
 	     box-sizing: border-box;
 
 	background: #fff;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(255, 255, 255, 0.669);
 	}
 .leaflet-control-scale-line:not(:first-child) {
-	border-top: 2px solid #414141;
+	border-top: 1px solid #000000;
 	border-bottom: none;
 	margin-top: -2px;
 	}
