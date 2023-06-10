@@ -36,6 +36,11 @@
 <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.0/MarkerCluster.Default.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+
+
 <script src="data/line.js"></script>
 <script src="data/line2.js"></script>
 <script src="data/line3.js"></script>
@@ -47,7 +52,7 @@
     const map = L.map('map').setView([49.0139, 31.2858], 7);
 map.zoomControl.setPosition('topleft');
 
-// scale data
+// scale
 L.control.scale().addTo(map);
 
 // coordinate
@@ -100,7 +105,7 @@ var miniMap = new L.Control.MiniMap(osm).addTo(map);
   {
     layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	  maxZoom: 16,
-      minZoom: 6,
+      minZoom: 1,
 	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map),
     icon: 'img/OSM.png',
@@ -1048,8 +1053,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/10-GRU.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.55880, 32.64107], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">10-та окрема бригада спеціального призначення <br><b>в/ч ?</b></br>').openPopup()
+var enemy = L.marker([46.53773, 33.27038], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">10-та окрема бригада спеціального призначення <br><b>в/ч ?</b></br> <i><br>10th separate brigade of special purpose').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1184,8 +1189,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/126-b-p.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.53120, 32.63969], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">126-та окрема бригада берегової оборони <br><b>в/ч 12676</b></br>').openPopup()
+var enemy = L.marker([46.34871, 32.18067], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">126-та окрема бригада берегової оборони <br><b>в/ч 12676</b></br> <i><br>126th separate coastal defense brigade <br><b>m/b 12676').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1248,8 +1253,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/439-ar.png',
     iconSize: [56, 56],
 });
-var enemy = L.marker([46.51688, 32.54065], { icon:enemy });
-var popup = enemy.bindPopup('<font face="Montserrat">439-а гвардійська ракетно-артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
+var enemy = L.marker([46.50844, 32.85049], { icon:enemy });
+var popup = enemy.bindPopup('<font face="Montserrat">439-а гвардійська ракетно-артилерійська бригада <br><b>в/ч ?</b></br> <br><i>439th Guards Rocket and Artillery Brigade').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2297,6 +2302,12 @@ var friendly = L.marker([48.53505, 37.91528], { icon:friendly });
 var popup = friendly.bindPopup('<font face="Montserrat">3-тя окрема штурмова бригада <sup>«Азов»</sup> <br><i><b>3rd Separate Assault Brigade <sup>"Azov"').openPopup()
 popup.addTo(map);
 
+
+
+
+var markers = L.markerClusterGroup();
+
+
 // Neutral forces
 var moldova = L.icon({
     iconUrl: 'img/neutral/1-MB.png',
@@ -2338,7 +2349,6 @@ var moldova = L.marker([47.20418, 28.90126], { icon:moldova });
 var popup = moldova.bindPopup('<font face="Montserrat">Окремий батальйон особливого призначення <sup>«Фулджер»</sup> <br><i><b>Separate special purpose battalion <sup>"Fulger"</i>').openPopup()
 popup.addTo(map);
 
-
 // Maneuver points
 var orikhiv = L.circle([47.56720, 35.78685], {
     color: '#71cde5',
@@ -2369,9 +2379,6 @@ L.control.watermark = function(opts) {
 }
 
 L.control.watermark({ position: 'topright' }).addTo(map);
-
-let AllUa = L.icon({iconUrl: 'img/ua/all-ua', iconSize: [56, 56], });
-let AllRus = L.icon({iconUrl: 'img/rus/all-rus', iconSize: [56, 56], });
 
 </script>
 
