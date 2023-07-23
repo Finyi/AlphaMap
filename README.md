@@ -11,3 +11,6 @@
 ## About
   
 ### A project for self-development and study of leaflet and js, created both to test new leaflet updates and to show what is happening in the framework of combat.
+
+# The project is closed.
+# Let's move on to others :3 ?
