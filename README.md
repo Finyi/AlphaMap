@@ -10,4 +10,4 @@
   
 ## About
   
-### A project for self-development and study of leaflet and js, created both to test new leaflet updates and to show what is happening in the framework of combat.
+### A project for independent development and study of leaflets and js, created both to test new updates to leaflets, and to show what is happening in the framework of military operations in Ukraine
