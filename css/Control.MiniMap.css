@@ -1,7 +1,7 @@
 .leaflet-control-minimap {
-	border: rgba(255, 255, 255, 1.0) 4px;
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.782));
-	border-radius: 12px;
+	border:solid rgba(255, 255, 255, 0.974) 3px;
+	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+	border-radius: 3px 3px 3px 3px;
 	background: #00331a75;
 	transition: all .6s;
 }
