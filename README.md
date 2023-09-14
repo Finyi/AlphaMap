@@ -3,14 +3,11 @@
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/Version-1.2-blue" alt="Version">
-<img src="https://img.shields.io/badge/size-6.91%20MB-green" alt="Size">
+<img src="https://img.shields.io/badge/Version-1.3-blue" alt="Version"> 
+<img src="https://img.shields.io/badge/size-4.85%20MB-green" alt="Size">
 <img src="https://img.shields.io/badge/Engine-leaflet%20v1.9.3-brightgreen" alt="Engine"
 </p>
   
 ## About
   
 ### A project for self-development and study of leaflet and js, created both to test new leaflet updates and to show what is happening in the framework of combat.
-
-# The project is closed.
-# Let's move on to others :3 ?
