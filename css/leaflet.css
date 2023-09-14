@@ -1,5 +1,3 @@
-/* required styles */  /* обязательные стили */
-
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -17,6 +15,7 @@
 .leaflet-container {
 	overflow: hidden;
 	}
+
 .leaflet-tile,
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
@@ -25,15 +24,15 @@
 	        user-select: none;
 	  -webkit-user-drag: none;
 	}
-/* Prevents IE11 from highlighting tiles in blue */   /* Запрещает IE11 выделять слои синим цветом */
+
 .leaflet-tile::selection {
 	background: transparent;
 }
-/* Safari renders non-retina tile on retina better with this, but Chrome is worse */   /* Сафари лучше отрисовывает плитку без сетчатки на сетчатке, но Chrome хуже */
+
 .leaflet-safari .leaflet-tile {
 	image-rendering: -webkit-optimize-contrast;
 	}
-/* hack that prevents hw layers "stretching" when loading new tiles */   /* хак, предотвращающий "растягивание" hw слоев при загрузке новых слоев */
+
 .leaflet-safari .leaflet-tile-container {
 	width: 1600px;
 	height: 1600px;
@@ -43,8 +42,7 @@
 .leaflet-marker-shadow {
 	display: block;
 	}
-/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */   /* .leaflet-container svg: сбросить деклерацию максимальной ширины svg, поставляемую в Joomla! (joomla.org) 3.x */
-/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */   /* .leaflet-container img: карта не работает в FF, если у вас max-width: 100% на слоях */
+
 .leaflet-container .leaflet-overlay-pane svg {
 	max-width: none !important;
 	max-height: none !important;
@@ -66,7 +64,6 @@
 	}
 .leaflet-container.leaflet-touch-drag {
 	-ms-touch-action: pinch-zoom;
-	/* Fallback for FF which doesn't support pinch-zoom */   /* Запасной вариант для FF, который не поддерживает масштабирование */
 	touch-action: none;
 	touch-action: pinch-zoom;
 }
@@ -94,7 +91,7 @@
 	     box-sizing: border-box;
 	z-index: 800;
 	}
-/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
+
 .leaflet-overlay-pane svg {
 	-moz-user-select: none;
 	}
@@ -122,15 +119,13 @@
 	position: absolute;
 	}
 
-
-/* control positioning */
-
 .leaflet-control {
 	position: relative;
 	z-index: 800;
 	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
 	pointer-events: auto;
 	}
+
 .leaflet-top,
 .leaflet-bottom {
 	position: absolute;
@@ -181,11 +176,13 @@
 .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
 	opacity: 1;
 	}
+
 .leaflet-zoom-animated {
 	-webkit-transform-origin: 0 0;
 	    -ms-transform-origin: 0 0;
 	        transform-origin: 0 0;
 	}
+
 svg.leaflet-zoom-animated {
 	will-change: transform;
 }
@@ -207,7 +204,6 @@ svg.leaflet-zoom-animated {
 	}
 
 
-/* cursors */
 
 .leaflet-interactive {
 	cursor: pointer;
@@ -234,7 +230,7 @@ svg.leaflet-zoom-animated {
 	cursor:         grabbing;
 	}
 
-/* marker & overlays interactivity */
+
 .leaflet-marker-icon,
 .leaflet-marker-shadow,
 .leaflet-image-layer,
@@ -262,28 +258,28 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-zoom-box {
 	border: 2px dotted #38f;
-	background: rgba(255,255,255,0.5);
+	background: rgba(255, 255, 255, 0.5);
 	}
 
 
-/* general typography */
+/* typography */
 .leaflet-container {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-size: 0.75rem;
 	line-height: 1.5;
-	color: #fff;
+	color: #000000;
 	}
 
 
 /* general toolbar styles */
 
 .leaflet-bar {
-	box-shadow: 0 2px 5px rgba(0,0,0,0.65);
+	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	border-radius: 4px;
 	}
 .leaflet-bar a {
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(255, 255, 255, 0.975);
 	border-bottom: 0px solid rgb(41, 43, 54);
 	width: 26px;
 	height: 26px;
@@ -291,7 +287,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
@@ -301,7 +297,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a:hover,
 .leaflet-bar a:focus {
-	background-color: rgb(34, 34, 34, 0.7);
+	background-color: rgba(211, 211, 211, 0.975);
 	}
 .leaflet-bar a:first-child {
 	border-top-left-radius: 4px;
@@ -314,8 +310,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a.leaflet-disabled {
 	cursor: default;
-	background-color: rgb(34, 34, 34, 0.7);
-	color: #ffffff;
+	background-color: rgba(222, 222, 222, 0.934);
+	color: #000000;
 	}
 
 .leaflet-touch .leaflet-bar a {
@@ -336,20 +332,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* zoom control */
 
 .leaflet-touch .leaflet-bar.leaflet-control-zoom .leaflet-control-zoom-out {
-    border-radius: 0 0 9px 9px;
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.782));
+    border-radius: 0 0 9px 20px;
+	filter: drop-shadow(0px 4px 7px rgba(0,0,0,0.65));
 }
 
 .leaflet-touch .leaflet-bar.leaflet-control-zoom .leaflet-control-zoom-in {
-    border-radius: 9px 9px 0 0;
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.782));
+    border-radius: 9px 20px 0 0;
+	filter: drop-shadow(0px -4px 7px rgba(0,0,0,0.65));
 }
 
 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
 	font: bold 21px 'Lucida Console', Monaco, monospace;
-	text-indent: 1px;
+	text-indent: 0px;
 	}
 
 /* layers control */
@@ -415,16 +411,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* attribution and scale controls */
 
 .leaflet-container .leaflet-control-attribution {
-	background: #fff;
-	background: rgba(0, 0, 0, 0.7);
+	background: #ffffff;
+	background: rgba(255, 255, 255, 0.637);
 	margin: 0px;
 	font-family: 'Montserrat';
 	}
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
-	padding: 0 5px;
-	color: #0088ff;
-	line-height: 2;
+	padding: 0 3px;
+	color: #000000;
+	line-height: 1;
 	font-family: 'Montserrat';
 	}
 .leaflet-control-attribution a {
@@ -529,8 +525,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-	background: rgba(44, 44, 44, 0.863);
-	color: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.833);
+	color: rgb(0, 0, 0);
 	box-shadow: 0 3px 14px rgba(0, 0, 0, 0.356);
 	font-family: 'Montserrat';
 	}
