@@ -13,11 +13,11 @@
 }
 
 .basemapImg{
-    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.782));
-    background-color: rgba(0, 0, 0, 0.7);
-    margin:5px;
-    padding:5px;
-    border-radius: 7px 7px;
+    box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+    background-color: rgba(255, 241, 241, 0.934);
+    margin:4px;
+    padding:4px;
+    border-radius: 3px 3px 3px 3px;
 }
 
 .basemapImg div{
