@@ -687,9 +687,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		background-color: #FFF;
 		width: 500px;
 		margin-right: auto;
-        margin-left: auto;
+                margin-left: auto;
 		border-radius: 3px;
-		box-shadow: 2.5px 4.33px 22px 0 rgba(16,15,15,0.14);
+		box-shadow: 2.5px 4.33px 22px 0 rgba(16, 15, 15, 0.186);
 		height: 42px;
 		z-index: 500;
 	}
