@@ -5,7 +5,7 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Version-1.3.1-blue" alt="Version"> 
 <img src="https://img.shields.io/badge/size-3.83%20MB-green" alt="Size">
-<img src="https://img.shields.io/badge/Engine-leaflet%20v1.9.3-brightgreen" alt="Engine"
+<img src="https://img.shields.io/badge/Engine-leaflet%20v1.9.4-brightgreen" alt="Engine"
 </p>
   
 ## About
