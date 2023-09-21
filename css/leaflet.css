@@ -695,13 +695,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	@media screen and (max-height: 2340px) {
 		.nav-news{
-			top: -2100px;
+			top: -1800px;
 			width: 380px;
 		}
 	}
 	@media screen and (max-height: 2048px) {
 		.nav-news{
-			top: -1900px;
+			top: -1700px;
 			width: 380px;
 		}
 	}
