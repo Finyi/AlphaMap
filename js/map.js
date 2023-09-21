@@ -6,7 +6,7 @@ L.control.mapCenterCoord({
 }).addTo(map);
 var geocoder = L.Control.geocoder({
   defaultMarkGeocode: false,
-  position: 'topleft'
+  position: 'bottomleft'
 })
   .on('markgeocode', function(e) {
     var bbox = e.geocode.bbox;
