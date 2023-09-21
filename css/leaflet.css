@@ -693,6 +693,162 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		height: 42px;
 		z-index: 500;
 	}
+	@media screen and (max-height: 12340px) {
+		.nav-news{
+			top: -2100px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 2048px) {
+		.nav-news{
+			top: -1900px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1600px) {
+		.nav-news{
+			top: -1565px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1570px) {
+		.nav-news{
+			top: -1558px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1540px) {
+		.nav-news{
+			top: -1223px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1440px) {
+		.nav-news{
+			top: -1193px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1200px) {
+		.nav-news{
+			top: -1131px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1140px) {
+		.nav-news{
+			top: -1070px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1080px) {
+		.nav-news{
+			top: -1010px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 1020px) {
+		.nav-news{
+			top: -966px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 976px) {
+		.nav-news{
+			top: -916px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 920px) {
+		.nav-news{
+			top: -890px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 896px) {
+		.nav-news{
+			top: -860px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 864px) {
+		.nav-news{
+			top: -835px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 842px) {
+		.nav-news{
+			top: -807px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 812px) {
+		.nav-news{
+			top: -770px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 800px) {
+		.nav-news{
+			top: -766px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 778px) {
+		.nav-news{
+			top: -757px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 760px) {
+		.nav-news{
+			top: -670px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 667px) {
+		.nav-news{
+			top: -640px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 655px) {
+		.nav-news{
+			top: -638px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 640px) {
+		.nav-news{
+			top: -520px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 590px) {
+		.nav-news{
+			top: -550px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 520px) {
+		.nav-news{
+			top: -490px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 510px) {
+		.nav-news{
+			top: -490px;
+			width: 380px;
+		}
+	}
+	@media screen and (max-height: 500px) {
+		.nav-news{
+			top: -320px;
+			width: 380px;
+		}
+	}
 
 	/* l.geocoder */
 	.leaflet-control-geocoder {
