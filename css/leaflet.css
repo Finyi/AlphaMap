@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600&display=swap');
+
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -279,7 +282,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-radius: 4px;
 	}
 .leaflet-bar a {
-	background-color: rgba(255, 255, 255, 0.975);
+	background-color: #FFF;
 	border-bottom: 0px solid rgb(41, 43, 54);
 	width: 26px;
 	height: 26px;
@@ -344,7 +347,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
-	font: bold 21px 'Lucida Console', Monaco, monospace;
+	font: bold 21px 'JetBrains Mono';
 	text-indent: 0px;
 	}
 
@@ -404,7 +407,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* Default icon URLs */
 .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
-	background-image: url(https://cdn.discordapp.com/attachments/902207809385533481/1116645569755091034/marker-icon.png);
+	background-image: url('https://cdn.discordapp.com/attachments/902207809385533481/1116645569755091034/marker-icon.png');
 	}
 
 
@@ -412,16 +415,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-container .leaflet-control-attribution {
 	background: #ffffff;
-	background: rgba(255, 255, 255, 0.637);
+	background: rgba(255, 255, 255, 0.83);
 	margin: 0px;
-	font-family: 'Montserrat';
+	font-family: 'JetBrains Mono';
 	}
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
-	padding: 0 3px;
+	padding: 0 2px;
 	color: #000000;
 	line-height: 1;
-	font-family: 'Montserrat';
+	font-family: 'JetBrains Mono';
 	}
 .leaflet-control-attribution a {
 	text-decoration: none;
@@ -528,7 +531,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	background: rgba(255, 255, 255, 0.833);
 	color: rgb(0, 0, 0);
 	box-shadow: 0 3px 14px rgba(0, 0, 0, 0.356);
-	font-family: 'Montserrat';
+	font-family: 'JetBrains Mono';
 	}
 .leaflet-container a.leaflet-popup-close-button {
 	position: absolute;
@@ -676,3 +679,399 @@ svg.leaflet-image-layer.leaflet-interactive path {
 			filter:var(--map-tiles-filter, none);
 		}
 	}
+
+	.nav-news {
+		display: block;
+		position: relative;
+		top: -900px;
+		background-color: #FFF;
+		width: 500px;
+		margin-right: auto;
+        margin-left: auto;
+		border-radius: 3px;
+		box-shadow: 2.5px 4.33px 22px 0 rgba(16,15,15,0.14);
+		height: 42px;
+		z-index: 500;
+	}
+
+	/* l.geocoder */
+	.leaflet-control-geocoder {
+		border-radius: 6px;
+		background: rgb(255, 255, 255);
+		min-width: 26px;
+		min-height: 26px;
+		filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.95));
+	  }
+	  
+	  .leaflet-touch .leaflet-control-geocoder {
+		min-width: 30px;
+		min-height: 30px;
+	  }
+	  
+	  .leaflet-control-geocoder a,
+	  .leaflet-control-geocoder .leaflet-control-geocoder-icon {
+		border-bottom: none;
+		display: inline-block;
+	  }
+	  
+	  .leaflet-control-geocoder .leaflet-control-geocoder-alternatives a {
+		width: inherit;
+		height: inherit;
+		line-height: inherit;
+	  }
+	  
+	  .leaflet-control-geocoder a:hover,
+	  .leaflet-control-geocoder .leaflet-control-geocoder-icon:hover {
+		border-bottom: none;
+		display: inline-block;
+	  }
+	  
+	  .leaflet-control-geocoder-form {
+		display: none;
+		vertical-align: middle;
+	  }
+	  .leaflet-control-geocoder-expanded .leaflet-control-geocoder-form {
+		display: inline-block;
+	  }
+	  .leaflet-control-geocoder-form input {
+		font-size: 120%;
+		border: 0;
+		background-color: transparent;
+		width: 246px;
+	  }
+	  
+	  .leaflet-control-geocoder-icon {
+		border-radius: 6px;
+		width: 26px;
+		height: 26px;
+		border: none;
+		background-color: rgba(255, 255, 255, 0.71);
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1151852341344075867/icons8-search-26_1.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+	  }
+	  
+	  .leaflet-touch .leaflet-control-geocoder-icon {
+		width: 30px;
+		height: 30px;
+	  }
+	  
+	  .leaflet-control-geocoder-throbber .leaflet-control-geocoder-icon {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23000' stroke-linecap='round' stroke-width='1.6' viewBox='0 0 24 24'%3E%3Cdefs/%3E%3Cg%3E%3Cpath stroke-opacity='.1' d='M14 8.4l3-5'/%3E%3Cpath stroke-opacity='.2' d='M15.6 10l5-3'/%3E%3Cpath stroke-opacity='.3' d='M16.2 12H22'/%3E%3Cpath stroke-opacity='.4' d='M15.6 14l5 3m-6.5-1.4l2.9 5'/%3E%3Cpath stroke-opacity='.5' d='M12 16.2V22m-2-6.4l-3 5'/%3E%3Cpath stroke-opacity='.6' d='M8.4 14l-5 3'/%3E%3Cpath stroke-opacity='.7' d='M7.8 12H2'/%3E%3Cpath stroke-opacity='.8' d='M8.4 10l-5-3'/%3E%3Cpath stroke-opacity='.9' d='M10 8.4l-3-5'/%3E%3Cpath d='M12 7.8V2'/%3E%3CanimateTransform attributeName='transform' calcMode='discrete' dur='1s' repeatCount='indefinite' type='rotate' values='0 12 12;30 12 12;60 12 12;90 12 12;120 12 12;150 12 12;180 12 12;210 12 12;240 12 12;270 12 12;300 12 12;330 12 12'/%3E%3C/g%3E%3C/svg%3E");
+	  }
+	  
+	  .leaflet-control-geocoder-form-no-error {
+		display: none;
+	  }
+	  
+	  .leaflet-control-geocoder-form input:focus {
+		outline: none;
+	  }
+	  
+	  .leaflet-control-geocoder-form button {
+		display: none;
+	  }
+	  .leaflet-control-geocoder-error {
+		margin-top: 8px;
+		margin-left: 8px;
+		display: block;
+		color: #ff3535;
+	  }
+	  .leaflet-control-geocoder-alternatives {
+		display: block;
+		width: 272px;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	  }
+	  
+	  .leaflet-control-geocoder-alternatives-minimized {
+		display: none;
+		height: 0;
+	  }
+	  .leaflet-control-geocoder-alternatives li {
+		white-space: nowrap;
+		display: block;
+		overflow: hidden;
+		padding: 5px 8px;
+		text-overflow: ellipsis;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.866);
+		cursor: pointer;
+	  }
+	  
+	  .leaflet-control-geocoder-alternatives li a,
+	  .leaflet-control-geocoder-alternatives li a:hover {
+		width: inherit;
+		height: inherit;
+		line-height: inherit;
+		background: inherit;
+		border-radius: inherit;
+		text-align: left;
+	  }
+	  
+	  .leaflet-control-geocoder-alternatives li:last-child {
+		border-bottom: none;
+	  }
+	  .leaflet-control-geocoder-alternatives li:hover,
+	  .leaflet-control-geocoder-selected {
+		background-color: rgba(255, 255, 255, 0.399);
+	  }
+	  .leaflet-control-geocoder-address-detail {
+	  }
+	  .leaflet-control-geocoder-address-context {
+		color: #000000d2;
+	  }
+
+
+    /* l.compass */
+	.leaflet-control.leaflet-compass {
+		position:relative;
+		color:#1978cf;
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 1px 1px 6px 6px;
+		/*background-color: rgba(0, 0, 0, 0.25);*/
+		background-color: rgba(255, 255, 255, 0.934);
+		/*background: none;*/
+		box-shadow: 0 4px 7px rgba(0,0,0,0.65);
+		margin-left: 10px;
+		margin-top: -13px;
+	}
+	.leaflet-control.leaflet-compass:hover{
+		background-color: rgba(211, 211, 211, 0.975);
+	}
+	.leaflet-compass .compass-button {
+		display:block;
+		float:left;
+		width:32px;
+		height:32px;
+		border-radius:9px;
+	}
+	.leaflet-compass .compass-button.active {
+		background: rgba(213, 213, 213, 0.934);
+	}
+	.leaflet-compass .compass-icon {
+		height: 32px;
+		width: 32px;
+		margin: 0px;
+		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1154414310206996520/compass.png")
+	}
+	
+	.leaflet-compass .compass-digit {
+	}
+	
+	.leaflet-compass .compass-alert {
+		position:absolute;
+		right:-285px;
+		bottom:-38px;
+		width: 210px;
+		padding:22px;
+		font-family: 'JetBrains Mono';
+		line-height:.95em;
+		color:rgb(0, 0, 0);
+		border: 0px solid #ffffff;	
+		background-color: rgba(255, 255, 255, 0.934);
+		border-radius:8px;
+	}
+
+
+	/* l.minimap */
+	.leaflet-control-minimap {
+		border:solid rgb(255, 255, 255) 3px;
+		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+		border-radius: 3px 3px 3px 3px;
+		background: #00331a75;
+		transition: all .6s;
+	}
+	
+	.leaflet-control-minimap a {
+		background-color: rgba(255, 255, 255, 1.0); 
+		background-repeat: no-repeat;
+		z-index: 99999;
+		transition: all .6s;
+	}
+	
+	.leaflet-control-minimap a.minimized-bottomright {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+		border-radius: 0px;
+	}
+	
+	.leaflet-control-minimap a.minimized-topleft {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		border-radius: 0px;
+	}
+	
+	.leaflet-control-minimap a.minimized-bottomleft {
+		-webkit-transform: rotate(270deg);
+		transform: rotate(270deg);
+		border-radius: 0px;
+	}
+	
+	.leaflet-control-minimap a.minimized-topright {
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+		border-radius: 0px;
+	}
+	
+	.leaflet-control-minimap-toggle-display{
+		background-image: url();
+		background-size: cover;
+		position: absolute;
+		border-radius: 3px 0px 0px 0px;
+	}
+	
+	.leaflet-oldie .leaflet-control-minimap-toggle-display{
+		background-image: url();
+	}
+	
+	.leaflet-control-minimap-toggle-display-bottomright {
+		bottom: 0;
+		right: 0;
+	}
+	
+	.leaflet-control-minimap-toggle-display-topleft{
+		top: 0;
+		left: 0;
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	
+	.leaflet-control-minimap-toggle-display-bottomleft{
+		bottom: 0;
+		left: 0;
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+	
+	.leaflet-control-minimap-toggle-display-topright{
+		top: 0;
+		right: 0;
+		-webkit-transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+	
+	/* Old IE */
+	.leaflet-oldie .leaflet-control-minimap {
+		border: 1px solid #999;
+	}
+	
+	.leaflet-oldie .leaflet-control-minimap a {
+		background-color: #fff;
+	}
+	
+	.leaflet-oldie .leaflet-control-minimap a.minimized {
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+	}
+
+	
+	/* l.switchbasemap */
+	.hidden {
+		display: none;
+	}
+	
+	.leaflet-control-basemapsSwitcher{
+		height: auto;
+		width: auto;
+		display:flex;
+	}
+	
+	.leaflet-control-basemapsSwitcher:hover{
+		cursor: pointer;
+	}
+	
+	.basemapImg{
+		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+		background-color: rgb(255, 255, 255);
+		margin:4px;
+		padding:4px;
+		border-radius: 3px 3px 3px 3px;
+	}
+	
+	.basemapImg div{
+		background-size: 96px 96px;
+		width: 96px;
+		height: 96px;
+		border-radius: 3px 3px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.basemapImg div .name{
+		width:100%;
+		height:auto;
+		background-color: rgba(0, 0, 0, 0.6);
+		border-radius: 0;
+		color:rgb(240, 240, 240);
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		padding:0px;
+		font-family: 'JetBrains Mono';
+	}
+	
+	.basemapImg div .check{
+		width:auto;
+		height:auto;
+		border-radius: 0;
+		display: flex;
+		align-items: flex-end;
+		font-weight: 500;
+		padding:1px;
+		content:''
+	}
+	
+	.activeMap::before{
+		color:white;
+		content: '';
+		width: 12px;
+		height: 12px;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+
+	/* l.mapcentercoord */
+	.leaflet-container .leaflet-control-mapcentercoord {
+		background-color:  rgba(255, 255, 255, 0.83);
+		padding: 0 10px;
+		margin: 0 5px;
+		top: 0px;
+		left: 9px;
+		color: #000000;
+		font-family: 'JetBrains Mono';
+	  }
+	  .leaflet-control-mapcentercoord-icon {
+		background: url() 50% 50% no-repeat;
+		margin: -18px 0 0 -18px;
+		width: 36px;
+		height: 36px;
+		left: 50%;
+		top: 50%;
+		content: '';
+		display: block;
+		position: relative;
+		z-index: -1;
+	  }
+
+
+	  /* markercluster */
+	  .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+		-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+		-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+		-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+		transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+	}
+	
+	.leaflet-cluster-spider-leg {
+		/* stroke-dashoffset (duration and function) should match with leaflet-marker-icon transform in order to track it exactly */
+		-webkit-transition: -webkit-stroke-dashoffset 0.3s ease-out, -webkit-stroke-opacity 0.3s ease-in;
+		-moz-transition: -moz-stroke-dashoffset 0.3s ease-out, -moz-stroke-opacity 0.3s ease-in;
+		-o-transition: -o-stroke-dashoffset 0.3s ease-out, -o-stroke-opacity 0.3s ease-in;
+		transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
+	}	  
