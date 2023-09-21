@@ -1,5 +1,5 @@
 .leaflet-control-geocoder {
-  border-radius: 9px;
+  border-radius: 6px;
   background: rgb(255, 255, 255);
   min-width: 26px;
   min-height: 26px;
@@ -44,7 +44,7 @@
 }
 
 .leaflet-control-geocoder-icon {
-  border-radius: 9px;
+  border-radius: 6px;
   width: 26px;
   height: 26px;
   border: none;
