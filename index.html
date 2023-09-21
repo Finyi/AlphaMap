@@ -37,11 +37,11 @@
 <script src="data/line.js"></script>
 <script src="data/line2.js"></script>
 <script src="data/line3.js"></script>
+
 <body>
     <div id="map"></div>
 <script>
     const map = L.map('map').setView([49.0139, 31.2858], 7);
-map.zoomControl.setPosition('topleft');
 map.locate({setView: true, maxZoom: 10});
 L.control.scale().addTo(map);
 L.control.mapCenterCoord({
@@ -145,6 +145,7 @@ L.Control.Watermark = L.Control.extend({
     }
 });
 
+map.zoomControl.setPosition('bottomleft');
 L.control.watermark = function(opts) {
     return new L.Control.Watermark(opts);
 }
@@ -3983,6 +3984,5 @@ popup.addTo(map);
 //popup.addTo(map);
 
 </script>
-
 </body>
 </html>
