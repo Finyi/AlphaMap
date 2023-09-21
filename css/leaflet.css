@@ -188,9 +188,9 @@ svg.leaflet-zoom-animated {
 }
 
 .leaflet-zoom-anim .leaflet-zoom-animated {
-	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
-	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
-	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	-webkit-transition: -webkit-transform 0s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0s cubic-bezier(0,0,0.25,1);
 	}
 .leaflet-zoom-anim .leaflet-tile,
 .leaflet-pan-anim .leaflet-tile {
@@ -332,13 +332,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* zoom control */
 
 .leaflet-touch .leaflet-bar.leaflet-control-zoom .leaflet-control-zoom-out {
-    border-radius: 0 0 9px 20px;
-	filter: drop-shadow(0px 4px 7px rgba(0,0,0,0.65));
+    border-radius: 0 0 6px 6px;
+	filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.65));
 }
 
 .leaflet-touch .leaflet-bar.leaflet-control-zoom .leaflet-control-zoom-in {
-    border-radius: 9px 20px 0 0;
-	filter: drop-shadow(0px -4px 7px rgba(0,0,0,0.65));
+    border-radius: 6px 6px 0 0;
+	filter: drop-shadow(0px -4px 3px rgba(0,0,0,0.65));
 }
 
 
