@@ -8,13 +8,16 @@
 	color:#1978cf;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
-	border-radius: 8px;
+	border-radius: 1px 1px 6px 6px;
 	/*background-color: rgba(0, 0, 0, 0.25);*/
 	background-color: rgba(255, 255, 255, 0.934);
 	/*background: none;*/
-	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
-	margin-left:10px;
-	margin-top:10px;
+	box-shadow: 0 4px 7px rgba(0,0,0,0.65);
+	margin-left: 10px;
+	margin-top: -13px;
+}
+.leaflet-control.leaflet-compass:hover{
+	background-color: rgba(211, 211, 211, 0.975);
 }
 .leaflet-compass .compass-button {
 	display:block;
@@ -24,13 +27,13 @@
 	border-radius:9px;
 }
 .leaflet-compass .compass-button.active {
-	background: rgba(195, 195, 195, 0.934);
+	background: rgba(213, 213, 213, 0.934);
 }
 .leaflet-compass .compass-icon {
 	height: 32px;
 	width: 32px;
 	margin: 0px;
-	background: url("https://cdn.discordapp.com/attachments/902207809385533481/1112753076022038598/compass-icon.png")
+	background: url("https://cdn.discordapp.com/attachments/902207809385533481/1154414310206996520/compass.png")
 }
 
 .leaflet-compass .compass-digit {
@@ -44,8 +47,8 @@
 	padding:22px;
 	font-family: 'Ubuntu';
 	line-height:.95em;
-	color:rgb(201, 77, 77);
-	border: 1px solid #000000;	
+	color:rgb(0, 0, 0);
+	border: 0px solid #ffffff;	
 	background-color: rgba(255, 255, 255, 0.934);
 	border-radius:8px;
 }
