@@ -982,7 +982,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		-webkit-border-radius: 4px;
 		border-radius: 0px 0px 6px 6px;
 		/*background-color: rgba(0, 0, 0, 0.25);*/
-		background-color: rgba(255, 255, 255, 0.934);
+		background-color: rgba(255, 255, 255);
 		/*background: none;*/
 		box-shadow: 0 4px 7px rgba(0,0,0,0.65);
 		margin-left: 10px;
