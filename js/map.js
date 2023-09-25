@@ -2401,8 +2401,8 @@ var popup = enemy.bindPopup('38-ма окрема мотострілецька �
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [42, 42],
+    iconUrl: 'img/rus/NEW/1(1).png',
+    iconSize: [32, 32],
 });
 var enemy = L.marker([46.49284, 32.56245], { icon:enemy });
 var popup = enemy.bindPopup('61-а окрема бригада морської піхоти <br><b>в/ч ?</b></br>').openPopup()
