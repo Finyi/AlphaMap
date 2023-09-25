@@ -59,6 +59,15 @@ var geocoder = L.Control.geocoder({
     name: 'CyclOSM'
   },
 ], { position: 'bottomright' }).addTo(map);
+L.geoJSON(occupation2, {
+    style: {
+        fillColor: '#aa1111',
+        fillOpacity: 0.1,
+        weight: 2,
+        opacity: 0.8,
+        color: '#aa0000'
+    }
+}).addTo(map);
 L.geoJSON(line, {
     style: {
     color: '#ff0000',
