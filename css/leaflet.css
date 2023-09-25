@@ -272,7 +272,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* typography */
 .leaflet-container {
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: 'JetBrains Mono';
 	font-size: 12px;
 	font-size: 0.75rem;
 	line-height: 1.5;
@@ -684,7 +684,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         margin-left: auto;
 		border-radius: 3px;
 		box-shadow: 2.5px 4.33px 22px 0 rgba(16, 15, 15, 0.186);
-		height: 42px;
+		height: 45px;
 		z-index: 500;
 	}
 	@media screen and (max-height: 2340px) {
@@ -843,6 +843,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
 			width: 360px;
 		}
 	}
+	.nav-news img{
+		display: block;
+		position: relative;
+		width: 45px;
+		height: 45px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.nav-news img:hover{
+		background-image: url(https://cdn.discordapp.com/attachments/902207809385533481/1154697910609522688/NATO-45PX2.png);
+	}
 
 	/* l.geocoder */
 	.leaflet-control-geocoder {
@@ -982,7 +993,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		-webkit-border-radius: 4px;
 		border-radius: 0px 0px 6px 6px;
 		/*background-color: rgba(0, 0, 0, 0.25);*/
-		background-color: rgba(255, 255, 255);
+		background-color: rgb(255, 255, 255);
 		/*background: none;*/
 		box-shadow: 0 4px 7px rgba(0,0,0,0.65);
 		margin-left: 10px;
