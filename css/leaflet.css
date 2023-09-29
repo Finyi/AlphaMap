@@ -843,6 +843,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 			width: 360px;
 		}
 	}
+	.block-site{
+		display: block;
+		position: relative;
+		width: 45px;
+		height: 45px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 	.nav-news img{
 		display: block;
 		position: relative;
