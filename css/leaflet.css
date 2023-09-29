@@ -844,23 +844,39 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 	.block-site{
+		top: 5px;
 		display: block;
 		position: relative;
-		width: 45px;
-		height: 45px;
+		width: 39px;
+		height: 39px;
 		margin-right: auto;
 		margin-left: auto;
 	}
 	.nav-news img{
 		display: block;
 		position: relative;
-		width: 45px;
-		height: 45px;
+		width: 32px;
+		height: 32px;
 		margin-right: auto;
 		margin-left: auto;
 	}
-	.nav-news img:hover{
-		background-image: url(https://cdn.discordapp.com/attachments/902207809385533481/1154697910609522688/NATO-45PX2.png);
+	.block-site:before,
+	.block-site:after {
+	  content: '';
+	  position: absolute;
+	  bottom: 0;
+	  width: 0;
+	  left: 50%;
+	  height: 2px;
+	  background: #41a3ff;
+	  transition: all 0.3s ease;
+	}
+	.block-site:hover:before,
+	.block-site:hover:after {
+	  width: 50%;
+	}
+	.block-site:hover:before {
+	  transform: translateX(-100%);
 	}
 
 	/* l.geocoder */
