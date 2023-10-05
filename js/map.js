@@ -82,14 +82,6 @@ L.geoJSON(line78, {
     weight: 1,
     }
 }).addTo(map);
-L.geoJSON(line21, {
-    style: {
-    color: '#3d87ff',
-    weight: 2,
-    dashArray: '7, 7',
-    dashOffset: '0' 
-    }
-}).addTo(map);
 L.control.polylineMeasure({
     position: 'bottomleft'
 }).addTo(map);
