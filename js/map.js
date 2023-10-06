@@ -1805,7 +1805,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/21.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([48.50046, 37.96894], { icon:enemy });
+var enemy = L.marker([48.43222, 37.99604], { icon:enemy });
 var popup = enemy.bindPopup('21-й гвардійський танковий полк <br><b>в/ч 87441</b></br>').openPopup()
 popup.addTo(map);
 
