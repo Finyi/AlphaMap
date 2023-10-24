@@ -674,209 +674,56 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 
-	.nav-news {
+	.data_content,
+	input[type="checkbox"] {
+	  display: none;
+	}
+	
+	input[type="checkbox"]:checked ~ .data_content {
+	  display: block;
+	  position: relative;
+	  margin-top: -900px;
+	  width: 120px;
+	  height: 120px;
+	  background-color: #ffffff;
+	  z-index: 400;
+	}
+	
+	.btn {
+	  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+      border-radius: 6px;
+	  width: 32px;
+	  height: 32px;
+	  display: inline-block;
+	  position: relative;
+	  padding: 0px 0px;
+	  background-color: #ffffff;
+	  cursor: pointer;
+	  z-index: 800;
+	  top: -280px;
+	  right: -10px;
+	}
+	.btn:hover{
+		background-color: rgba(211, 211, 211, 0.975);
+	}
+	.btn img{
+		width: 26px;
+		height: 26px;
+		right: 9px;
+		top: -5px;
+	}
+
+	.gi4hb0 {
 		display: block;
 		position: relative;
-		top: -900px;
 		background-color: #FFF;
 		width: 500px;
 		margin-right: auto;
         margin-left: auto;
-		border-radius: 3px;
-		box-shadow: 2.5px 4.33px 22px 0 rgba(16, 15, 15, 0.186);
+		border-radius: 5px;
+		box-shadow: 2.5px 4.33px 22px 0 rgba(16, 15, 15, 0.237);
 		height: 45px;
 		z-index: 500;
-	}
-	@media screen and (max-height: 2340px) {
-		.nav-news{
-			top: -2270px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 2048px) {
-		.nav-news{
-			top: -1900px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1600px) {
-		.nav-news{
-			top: -1565px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1570px) {
-		.nav-news{
-			top: -1558px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1540px) {
-		.nav-news{
-			top: -1223px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1440px) {
-		.nav-news{
-			top: -1193px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1200px) {
-		.nav-news{
-			top: -1131px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1140px) {
-		.nav-news{
-			top: -1070px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1080px) {
-		.nav-news{
-			top: -1010px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 1020px) {
-		.nav-news{
-			top: -966px;
-			width: 380px;
-		}
-	}
-	@media screen and (max-height: 976px) {
-		.nav-news{
-			top: -916px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 920px) {
-		.nav-news{
-			top: -890px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 896px) {
-		.nav-news{
-			top: -860px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 864px) {
-		.nav-news{
-			top: -835px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 842px) {
-		.nav-news{
-			top: -807px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 812px) {
-		.nav-news{
-			top: -770px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 800px) {
-		.nav-news{
-			top: -766px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 778px) {
-		.nav-news{
-			top: -757px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 760px) {
-		.nav-news{
-			top: -670px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 667px) {
-		.nav-news{
-			top: -640px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 655px) {
-		.nav-news{
-			top: -638px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 640px) {
-		.nav-news{
-			top: -520px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 590px) {
-		.nav-news{
-			top: -550px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 520px) {
-		.nav-news{
-			top: -490px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 510px) {
-		.nav-news{
-			top: -490px;
-			width: 360px;
-		}
-	}
-	@media screen and (max-height: 500px) {
-		.nav-news{
-			top: -320px;
-			width: 360px;
-		}
-	}
-	.block-site{
-		top: 5px;
-		display: block;
-		position: relative;
-		width: 39px;
-		height: 39px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.nav-news img{
-		display: block;
-		position: relative;
-		width: 32px;
-		height: 32px;
-		margin-right: auto;
-		margin-left: auto;
-	}
-	.block-site:before,
-	.block-site:after {
-	  content: '';
-	  position: absolute;
-	  bottom: 0;
-	  width: 0;
-	  left: 50%;
-	  height: 2px;
-	  background: #41a3ff;
-	  transition: all 0.3s ease;
-	}
-	.block-site:hover:before,
-	.block-site:hover:after {
-	  width: 50%;
-	}
-	.block-site:hover:before {
-	  transform: translateX(-100%);
 	}
 
 	/* l.geocoder */
