@@ -910,7 +910,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/17.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([47.60310, 36.37487], { icon:enemy });
+var enemy = L.marker([46.75298, 33.18094], { icon:enemy });
 var popup = enemy.bindPopup('177-й окремий полк морської піхоти <br><b>в/ч 87852</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2597,7 +2597,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([46.75215, 33.41372], { icon:enemy });
+var enemy = L.marker([46.72824, 33.07340], { icon:enemy });
 var popup = enemy.bindPopup('205-та окрема мотострілецька бригада <br><b>в/ч 74814</b>').openPopup()
 popup.addTo(map);
 
@@ -2676,13 +2676,6 @@ popup.addTo(map);
 
 //  Operational Command
 var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/31.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.31796, 35.52876], { icon:friendly });
-var popup = friendly.bindPopup('10-й армійський корпус <br><i>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
@@ -2759,13 +2752,6 @@ var friendly = L.icon({
 });
 var friendly = L.marker([47.02737, 31.99871], { icon:friendly });
 var popup = friendly.bindPopup('208-ма зенітна ракетна бригада <br>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/22.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.24291, 36.72575], { icon:friendly });
-var popup = friendly.bindPopup('1039-й окремий зенітний ракетний полк <br>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/7.png',
@@ -3411,13 +3397,6 @@ var friendly = L.marker([47.54295, 35.37241], { icon:friendly });
 var popup = friendly.bindPopup('11-й окремий стрілецький батальйон').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.73367, 35.25581], { icon:friendly });
-var popup = friendly.bindPopup('6-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
@@ -3744,13 +3723,6 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([50.42392, 30.48270], { icon:friendly });
-var popup = friendly.bindPopup('241-ша окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
 var friendly = L.marker([48.98393, 38.05630], { icon:friendly });
 var popup = friendly.bindPopup('112-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
@@ -3760,14 +3732,14 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.77154, 36.80283], { icon:friendly });
+var friendly = L.marker([46.68201, 32.78286], { icon:friendly });
 var popup = friendly.bindPopup('38-а окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.74108, 36.83149], { icon:friendly });
+var friendly = L.marker([46.79454, 33.14335], { icon:friendly });
 var popup = friendly.bindPopup('37-а окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3781,7 +3753,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.73905, 36.62408], { icon:friendly });
+var friendly = L.marker([46.74886, 32.97289], { icon:friendly });
 var popup = friendly.bindPopup('36-та окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3844,7 +3816,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.75374, 36.81909], { icon:friendly });
+var friendly = L.marker([46.74865, 32.94250], { icon:friendly });
 var popup = friendly.bindPopup('35-та окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 
