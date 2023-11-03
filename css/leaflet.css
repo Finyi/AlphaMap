@@ -196,9 +196,9 @@ svg.leaflet-zoom-animated {
 }
 
 .leaflet-zoom-anim .leaflet-zoom-animated {
-	-webkit-transition: -webkit-transform 0s cubic-bezier(0,0,0.25,1);
-	   -moz-transition:    -moz-transform 0s cubic-bezier(0,0,0.25,1);
-	        transition:         transform 0s cubic-bezier(0,0,0.25,1);
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
 	}
 .leaflet-zoom-anim .leaflet-tile,
 .leaflet-pan-anim .leaflet-tile {
@@ -875,6 +875,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 @media screen and (max-width: 1080px) {
     input[type="checkbox"]:checked ~ .data_content {
 		width: 270px;
+		margin-top: -612px;
     }
 	.block-24{  
 		margin-left: 105px;
@@ -1107,7 +1108,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border-radius: 3px 3px 3px 3px;
 		background: #00331a75;
 		transition: all .6s;
-		top: 45px;
+		top: 10px;
 	}
 	
 	.leaflet-control-minimap a {
@@ -1246,7 +1247,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		align-items: flex-end;
 		font-weight: 500;
 		padding:1px;
-		content:''
+		content:'';
 	}
 	
 	.activeMap::before{
