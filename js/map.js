@@ -2986,7 +2986,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/3.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.53013, 37.69478], { icon:friendly });
+var friendly = L.marker([48.60902, 37.85460], { icon:friendly });
 var popup = friendly.bindPopup('26-а окрема артилерійська бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3421,7 +3421,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.44101, 35.84109], { icon:friendly });
+var friendly = L.marker([48.15045, 37.70439], { icon:friendly });
 var popup = friendly.bindPopup('47-ма окрема механізована бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3537,7 +3537,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.51100, 35.81474], { icon:friendly });
+var friendly = L.marker([47.45276, 35.83637], { icon:friendly });
 var popup = friendly.bindPopup('65-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
@@ -3833,14 +3833,6 @@ var friendly = L.icon({
     iconSize: [32, 32],
 });
 var friendly = L.marker([50.28320, 36.94410], { icon:friendly });
-var popup = friendly.bindPopup('Російський добровольчий корпус').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEUTRAL/RUS.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.87621, 33.45663], { icon:friendly });
 var popup = friendly.bindPopup('Російський добровольчий корпус').openPopup()
 popup.addTo(map);
 
