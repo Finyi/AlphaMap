@@ -2790,14 +2790,14 @@ var friendly = L.icon({
     iconSize: [32, 32],
 });
 var friendly = L.marker([48.93434, 37.95467], { icon:friendly });
-var popup = friendly.bindPopup('12-а бригада оперативного призначення Національної гвардії України').openPopup()
+var popup = friendly.bindPopup('12-а бригада оперативного призначення НГУ').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/33.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([48.94471, 38.12565], { icon:friendly });
-var popup = friendly.bindPopup('5-а окрема Слобожанська бригада Національної Гвардії України').openPopup()
+var popup = friendly.bindPopup('5-а окрема Слобожанська бригада НГУ').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/5.png',
@@ -2860,14 +2860,14 @@ var friendly = L.icon({
     iconSize: [32, 32],
 });
 var friendly = L.marker([47.52433, 36.00546], { icon:friendly });
-var popup = friendly.bindPopup('27-а окрема Печерська бригада Національної Гвардії України').openPopup()
+var popup = friendly.bindPopup('27-а окрема Печерська бригада НГУ').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/32.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([47.60165, 36.04717], { icon:friendly });
-var popup = friendly.bindPopup('12-те головне управління департаменту військової контррозвідки Служби Безпеки України').openPopup()
+var popup = friendly.bindPopup('12-те головне управління департаменту військової контррозвідки СБУ').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/6.png',
@@ -2889,13 +2889,6 @@ var friendly = L.icon({
 });
 var friendly = L.marker([46.70582, 32.71162], { icon:friendly });
 var popup = friendly.bindPopup('Центр спеціальних операцій «А» СБУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/1.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.57993, 34.31996], { icon:friendly });
-var popup = friendly.bindPopup('21-ша окрема бригада охорони громадського порядку').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/11.png',
@@ -3035,7 +3028,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/3.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.98107, 37.40124], { icon:friendly });
+var friendly = L.marker([48.00135, 37.43557], { icon:friendly });
 var popup = friendly.bindPopup('55-та окрема артилерійська бригадa').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3074,7 +3067,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/18.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.48209, 35.76299], { icon:friendly });
+var friendly = L.marker([47.50007, 35.77354], { icon:friendly });
 var popup = friendly.bindPopup('2-й гірничо-штурмовий батальйон').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3590,7 +3583,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.99164, 37.49256], { icon:friendly });
+var friendly = L.marker([48.00675, 37.52037], { icon:friendly });
 var popup = friendly.bindPopup('116-а окрема бригада ТРО').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3743,13 +3736,6 @@ var friendly = L.marker([46.79454, 33.14335], { icon:friendly });
 var popup = friendly.bindPopup('37-а окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/8.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.90064, 33.37904], { icon:friendly });
-var popup = friendly.bindPopup('Рота поліції «Кривбас»').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
@@ -3776,13 +3762,6 @@ var friendly = L.icon({
 });
 var friendly = L.marker([46.96145, 32.01004], { icon:friendly });
 var popup = friendly.bindPopup('19-й окремий полк радіо та радіотехнічної розвідки спеціального призначення').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/28.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.97590, 33.44307], { icon:friendly });
-var popup = friendly.bindPopup('78-й окремий батальйон матеріального забезпечення').openPopup()
 popup.addTo(map);
 
 
@@ -3872,7 +3851,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/16.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.94479, 37.49149], { icon:friendly });
+var friendly = L.marker([47.94972, 37.46201], { icon:friendly });
 var popup = friendly.bindPopup('503-й окремий батальйон морської піхоти').openPopup()
 popup.addTo(map);
 
