@@ -1155,7 +1155,7 @@ var popup = enemy.bindPopup('28-й мотострілецький полк <br><
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/7.png',
+    iconUrl: 'img/rus/NEW/8.png',
     iconSize: [32, 32],
 });
 var enemy = L.marker([46.59013, 32.79728], { icon:enemy });
@@ -2589,7 +2589,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/11.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([46.71697, 33.28926], { icon:enemy });
+var enemy = L.marker([46.74862, 33.26231], { icon:enemy });
 var popup = enemy.bindPopup('127-ма окрема розвідувальна бригада <br><b>в/ч 67606</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2597,7 +2597,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([46.72824, 33.07340], { icon:enemy });
+var enemy = L.marker([46.74204, 33.13957], { icon:enemy });
 var popup = enemy.bindPopup('205-та окрема мотострілецька бригада <br><b>в/ч 74814</b>').openPopup()
 popup.addTo(map);
 
@@ -2711,7 +2711,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/26.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.05365, 31.91648], { icon:friendly });
+var friendly = L.marker([46.65356, 32.56725], { icon:friendly });
 var popup = friendly.bindPopup('10-та морська авіаційна бригада <br>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -2736,22 +2736,8 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/22.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.58637, 37.55264], { icon:friendly });
-var popup = friendly.bindPopup('301-й зенітний ракетний полк <br>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/22.png',
-    iconSize: [32, 32],
-});
 var friendly = L.marker([47.57809, 35.77354], { icon:friendly });
 var popup = friendly.bindPopup('39-й зенітний ракетний полк <br>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/7.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.02737, 31.99871], { icon:friendly });
-var popup = friendly.bindPopup('208-ма зенітна ракетна бригада <br>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/7.png',
@@ -2764,15 +2750,8 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/13.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.71805, 37.77808], { icon:friendly });
+var friendly = L.marker([48.63240, 37.79778], { icon:friendly });
 var popup = friendly.bindPopup('107-ма реактивна артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/30.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.87422, 35.54970], { icon:friendly });
-var popup = friendly.bindPopup('19-та ракетна бригада').openPopup()
 popup.addTo(map);
 
 
@@ -3562,7 +3541,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.46962, 37.77237], { icon:friendly });
+var friendly = L.marker([48.48766, 37.85030], { icon:friendly });
 var popup = friendly.bindPopup('117-а окрема бригада ТРО').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3743,13 +3722,6 @@ var friendly = L.marker([46.74886, 32.97289], { icon:friendly });
 var popup = friendly.bindPopup('36-та окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/23.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.94373, 32.03948], { icon:friendly });
-var popup = friendly.bindPopup('19-й полк охорони громадського порядку Національної Гвардії України').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
     iconUrl: 'img/ua/NEW/24.png',
     iconSize: [32, 32],
 });
@@ -3760,7 +3732,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/25.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([46.96145, 32.01004], { icon:friendly });
+var friendly = L.marker([46.68171, 32.53876], { icon:friendly });
 var popup = friendly.bindPopup('19-й окремий полк радіо та радіотехнічної розвідки спеціального призначення').openPopup()
 popup.addTo(map);
 
@@ -3787,7 +3759,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEUTRAL/KALINOUSKI.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.62368, 37.92131], { icon:friendly });
+var friendly = L.marker([48.59279, 37.87811], { icon:friendly });
 var popup = friendly.bindPopup('Полк імені Кастуся Калиновського').openPopup()
 popup.addTo(map);
 
