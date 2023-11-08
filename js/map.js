@@ -45,7 +45,7 @@ var geocoder = L.Control.geocoder({
 	  maxZoom: 16,
       minZoom: 6,
 	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }),
+    }).addTo(map),
     icon: 'img/OSM.png',
     name: 'OSM'
   },
@@ -54,7 +54,7 @@ var geocoder = L.Control.geocoder({
        attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
        minZoom: 6,
        maxZoom: 16,
-    }).addTo(map),
+    }),
     icon: 'img/CyclOSM.png',
     name: 'CyclOSM'
   },
@@ -2887,13 +2887,6 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/5.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([50.57762, 30.48088], { icon:friendly });
-var popup = friendly.bindPopup('Батальйон оперативного призначення НГУ ім. Сергія Кульчицького').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/1.png',
-    iconSize: [32, 32],
-});
 var friendly = L.marker([48.51945, 37.79245], { icon:friendly });
 var popup = friendly.bindPopup('4-та бригада оперативного призначення НГУ').openPopup()
 popup.addTo(map);
@@ -2901,7 +2894,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/11.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([46.84676, 33.41269], { icon:friendly });
+var friendly = L.marker([46.81480, 33.25836], { icon:friendly });
 var popup = friendly.bindPopup('131-й окремий розвідувальний батальйон').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3162,7 +3155,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.35409, 37.91588], { icon:friendly });
+var friendly = L.marker([49.27525, 37.92068], { icon:friendly });
 var popup = friendly.bindPopup('66-а окрема механізована бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3400,13 +3393,6 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.28539, 37.96257], { icon:friendly });
-var popup = friendly.bindPopup('66-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
 var friendly = L.marker([48.79765, 38.18092], { icon:friendly });
 var popup = friendly.bindPopup('54-та окрема механізована бригада').openPopup()
 popup.addTo(map);
@@ -3604,7 +3590,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.20826, 38.03681], { icon:friendly });
+var friendly = L.marker([49.18849, 37.96978], { icon:friendly });
 var popup = friendly.bindPopup('111-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3711,7 +3697,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([46.79454, 33.14335], { icon:friendly });
+var friendly = L.marker([46.68168, 32.73428], { icon:friendly });
 var popup = friendly.bindPopup('37-а окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3767,7 +3753,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/14.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([46.74865, 32.94250], { icon:friendly });
+var friendly = L.marker([46.80244, 33.15906], { icon:friendly });
 var popup = friendly.bindPopup('35-та окрема бригада морської піхоти').openPopup()
 popup.addTo(map);
 
@@ -3825,6 +3811,14 @@ var friendly = L.icon({
 });
 var friendly = L.marker([47.94972, 37.46201], { icon:friendly });
 var popup = friendly.bindPopup('503-й окремий батальйон морської піхоти').openPopup()
+popup.addTo(map);
+
+var friendly = L.icon({
+    iconUrl: 'img/ua/NEW/16.png',
+    iconSize: [32, 32],
+});
+var friendly = L.marker([46.79977, 33.08722], { icon:friendly });
+var popup = friendly.bindPopup('501-й батальйон морської піхоти').openPopup()
 popup.addTo(map);
 
 var friendly = L.icon({
