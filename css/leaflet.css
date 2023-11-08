@@ -865,10 +865,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		background-color: rgba(211, 211, 211, 0.975);
 	}
 	.btn img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2px;
 		width: 26px;
 		height: 26px;
-		right: 9px;
-		top: -5px;
 	}
 
 
