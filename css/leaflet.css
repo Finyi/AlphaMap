@@ -988,11 +988,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  
 	  .leaflet-control-geocoder-icon {
 		border-radius: 6px;
-		width: 32px;
-		height: 32px;
+		width: 30px;
+		height: 30px;
 		border: none;
 		background-color: rgba(255, 255, 255, 0.71);
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1151852341344075867/icons8-search-26_1.png");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1172273731943530536/icons8-search-30.png?ex=655fb7fd&is=654d42fd&hm=a8b5741b81432389686def629b6314a4180508f6a88e2502c742f18b82c3973f&");
 		background-repeat: no-repeat;
 		background-position: center;
 		cursor: pointer;
@@ -1128,8 +1128,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	
 	.polyline-measure-unicode-icon {
-		font-size: 19px;
-		font-weight: bold;
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1172275283118796900/icons8-arrow-26.png?ex=655fb96f&is=654d446f&hm=edba6f143b0e0c789b4f0daf42e088487dc024a27340fb6ae68605ead0acd458&");
+		content: '';
 	}
 	
 	a.polyline-measure-clearControl:active {
