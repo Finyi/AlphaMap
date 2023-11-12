@@ -1,4 +1,6 @@
 var map = L.map('map').setView([49.0139, 31.2858], 7);
+
+
 layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 16,
     minZoom: 6,
@@ -118,7 +120,7 @@ var enemy = L.icon({
     iconSize: [32, 32],
 });
 var enemy = L.marker([51.24773, 37.86026], { icon:enemy });
-var popup = enemy.bindPopup('Угруповання військ "Захід"').openPopup()
+var popup = enemy.bindPopup('Угруповання військ "Захід" <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/125px-Flag_of_Russia.svg.png">').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2686,28 +2688,28 @@ var friendly = L.icon({
     iconSize: [32, 32],
 });
 var friendly = L.marker([50.59261, 26.22231], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Захід» <br><i>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Захід»').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([51.49197, 31.30074], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Північ» <br><i>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Північ» <p>Оперативне командування сухопутних військ ЗСУ у північній частині України на території 6 областей та міста Києва.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([46.47901, 30.57770], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Південь» <br><i>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Південь» <p>Оперативне командування сухопутних військ ЗСУ у південній частині України на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([48.46040, 35.00931], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Схід» <br><i>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Схід»').openPopup()
 popup.addTo(map);
 
 
