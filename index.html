@@ -19,12 +19,26 @@
     <script src="js/L.Control.MapCenterCoord.js"></script>
     <script src="js/Control.MiniMap.js"></script>
     <script src="js/leaflet-compass.js"></script>
+    <script src="js/dialog.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="map"></div>
+
+    <div id="modal_welcome">
+        <div class="popup">
+            <p class="main_text_modal">Шановне товариство!</p>
+            <p class="subtitle_text_modal">AlphaMap - мапа яка не є офіційним джерелом інформації, яка ніяк не зв'язана з такими авторитетними джерелами як <a href="https://t.me/DeepStateUA">DeepState</a> або <a href="https://u24.gov.ua/uk">United24</a>.
+                Важливо! Інформація про підрозділи береться з відкритих джерел: новини, телеграм-канали та інше. Мапою займається одна людина, мапа створена як проект з відкритим кодом на основі Leaflet яка працює на Github'і.
+                Територія яка редагуються щонеділі може бути не точною, на даний час на мапі нема корисного функціоналу для більш глубокої інтерактивності, але над цим я буду працювати, дякую вам!</p>
+
+            <button class="close" title="Закрыть" onclick="document.getElementById('modal_welcome').style.display='none';">
+            <img src="img/close.png" alt="">
+        </button>
+        </div>
+    </div>
 
     <label for="data_button" class="btn">
         <img src="img/data.png" alt="">
