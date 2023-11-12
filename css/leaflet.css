@@ -174,7 +174,6 @@
 
 
 /* zoom and fade animations */
-
 .leaflet-fade-anim .leaflet-popup {
 	opacity: 0;
 	-webkit-transition: opacity 0.2s linear;
@@ -184,13 +183,11 @@
 .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
 	opacity: 1;
 	}
-
 .leaflet-zoom-animated {
 	-webkit-transform-origin: 0 0;
 	    -ms-transform-origin: 0 0;
 	        transform-origin: 0 0;
 	}
-
 svg.leaflet-zoom-animated {
 	will-change: transform;
 }
@@ -683,6 +680,63 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 
+	#modal_welcome {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+		width: 100%;
+		height: 100%;
+		-webkit-backdrop-filter: blur(8px);
+		backdrop-filter: blur(8px);
+		background: hsla(0, 0%, 0%, 0.102);
+		z-index: 99999;
+		-webkit-animation: fade .6s;
+		-moz-animation: fade .6s;
+		animation: fade .6s;
+	}
+.popup {
+	background: #fff;
+    top: 23%;
+    left: 0;
+    right: 0;       
+    font-size: 14px;
+    margin: auto;
+    width: 25%;
+    min-width: 320px;
+    max-width: 420px;
+    position: absolute;
+    padding: 15px 20px;
+    z-index: 1000;
+    border-radius: 6px;
+	font-family: 'JetBrains Mono';
+	box-shadow: 0 1px 23px rgba(0, 0, 0, 0.353);
+}
+.main_text_modal{
+	font-size: 16px;
+	font-family: 'JetBrains Mono';
+	padding: 2px;
+	text-align: center;
+	font-weight: 500;
+	color: #ff0000;
+}
+.subtitle_text_modal{
+	font-size: 13px;
+	font-family: 'JetBrains Mono';
+	text-align: center;
+	font-weight: 400;
+	color: #000000;
+}
+.close{
+	cursor: pointer;
+	position: relative;
+	bottom: 300px;
+}
+.close img{
+	width: 18px;
+}
+
+
 	.data_content,
 	input[type="checkbox"] {
 	  display: none;
@@ -888,13 +942,29 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		width: 26px;
 		height: 26px;
 	}
-
-
+@media  screen and (max-width: 1550px) {
+	.close{
+		bottom: 323px;
+	}
+}
+@media  screen and (max-width: 1440px) {
+	.close{
+		bottom: 355px;
+	}
+}	
+@media  screen and (max-width: 1280px) {
+	.close{
+		bottom: 372px;
+	}
+}
 @media screen and (max-width: 1080px) {
     input[type="checkbox"]:checked ~ .data_content {
 		width: 270px;
 		margin-top: -612px;
     }
+	.close{
+		bottom: 372px;
+	}
 	.block-24{  
 		margin-left: 105px;
 		margin-top: -15px;
@@ -1128,7 +1198,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	
 	.polyline-measure-unicode-icon {
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1172275283118796900/icons8-arrow-26.png?ex=655fb96f&is=654d446f&hm=edba6f143b0e0c789b4f0daf42e088487dc024a27340fb6ae68605ead0acd458&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1173043106380267582/icons8-arrow-32_2.png?ex=65628486&is=65500f86&hm=1b9bec346d80d0cd09800b4761e8072dde9adf8f0632ac2c0159ecd6bb52cbc7&");
 		content: '';
 	}
 	
