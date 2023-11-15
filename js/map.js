@@ -2525,7 +2525,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/1.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([47.45761, 35.72780], { icon:enemy });
+var enemy = L.marker([46.70821, 33.12069], { icon:enemy });
 var popup = enemy.bindPopup('810-та окрема бригада морської піхоти <br><b>в/ч 13140</b></br>').openPopup()
 popup.addTo(map);
 
@@ -3254,7 +3254,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/37.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.62037, 37.89614], { icon:friendly });
+var friendly = L.marker([49.77367, 37.65701], { icon:friendly });
 var popup = friendly.bindPopup('57-а окрема мотопіхотна бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3825,7 +3825,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/16.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([46.79977, 33.08722], { icon:friendly });
+var friendly = L.marker([46.78625, 32.98645], { icon:friendly });
 var popup = friendly.bindPopup('501-й батальйон морської піхоти').openPopup()
 popup.addTo(map);
 
@@ -3833,6 +3833,6 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/17.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.52233, 35.82736], { icon:friendly });
+var friendly = L.marker([47.48305, 35.87946], { icon:friendly });
 var popup = friendly.bindPopup('46-та окрема аеромобільна бригада').openPopup()
 popup.addTo(map);
