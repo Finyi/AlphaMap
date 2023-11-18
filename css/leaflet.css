@@ -689,7 +689,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		height: 100%;
 		-webkit-backdrop-filter: blur(8px);
 		backdrop-filter: blur(8px);
-		background: hsla(0, 0%, 0%, 0.102);
+		background: hsla(0, 0%, 0%, 0.431);
 		z-index: 99999;
 		-webkit-animation: fade .6s;
 		-moz-animation: fade .6s;
@@ -1058,13 +1058,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  
 	  .leaflet-control-geocoder-icon {
 		border-radius: 6px;
-		width: 30px;
-		height: 30px;
 		border: none;
 		background-color: rgba(255, 255, 255, 0.71);
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1172273731943530536/icons8-search-30.png?ex=655fb7fd&is=654d42fd&hm=a8b5741b81432389686def629b6314a4180508f6a88e2502c742f18b82c3973f&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1175535757625143346/search.png?ex=656b95fd&is=655920fd&hm=641916adfeea46f6ba9b027ffabb8650c7d8c64006f57bb07a9a4851ab634b7e&");
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: cover;
+		width: 30px;
+		height: 30px;
 		cursor: pointer;
 	  }
 	  
@@ -1168,10 +1169,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		background: rgba(213, 213, 213, 0.934);
 	}
 	.leaflet-compass .compass-icon {
+		margin: 0px;
+		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1175537664196350142/compass-arrow.png?ex=656b97c3&is=655922c3&hm=c3475f6d28e00933bbf374782a57ecc6c59647a117ab6d130a4a47b8269ebfa1&");
+		background-size: no-repeat;
+		background-position: center;
+		background-size: cover;
 		height: 32px;
 		width: 32px;
-		margin: 0px;
-		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1154414310206996520/compass.png")
 	}
 	
 	.leaflet-compass .compass-digit {
@@ -1198,8 +1202,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	
 	.polyline-measure-unicode-icon {
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1173043106380267582/icons8-arrow-32_2.png?ex=65628486&is=65500f86&hm=1b9bec346d80d0cd09800b4761e8072dde9adf8f0632ac2c0159ecd6bb52cbc7&");
 		content: '';
+		font-size: 0px;
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1175532029664829491/ruler.jpg?ex=656b9284&is=65591d84&hm=948c9df02fc3a277eae9eaf3c1936f00e3a60e596b2ee71db21b84d3bcaa0c9b&");
+		background-size: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 30px;
+		height: 30px;
 	}
 	
 	a.polyline-measure-clearControl:active {
