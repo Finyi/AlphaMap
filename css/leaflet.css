@@ -285,7 +285,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-bar a {
 	background-color: #FFF;
-	border-bottom: 0px solid rgb(41, 43, 54);
+	border-top: 1px solid #a8a8a8;
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
@@ -294,6 +294,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	text-decoration: none;
 	color: rgb(0, 0, 0);
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+	transition: all .2s;
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
@@ -690,7 +691,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		height: 100%;
 		-webkit-backdrop-filter: blur(8px);
 		backdrop-filter: blur(8px);
-		background: hsla(0, 0%, 0%, 0.431);
+		background: hsla(0, 0%, 0%, 0.625);
 		z-index: 99999;
 		-webkit-animation: fade .6s;
 		-moz-animation: fade .6s;
@@ -712,6 +713,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     border-radius: 6px;
 	font-family: 'JetBrains Mono';
 	box-shadow: 0 1px 23px rgba(0, 0, 0, 0.353);
+	transition: all .2s;
 }
 .main_text_modal{
 	font-size: 16px;
@@ -757,6 +759,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  box-shadow: 0 1px 12px rgba(0,0,0,0.65);
 	  margin-top: -528px;
 	  z-index: 400;
+	  transition: all .2s;
 	}
 	.uhgi305f{
 		width: 100%;
@@ -931,6 +934,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  z-index: 800;
 	  top: -275px;
 	  right: -10px;
+	  transition: all .2s;
 	}
 	.btn:hover{
 		background-color: rgba(211, 211, 211, 0.975);
@@ -1011,6 +1015,27 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		z-index: 500;
 	}
 
+	
+	.night__switcher{
+		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+		border-radius: 8px;
+		border: 0px;
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		position: relative;
+		padding: 0px 0px;
+		background-color: #fff;
+		cursor: pointer;
+		z-index: 800;
+		top: -320px;
+		right: 25px;
+		transition: all .2s;
+	}
+	.night__switcher:hover{
+		border: 0px;
+		background-color: rgba(211, 211, 211, 0.975);
+	}
 	/* l.geocoder */
 	.leaflet-control-geocoder {
 		border-radius: 6px;
@@ -1018,6 +1043,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		min-width: 32px;
 		min-height: 32px;
 		filter: drop-shadow(0px 1px 7px rgba(0, 0, 0, 0.65));
+		transition: all .6s;
 	  }
 	  
 	  .leaflet-touch .leaflet-control-geocoder {
@@ -1155,6 +1181,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		box-shadow: 0 4px 7px rgba(0,0,0,0.65);
 		margin-left: 10px;
 		margin-top: -14px;
+		border-top: 1px solid #a8a8a8;
+		transition: all .2s;
 	}
 	.leaflet-control.leaflet-compass:hover{
 		background-color: rgba(211, 211, 211, 0.975);
@@ -1195,6 +1223,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border: 0px solid #ffffff;	
 		background-color: rgba(255, 255, 255, 0.934);
 		border-radius: 8px;
+		transition: all .2s;
 	}
 
 /* l.polylinemeasure */
@@ -1205,7 +1234,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.polyline-measure-unicode-icon {
 		content: '';
 		font-size: 0px;
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1175532029664829491/ruler.jpg?ex=656b9284&is=65591d84&hm=948c9df02fc3a277eae9eaf3c1936f00e3a60e596b2ee71db21b84d3bcaa0c9b&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1175532029664829491/ruler.jpg?ex=6574cd04&is=65625804&hm=5e9b2973d24d398a6b0f4045290c68929421bd9f70bac510bd51c464244ead2c&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1269,6 +1298,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		background: #00331a75;
 		transition: all .6s;
 		top: 10px;
+
 	}
 	
 	.leaflet-control-minimap a {
@@ -1374,6 +1404,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		margin:4px;
 		padding:4px;
 		border-radius: 3px 3px 3px 3px;
+		transition: all .2s;
 	}
 	
 	.basemapImg div{
