@@ -259,7 +259,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	outline-offset: 1px;
 	}
 .leaflet-container a {
-	color: #0078A8;
+	color: #00881b;
 	}
 .leaflet-zoom-box {
 	border: 2px dotted #38f;
@@ -361,20 +361,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-layers {
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 	background: #fff;
-	border-radius: 9px;
+	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
-	background-image: url(img/layers.png);
-	width: 30px;
-	height: 30px;
+	background-image: url(images/layers.png);
+	width: 36px;
+	height: 36px;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url();
-	background-size: 20px 20px;
+	background-image: url(images/layers-2x.png);
+	background-size: 26px 26px;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 30px;
-	height: 30px;
+	width: 44px;
+	height: 44px;
 	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
@@ -412,7 +412,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* Default icon URLs */
 .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
-	background-image: url('https://cdn.discordapp.com/attachments/902207809385533481/1116645569755091034/marker-icon.png');
+	background-image: url(img/marker-icon.png);
 	}
 
 
@@ -435,6 +435,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	font-weight: 200;
 	}
 .leaflet-control-attribution a {
+	color: #00881b;
 	text-decoration: none;
 	}
 .leaflet-control-attribution a:hover,
@@ -538,7 +539,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-popup-tip {
 	-webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
-	background: hsla(0, 0%, 100%, 0.372);
+	background: hsla(0, 0%, 100%, 0.463);
 	color: rgb(0, 0, 0);
 	box-shadow: 0 3px 14px rgba(0, 0, 0, 0.356);
 	font-family: 'JetBrains Mono';
@@ -751,7 +752,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  height: 423px;
 	  left: 60px;
 	  border-radius: 8px;
-	  background: hsla(0,0%,100%,.102);
+	  background: hsla(0, 0%, 100%, 0.463);
 	  background-blend-mode: overlay,normal;
 	  box-shadow: 0 1px 12px rgba(0,0,0,0.65);
 	  margin-top: -528px;
