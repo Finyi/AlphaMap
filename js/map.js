@@ -1,12 +1,11 @@
 var map = L.map('map').setView([49.0139, 31.2858], 7);
 
-
 layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 16,
     minZoom: 6,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map),
-
+  
 map.locate({setView: true, maxZoom: 10});
 L.control.scale().addTo(map);
 L.control.mapCenterCoord({
@@ -78,9 +77,9 @@ L.geoJSON(occupation2, {
 }).addTo(map);
 L.geoJSON(line, {
     style: {
-    color: '#ff0000',
+    color: '#DC143C',
     weight: 2,
-    dashArray: '6, 6',
+    dashArray: '7, 7',
     dashOffset: '0' 
     }
 }).addTo(map);
