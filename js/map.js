@@ -1133,7 +1133,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([46.61820, 33.25150], { icon:enemy });
+var enemy = L.marker([46.74799, 33.11670], { icon:enemy });
 var popup = enemy.bindPopup('26-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2524,7 +2524,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/1.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([46.70821, 33.12069], { icon:enemy });
+var enemy = L.marker([46.71477, 33.08919], { icon:enemy });
 var popup = enemy.bindPopup('810-та окрема бригада морської піхоти <br><b>в/ч 13140</b></br>').openPopup()
 popup.addTo(map);
 
