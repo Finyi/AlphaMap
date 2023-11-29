@@ -1031,6 +1031,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		top: -320px;
 		right: 25px;
 		transition: all .2s;
+		border: none;
 	}
 	.night__switcher:hover{
 		border: 0px;
