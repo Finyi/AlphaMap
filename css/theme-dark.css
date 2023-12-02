@@ -15,10 +15,13 @@
 	left: 0;
 	top: 0;
 	}
+.map-tiles{
+	filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
 .leaflet-container {
 	overflow: hidden;
 	}
-
 .leaflet-tile,
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
@@ -278,7 +281,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 
 /* general toolbar styles */
-
 .leaflet-bar {
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	border-radius: 6px;
@@ -680,22 +682,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 
-	#modal_welcome {
-		position: fixed;
-		top: 0;
-		left: 0;
-		display: none;
-		width: 100%;
-		height: 100%;
-		-webkit-backdrop-filter: blur(8px);
-		backdrop-filter: blur(8px);
-		background: hsla(0, 0%, 0%, 0.625);
-		z-index: 99999;
-		-webkit-animation: fade .6s;
-		-moz-animation: fade .6s;
-		animation: fade .6s;
-	}
-.popup {
+#modal_welcome {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	background: hsla(0, 0%, 0%, 0.625);
+	z-index: 99999;
+	-webkit-animation: fade .6s;
+	-moz-animation: fade .6s;
+	animation: fade .6s;
+}
+.warning_window {
 	background: #434343;
     top: 23%;
     left: 0;
@@ -1024,18 +1026,26 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.night__switcher{
 		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 		border-radius: 8px;
-		border: 0px;
+		border: 0;
+		padding: 0;	
 		width: 32px;
 		height: 32px;
 		display: inline-block;
 		position: relative;
-		padding: 0px 0px;
 		background-color: #434343;
 		cursor: pointer;
 		z-index: 800;
 		top: -320px;
 		right: 25px;
 		transition: all .2s;
+		border: none;
+	}
+	.night__switcher:hover{
+		border: 0px;
+		background-color: #333333;
+	}
+	.dark_svg{
+		display: none;
 	}
 	/* l.geocoder */
 	.leaflet-control-geocoder {
@@ -1196,7 +1206,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border-radius:9px;
 	}
 	.leaflet-compass .compass-button.active {
-		background: rgba(213, 213, 213, 0.934);
+		background: #333333;
 	}
 	.leaflet-compass .compass-icon {
 		margin: 0px;
