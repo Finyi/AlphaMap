@@ -34,6 +34,7 @@ var geocoder = L.Control.geocoder({
        subdomains:['mt0','mt1','mt2','mt3'],
        minZoom: 6,
        maxZoom: 16,
+       id: 'testing',
     }),
     icon: 'img/google.png',
     name: 'Google Maps'
@@ -43,6 +44,7 @@ var geocoder = L.Control.geocoder({
        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
        minZoom: 6,
        maxZoom: 16,
+       className: 'map-tiles'
     }),
     icon: 'img/ESRI.png',
     name: 'Esri TopoMap'    
@@ -51,6 +53,7 @@ var geocoder = L.Control.geocoder({
     layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	  maxZoom: 16,
       minZoom: 6,
+      className: 'map-tiles',
 	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map),
     icon: 'img/OSM.png',
@@ -61,6 +64,7 @@ var geocoder = L.Control.geocoder({
        attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
        minZoom: 6,
        maxZoom: 16,
+       className: 'map-tiles'
     }),
     icon: 'img/CyclOSM.png',
     name: 'CyclOSM'
@@ -453,14 +457,6 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/24.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([52.70369, 41.37022], { icon:enemy });
-var popup = enemy.bindPopup('27-й змішаний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [32, 32],
-});
 var enemy = L.marker([48.30792, 41.78530], { icon:enemy });
 var popup = enemy.bindPopup('559-й гвардійський бомбардувальний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
@@ -493,7 +489,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/4.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.04842, 38.15200], { icon:enemy });
+var enemy = L.marker([49.07716, 38.07372], { icon:enemy });
 var popup = enemy.bindPopup('856-й гвардійський самохідний артилерійський полк <br><b>в/ч 23857</b></br>').openPopup()
 popup.addTo(map);
 
@@ -509,7 +505,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.05548, 38.10196], { icon:enemy });
+var enemy = L.marker([49.04330, 38.04196], { icon:enemy });
 var popup = enemy.bindPopup('254-й гвардійський мотострілковий полк <br><b>в/ч 91704</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1521,14 +1517,6 @@ var popup = enemy.bindPopup('26-а ракетна бригада <br><b>в/ч ?<
 popup.addTo(map);
 
 var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/33.png',
-    iconSize: [32, 32],
-});
-var enemy = L.marker([50.97929, 39.51405], { icon:enemy });
-var popup = enemy.bindPopup('152-а окрема бригада матеріально-технічного забезпечення <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
     iconUrl: 'img/rus/NEW/25.png',
     iconSize: [32, 32],
 });
@@ -1604,7 +1592,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/42.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.06005, 38.22126], { icon:enemy });
+var enemy = L.marker([48.99849, 38.21654], { icon:enemy });
 var popup = enemy.bindPopup('1259-й окремий протитанковий артилерійський дивізіон <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1612,7 +1600,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/28.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.06358, 38.17886], { icon:enemy });
+var enemy = L.marker([49.00294, 38.10694], { icon:enemy });
 var popup = enemy.bindPopup('59-й окремий танковий батальйон <br><b>в/ч 94018</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2316,7 +2304,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/9.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([48.58711, 37.98042], { icon:enemy });
+var enemy = L.marker([48.59747, 37.95356], { icon:enemy });
 var popup = enemy.bindPopup('31-ша окрема десантно-штурмова бригада <br><b>в/ч -</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2356,7 +2344,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/18.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.08477, 38.13423], { icon:enemy });
+var enemy = L.marker([49.10470, 38.09638], { icon:enemy });
 var popup = enemy.bindPopup('120-та артилерійська бригада <br><b>в/ч 59361</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2652,7 +2640,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/9.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([48.59549, 37.99356], { icon:enemy });
+var enemy = L.marker([48.56959, 37.96978], { icon:enemy });
 var popup = enemy.bindPopup('11-а окрема десантно-штурмова бригада" <br><b>в/ч 32364</b></br>').openPopup()
 popup.addTo(map);
 
@@ -3190,7 +3178,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.08972, 38.02643], { icon:friendly });
+var friendly = L.marker([49.11897, 37.99973], { icon:friendly });
 var popup = friendly.bindPopup('42-а окрема механізована бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3527,7 +3515,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.59854, 37.94210], { icon:friendly });
+var friendly = L.marker([48.58072, 37.91837], { icon:friendly });
 var popup = friendly.bindPopup('181-а окрема бригада ТРО').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
