@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
 
 .leaflet-pane,
 .leaflet-tile,
@@ -682,22 +683,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 
-	#modal_welcome {
-		position: fixed;
-		top: 0;
-		left: 0;
-		display: none;
-		width: 100%;
-		height: 100%;
-		-webkit-backdrop-filter: blur(8px);
-		backdrop-filter: blur(8px);
-		background: hsla(0, 0%, 0%, 0.625);
-		z-index: 99999;
-		-webkit-animation: fade .6s;
-		-moz-animation: fade .6s;
-		animation: fade .6s;
-	}
-.popup {
+#modal_welcome {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	background: hsla(0, 0%, 0%, 0.625);
+	z-index: 99999;
+	-webkit-animation: fade .6s;
+	-moz-animation: fade .6s;
+	animation: fade .6s;
+}
+.warning_window {
 	background: #fff;
     top: 23%;
     left: 0;
@@ -711,17 +711,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
     padding: 15px 20px;
     z-index: 1000;
     border-radius: 6px;
-	font-family: 'JetBrains Mono';
 	box-shadow: 0 1px 23px rgba(0, 0, 0, 0.353);
 	transition: all .2s;
 }
 .main_text_modal{
 	font-size: 16px;
-	font-family: 'JetBrains Mono';
+	font-family: 'Montserrat', sans-serif;
 	padding: 2px;
 	text-align: center;
 	font-weight: 500;
-	color: #ff0000;
+	color: #c70000;
 }
 .subtitle_text_modal{
 	font-size: 13px;
@@ -1022,9 +1021,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border: 0px;
 		width: 32px;
 		height: 32px;
+		padding: 0;
 		display: inline-block;
 		position: relative;
-		padding: 0px 0px;
 		background-color: #fff;
 		cursor: pointer;
 		z-index: 800;
@@ -1036,6 +1035,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.night__switcher:hover{
 		border: 0px;
 		background-color: rgba(211, 211, 211, 0.975);
+	}
+	.light_svg{
+		display: none;
 	}
 	/* l.geocoder */
 	.leaflet-control-geocoder {
