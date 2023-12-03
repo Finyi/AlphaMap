@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
 
 .leaflet-pane,
 .leaflet-tile,
@@ -711,21 +712,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
     padding: 15px 20px;
     z-index: 1000;
     border-radius: 6px;
-	font-family: 'JetBrains Mono';
 	box-shadow: 0 1px 23px rgba(0, 0, 0, 0.353);
 	transition: all .2s;
 }
 .main_text_modal{
 	font-size: 16px;
-	font-family: 'JetBrains Mono';
+	font-family: 'Montserrat', sans-serif;
 	padding: 2px;
 	text-align: center;
 	font-weight: 500;
-	color: #d50000;
+	color: #c70000;
 }
 .subtitle_text_modal{
 	font-size: 13px;
-	font-family: 'JetBrains Mono';
+	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	font-weight: 400;
 	color: #f0f0f0;
@@ -733,7 +733,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .close{
 	cursor: pointer;
 	position: relative;
-	bottom: 300px;
+	bottom: 272px;
+	border: 0;
 }
 .close img{
 	width: 18px;
@@ -761,166 +762,179 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  z-index: 400;
 	  transition: all .2s;
 	}
-	.uhgi305f{
+	.data_content>section{
 		width: 100%;
 		height: 62px;
 		border-bottom: solid 1px #373737;
 	}
 	h1{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
+		font-family: 'Montserrat', sans-serif;
 		padding: 7px;
 		text-align: center;
-		font-weight: 400;
+		font-weight: 500;;
 		color: #f0f0f0
 	}
 	.block-23{
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: dotted 3px rgba(0, 80, 89, 0.813);
-		background-color: rgba(0, 150, 167, 0.343);
-	}
-
-	.gri360f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(11, 39, 42, 0.743);
+		background-color: rgba(48, 179, 194, 0.743);
 	}
 	.block-24{
+		position: absolute;
 		display: block;  
-		margin-left: 145px;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: dotted 3px rgba(94, 23, 12, 0.813);
-		background-color: rgba(165, 39, 20, 0.343);
+		left: 0;
+		right: 45px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(72, 22, 14, 0.743);
+		background-color: rgba(194, 62, 42, 0.743);
 	}
 	.block-25{
+		position: absolute;
 		display: block;  
-		margin-left: 182px;
-		margin-top: -22px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: solid 3px rgba(216, 90, 90, 0.813);
-		background-color: rgba(255, 82, 82, 0.343);
-	}
-
-	.tihkj47f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
+		left: 45px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(216, 90, 90, 0.813);
+		background-color: rgba(255, 99, 99, 0.343);
 	}
 	h2{
 		font-size: 10px;
-		font-family: 'JetBrains Mono';
+		font-family: 'Montserrat', sans-serif;
 		padding: 7px;
 		text-align: center;
-		font-weight: 400;
+		font-weight: 500;
 		color: #f0f0f0
 	}
 	.block-26{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: solid 3px #aa0000;
-		background-color: #aa11112c;
-	}
-
-	.lkgfr89q{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
-	}
-	.block-27{
 		position: absolute;
 		display: block;
-		left: 10px;
-		top: 202px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px solid #aa0000;
+		background-color: #aa11112c;
+	}
+	.block-27{
+		float: left;
+		position: absolute;
+		display: block;
+		margin-left: 10px;
+		margin-top: 10px;
 		width: 31px;
 		border-bottom: solid 2px #ff0000;
 		background-color: #ffffff00;
 	}
 	.ghgtexti{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
-		padding: 9px;
-		padding-right: 90px;
+		font-family: 'Montserrat', sans-serif;
+		margin-right: 80px;
+		margin-top: 5px;
 		text-align: center;
 		font-weight: 500;
 		color: #f0f0f0;
 	}
 	.block-28{
+		float: left;
 		position: absolute;
 		display: block;
-		left: 10px;
-		top: 230px;
+		margin-left: 10px;
+		margin-top: 10px;
 		width: 31px;
-		border-bottom: dotted 3px #ff0000;
+		border-bottom: dashed 2px #ff0000;
 		background-color: #ffffff00;
 	}
 	.ghgtexti2{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
-		padding: 2px;
-		margin-top: -15px;
-		padding-right: 151px;
+		font-family: 'Montserrat', sans-serif;
+		margin-right: 160px;
+		margin-top: 18px;
 		text-align: center;
 		font-weight: 500;
 		color: #f0f0f0;
 	}
-	.lhjtb445g{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
-	}
-	.lhjtb445g img{
+	.nuclearimg{
+		position: absolute;
 		display: block;
 		width: 32px;
+		left: 0;
+		right: 90px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: -11px;
-		
+		margin-top: -12px;
 	}
-
-	.jghtv47f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
-	}
-	.jghtv47f img{
+	.airportimg{
+		position: absolute;
+		display: block;
 		width: 32px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
+	}
+	.airfieldimg{
+		position: absolute;
+		display: block;
+		width: 32px;
+		left: 90px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
 	}
 	.gjhgbimg{
+		position: absolute;
 		display: block;
+		width: 32px;
+		left: 0;
+		right: 40px;
+		margin-left: auto;
+		margin-right: auto;
 		margin-top: -12px;
-		margin-left: 130px;
 	}
 	.btlhhimg{
+		position: absolute;
 		display: block;
-		margin-top: -31px;
-		margin-left: 190px;
+		width: 32px;
+		left: 40px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
 	}
 
 	.close_data_button{
 		cursor: pointer;
 		position: relative;
-		bottom: 420px;
+		bottom: 430px;
 		margin-left: 323px;
 	}
 	.close_data_button img{
 		display: block;
 		width: 16px;
+		filter: invert(1);
 	}
 
 	
@@ -1239,7 +1253,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* l.polylinemeasure */
 	a.polyline-measure-controlOnBgColor, a.polyline-measure-controlOnBgColor:hover {
-		background-color: rgb(227, 255, 85);
+		background-color: #333333;
 	}
 	
 	.polyline-measure-unicode-icon {
