@@ -724,7 +724,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 .subtitle_text_modal{
 	font-size: 13px;
-	font-family: 'JetBrains Mono';
+	font-family: 'Montserrat', sans-serif;
 	text-align: center;
 	font-weight: 400;
 	color: #000000;
@@ -732,7 +732,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .close{
 	cursor: pointer;
 	position: relative;
-	bottom: 300px;
+	bottom: 272px;
+	border: 0;
 }
 .close img{
 	width: 18px;
@@ -760,158 +761,171 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  z-index: 400;
 	  transition: all .2s;
 	}
-	.uhgi305f{
+	.data_content>section{
 		width: 100%;
 		height: 62px;
 		border-bottom: solid 1px #787878;
 	}
 	h1{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
+		font-family: 'Montserrat', sans-serif;
 		padding: 7px;
 		text-align: center;
-		font-weight: 400;
+		font-weight: 500;
 	}
 	.block-23{
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: dotted 3px rgba(0, 80, 89, 0.813);
-		background-color: rgba(0, 150, 167, 0.343);
-	}
-
-	.gri360f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #787878;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(11, 39, 42, 0.743);
+		background-color: rgba(48, 179, 194, 0.743);
 	}
 	.block-24{
+		position: absolute;
 		display: block;  
-		margin-left: 145px;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: dotted 3px rgba(94, 23, 12, 0.813);
-		background-color: rgba(165, 39, 20, 0.343);
+		left: 0;
+		right: 45px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(72, 22, 14, 0.743);
+		background-color: rgba(194, 62, 42, 0.743);
 	}
 	.block-25{
+		position: absolute;
 		display: block;  
-		margin-left: 182px;
-		margin-top: -22px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: solid 3px rgba(216, 90, 90, 0.813);
-		background-color: rgba(255, 82, 82, 0.343);
-	}
-
-	.tihkj47f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #787878;
+		left: 45px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px dashed rgba(216, 90, 90, 0.813);
+		background-color: rgba(255, 99, 99, 0.343);
 	}
 	h2{
 		font-size: 10px;
-		font-family: 'JetBrains Mono';
+		font-family: 'Montserrat', sans-serif;
 		padding: 7px;
 		text-align: center;
-		font-weight: 400;
+		font-weight: 500;
 	}
 	.block-26{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -6px;
-		width: 26px;  
-		height: 22px;
-		border-radius: 4px;
-		border: solid 3px #aa0000;
-		background-color: #aa11112c;
-	}
-
-	.lkgfr89q{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #787878;
-	}
-	.block-27{
 		position: absolute;
 		display: block;
-		left: 10px;
-		top: 202px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -9px;
+		width: 34px;  
+		height: 27px;
+		border-radius: 3px;
+		border: 2px solid #aa0000;
+		background-color: #aa11112c;
+	}
+	.block-27{
+		float: left;
+		position: absolute;
+		display: block;
+		margin-left: 10px;
+		margin-top: 10px;
 		width: 31px;
 		border-bottom: solid 2px #ff0000;
 		background-color: #ffffff00;
 	}
 	.ghgtexti{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
-		padding: 9px;
-		padding-right: 90px;
+		font-family: 'Montserrat', sans-serif;
+		margin-right: 80px;
+		margin-top: 5px;
 		text-align: center;
 		font-weight: 500;
 	}
 	.block-28{
+		float: left;
 		position: absolute;
 		display: block;
-		left: 10px;
-		top: 230px;
+		margin-left: 10px;
+		margin-top: 10px;
 		width: 31px;
-		border-bottom: dotted 3px #ff0000;
+		border-bottom: dashed 2px #ff0000;
 		background-color: #ffffff00;
 	}
 	.ghgtexti2{
 		font-size: 12px;
-		font-family: 'JetBrains Mono';
-		padding: 2px;
-		margin-top: -15px;
-		padding-right: 151px;
+		font-family: 'Montserrat', sans-serif;
+		margin-right: 160px;
+		margin-top: 18px;
 		text-align: center;
 		font-weight: 500;
 	}
-	.lhjtb445g{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #787878;
-	}
-	.lhjtb445g img{
+	.nuclearimg{
+		position: absolute;
 		display: block;
 		width: 32px;
+		left: 0;
+		right: 90px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: -11px;
-		
+		margin-top: -12px;
 	}
-
-	.jghtv47f{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #787878;
-	}
-	.jghtv47f img{
+	.airportimg{
+		position: absolute;
+		display: block;
 		width: 32px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
+	}
+	.airfieldimg{
+		position: absolute;
+		display: block;
+		width: 32px;
+		left: 90px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
 	}
 	.gjhgbimg{
+		position: absolute;
 		display: block;
+		width: 32px;
+		left: 0;
+		right: 40px;
+		margin-left: auto;
+		margin-right: auto;
 		margin-top: -12px;
-		margin-left: 130px;
 	}
 	.btlhhimg{
+		position: absolute;
 		display: block;
-		margin-top: -31px;
-		margin-left: 190px;
+		width: 32px;
+		left: 40px;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: -12px;
 	}
+
 
 	.close_data_button{
 		cursor: pointer;
 		position: relative;
-		bottom: 420px;
-		margin-left: 323px;
+		bottom: 430px;
+		margin-left: 320px;
 	}
 	.close_data_button img{
 		display: block;
@@ -969,32 +983,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.close{
 		bottom: 372px;
 	}
-	.block-24{  
-		margin-left: 105px;
-		margin-top: -15px;
-		width: 26px;  
-		height: 22px;
-	}
-	.block-25{
-		margin-left: 144px;
-		margin-top: -22px;
-		width: 26px;  
-		height: 22px;
-	}
-	.block-26{
-		margin-top: -12px;
-	}
 	.ghgtexti{
-		padding-right: 15px;
+		margin-right: 20px;
 	}
 	.ghgtexti2{
-		padding-right: 78px;
+		margin-right: 90px;
 	}
-	.gjhgbimg{
-		margin-left: 92px;
-	}
-	.btlhhimg{
-		margin-left: 147px;
+	.block-26{
+		margin-top: -15px;
 	}
 	.close_data_button{
 		margin-left: 248px;
@@ -1013,8 +1009,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		height: 45px;
 		z-index: 500;
 	}
-
-	
 	.night__switcher{
 		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 		border-radius: 8px;
