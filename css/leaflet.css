@@ -995,6 +995,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.close_data_button{
 		margin-left: 248px;
 	}
+	.basemapImg div{
+		background-size: 86px 86px;
+		width: 86px;
+		height: 86px;
+	}
 }
 
 	.gi4hb0 {
