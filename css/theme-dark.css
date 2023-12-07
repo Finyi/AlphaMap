@@ -991,35 +991,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.close{
 		bottom: 372px;
 	}
-	.block-24{  
-		margin-left: 105px;
-		margin-top: -15px;
-		width: 26px;  
-		height: 22px;
-	}
-	.block-25{
-		margin-left: 144px;
-		margin-top: -22px;
-		width: 26px;  
-		height: 22px;
-	}
-	.block-26{
-		margin-top: -12px;
-	}
 	.ghgtexti{
-		padding-right: 15px;
+		margin-right: 20px;
 	}
 	.ghgtexti2{
-		padding-right: 78px;
+		margin-right: 90px;
 	}
-	.gjhgbimg{
-		margin-left: 92px;
-	}
-	.btlhhimg{
-		margin-left: 147px;
+	.block-26{
+		margin-top: -15px;
 	}
 	.close_data_button{
 		margin-left: 248px;
+	}
+	.basemapImg div{
+		background-size: 86px 86px;
+		width: 86px;
+		height: 86px;
 	}
 }
 
