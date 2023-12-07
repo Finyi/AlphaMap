@@ -123,7 +123,7 @@ var enemy = L.icon({
     iconSize: [32, 32],
 });
 var enemy = L.marker([51.24773, 37.86026], { icon:enemy });
-var popup = enemy.bindPopup('Угруповання військ "Захід" <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/125px-Flag_of_Russia.svg.png">').openPopup()
+var popup = enemy.bindPopup('Угруповання військ "Захід" <p>військовий округ Збройних сил РФ, розташований на північному заході Росії. Штаб знаходиться в Санкт-Петербурзі.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ZVO_Russia_medium_emblem.svg/100px-ZVO_Russia_medium_emblem.svg.png"></center>').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1688,7 +1688,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [32, 32],
 });
-var enemy = L.marker([49.79234, 37.70826], { icon:enemy });
+var enemy = L.marker([48.18911, 37.74945], { icon:enemy });
 var popup = enemy.bindPopup('30-а окрема мотострілецька бригада <br><b>в/ч 45863</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2640,12 +2640,7 @@ popup.addTo(map);
 
 
 
-
-
-// Military airfields of the Russian army (Images)
 // --------------------------------------------------------------------------------------------------------------------------------- \\
-
-
 
 
 
@@ -2659,28 +2654,28 @@ var friendly = L.icon({
     iconSize: [32, 32],
 });
 var friendly = L.marker([50.59261, 26.22231], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Захід»').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Захід» <p>Оперативне командування сухопутних військ ЗСУ у західній частині України, на території 8 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/%D0%9E%D0%9A_%D0%97%D0%B0%D1%85%D1%96%D0%B4_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%97%D0%B0%D1%85%D1%96%D0%B4_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([51.49197, 31.30074], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Північ» <p>Оперативне командування сухопутних військ ЗСУ у північній частині України на території 6 областей та міста Києва.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg.png"></center>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Північ» <p>Оперативне командування сухопутних військ ЗСУ у північній частині України, на території 6 областей та міста Києва.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([46.47901, 30.57770], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Південь» <p>Оперативне командування сухопутних військ ЗСУ у південній частині України на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg.png"></center>').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Південь» <p>Оперативне командування сухопутних військ ЗСУ у південній частині України, на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/20.png',
     iconSize: [32, 32],
 });
 var friendly = L.marker([48.46040, 35.00931], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Схід»').openPopup()
+var popup = friendly.bindPopup('Оперативне командування «Схід» <p>Оперативне командування сухопутних військ ЗСУ у східній частині України, на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/%D0%9E%D0%9A_%D0%A1%D1%85%D1%96%D0%B4_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%A1%D1%85%D1%96%D0%B4_%D0%BA.svg.png"></center>').openPopup()
 popup.addTo(map);
 
 
