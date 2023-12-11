@@ -751,7 +751,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  display: block;
 	  position: absolute;
 	  width: 345px;
-	  height: 423px;
+	  height: 377px;
 	  left: 60px;
 	  border-radius: 8px;
 	  background: hsla(0, 0%, 100%, 0.463);
@@ -902,7 +902,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.gjhgbimg{
 		position: absolute;
 		display: block;
-		width: 32px;
+		width: 25px;
 		left: 0;
 		right: 40px;
 		margin-left: auto;
@@ -912,7 +912,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.btlhhimg{
 		position: absolute;
 		display: block;
-		width: 32px;
+		width: 28px;
 		left: 40px;
 		right: 0;
 		margin-left: auto;
