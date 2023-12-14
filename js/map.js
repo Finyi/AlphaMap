@@ -3082,7 +3082,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.49485, 37.95294], { icon:friendly });
+var friendly = L.marker([48.56863, 37.83194], { icon:friendly });
 var popup = friendly.bindPopup('3-тя окрема штурмова бригада').openPopup()
 popup.addTo(map);
 
@@ -3762,6 +3762,6 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/17.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.48305, 35.87946], { icon:friendly });
+var friendly = L.marker([47.96911, 37.47303], { icon:friendly });
 var popup = friendly.bindPopup('46-та окрема аеромобільна бригада').openPopup()
 popup.addTo(map);
