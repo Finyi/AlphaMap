@@ -3404,7 +3404,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.72776, 37.93995], { icon:friendly });
+var friendly = L.marker([49.74642, 37.69572], { icon:friendly });
 var popup = friendly.bindPopup('30-та окрема механізована бригада').openPopup()
 popup.addTo(map);
 
