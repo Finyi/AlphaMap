@@ -924,7 +924,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.close_data_button{
 		cursor: pointer;
 		position: relative;
-		bottom: 430px;
+		bottom: 370px;
 		margin-left: 320px;
 	}
 	.close_data_button img{
@@ -960,29 +960,37 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		width: 26px;
 		height: 26px;
 	}
+@media  screen and (max-width: 1660px) {
+	.close{
+		bottom: 290px;
+	}
+}
 @media  screen and (max-width: 1550px) {
 	.close{
-		bottom: 323px;
+		bottom: 300px;
 	}
 }
-@media  screen and (max-width: 1440px) {
+@media  screen and (max-width: 1488px) {
 	.close{
-		bottom: 355px;
+		bottom: 344px;
+	}
+}
+@media  screen and (max-width: 1435px) {
+	.close{
+		bottom: 360px;
+	}
+}
+@media  screen and (max-width: 1439px) {
+	.close{
+		bottom: 350px;
 	}
 }	
-@media  screen and (max-width: 1280px) {
-	.close{
-		bottom: 372px;
-	}
-}
+
 @media screen and (max-width: 1080px) {
     input[type="checkbox"]:checked ~ .data_content {
 		width: 270px;
 		margin-top: -612px;
     }
-	.close{
-		bottom: 372px;
-	}
 	.ghgtexti{
 		margin-right: 20px;
 	}
@@ -1038,6 +1046,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.light_svg{
 		display: none;
 	}
+
 	/* l.geocoder */
 	.leaflet-control-geocoder {
 		border-radius: 6px;
