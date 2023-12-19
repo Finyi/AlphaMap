@@ -928,8 +928,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.close_data_button{
 		cursor: pointer;
 		position: relative;
-		bottom: 430px;
-		margin-left: 323px;
+		bottom: 370px;
+		margin-left: 320px;
 	}
 	.close_data_button img{
 		display: block;
@@ -968,47 +968,55 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		width: 30px;
 		height: 30px;
 	}
-@media  screen and (max-width: 1550px) {
-	.close{
-		bottom: 323px;
+	@media  screen and (max-width: 1660px) {
+		.close{
+			bottom: 290px;
+		}
 	}
-}
-@media  screen and (max-width: 1440px) {
-	.close{
-		bottom: 355px;
+	@media  screen and (max-width: 1550px) {
+		.close{
+			bottom: 300px;
+		}
 	}
-}	
-@media  screen and (max-width: 1280px) {
-	.close{
-		bottom: 372px;
+	@media  screen and (max-width: 1488px) {
+		.close{
+			bottom: 344px;
+		}
 	}
-}
-@media screen and (max-width: 1080px) {
-    input[type="checkbox"]:checked ~ .data_content {
-		width: 270px;
-		margin-top: -612px;
-    }
-	.close{
-		bottom: 372px;
+	@media  screen and (max-width: 1435px) {
+		.close{
+			bottom: 360px;
+		}
 	}
-	.ghgtexti{
-		margin-right: 20px;
+	@media  screen and (max-width: 1439px) {
+		.close{
+			bottom: 350px;
+		}
+	}	
+	
+	@media screen and (max-width: 1080px) {
+		input[type="checkbox"]:checked ~ .data_content {
+			width: 270px;
+			margin-top: -612px;
+		}
+		.ghgtexti{
+			margin-right: 20px;
+		}
+		.ghgtexti2{
+			margin-right: 90px;
+		}
+		.block-26{
+			margin-top: -15px;
+		}
+		.close_data_button{
+			margin-left: 248px;
+		}
+		.basemapImg div{
+			background-size: 86px 86px;
+			width: 86px;
+			height: 86px;
+		}
 	}
-	.ghgtexti2{
-		margin-right: 90px;
-	}
-	.block-26{
-		margin-top: -15px;
-	}
-	.close_data_button{
-		margin-left: 248px;
-	}
-	.basemapImg div{
-		background-size: 86px 86px;
-		width: 86px;
-		height: 86px;
-	}
-}
 
 	.gi4hb0 {
 		display: block;
