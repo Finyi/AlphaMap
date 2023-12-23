@@ -497,7 +497,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([49.09573, 38.19277], { icon:enemy });
+var enemy = L.marker([49.06765, 38.03089], { icon:enemy });
 var popup = enemy.bindPopup('488-й гвардійський мотострілковий полк <br><b>в/ч 12721</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1193,7 +1193,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([49.68396, 37.96326], { icon:enemy });
+var enemy = L.marker([49.73275, 37.83777], { icon:enemy });
 var popup = enemy.bindPopup('1-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2328,7 +2328,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.19753, 37.68705], { icon:enemy });
+var enemy = L.marker([49.77935, 37.69795], { icon:enemy });
 var popup = enemy.bindPopup('15-а окрема мотострілецька бригада <br><b>в/ч 90600</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2384,7 +2384,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([49.88109, 37.77460], { icon:enemy });
+var enemy = L.marker([49.77830, 37.73306], { icon:enemy });
 var popup = enemy.bindPopup('138-а окрема гвардійська мотострілецька бригада <br><b>в/ч 02511</b></br>').openPopup()
 popup.addTo(map);
 
@@ -3674,7 +3674,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/17.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.60369, 37.93510], { icon:friendly });
+var friendly = L.marker([48.61104, 37.88987], { icon:friendly });
 var popup = friendly.bindPopup('77-а окрема аеромобільна бригада').openPopup()
 popup.addTo(map);
 
@@ -3706,7 +3706,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/15.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.94971, 37.47986], { icon:friendly });
+var friendly = L.marker([47.94972, 37.43480], { icon:friendly });
 var popup = friendly.bindPopup('79-та окрема десантно-штурмова бригада').openPopup()
 popup.addTo(map);
 
