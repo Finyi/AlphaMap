@@ -428,7 +428,24 @@ var enemy = L.marker([49.02459, 38.17886], { icon:enemy });
 var popup = enemy.bindPopup('144-та мотострілецька дивізія').openPopup()
 popup.addTo(map);
 
+
+
+
 // Russian Army Regiments (NATO - Images)
+var enemy = L.icon({
+    iconUrl: 'img/rus/NEW/8.png',
+    iconSize: [24, 31],
+});
+var enemy = L.marker([47.74570, 37.43814], { icon:enemy });
+var popup = enemy.bindPopup('113-й мотострілковий полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+var enemy = L.icon({
+    iconUrl: 'img/rus/NEW/19.png',
+    iconSize: [24, 31],
+});
+var enemy = L.marker([46.71189, 33.04743], { icon:enemy });
+var popup = enemy.bindPopup('328-й десантно-штурмовий полк <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
 var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [24, 31],
@@ -857,7 +874,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([47.72573, 37.40613], { icon:enemy });
+var enemy = L.marker([47.70390, 37.22537], { icon:enemy });
 var popup = enemy.bindPopup('116-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1121,7 +1138,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/8.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([46.74799, 33.11670], { icon:enemy });
+var enemy = L.marker([46.60038, 33.22424], { icon:enemy });
 var popup = enemy.bindPopup('26-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1493,13 +1510,19 @@ popup.addTo(map);
 
 // Russian Army Brigades/Battalions/Combat Teams (NATO - Images)
 var enemy = L.icon({
+    iconUrl: 'img/rus/NEW/6.png',
+    iconSize: [24, 31],
+});
+var enemy = L.marker([46.73154, 33.10850], { icon:enemy });
+var popup = enemy.bindPopup('144-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
+popup.addTo(map);
+var enemy = L.icon({
     iconUrl: 'img/rus/NEW/37.png',
     iconSize: [24, 31],
 });
 var enemy = L.marker([50.61233, 36.52542], { icon:enemy });
 var popup = enemy.bindPopup('24-а мобільна зенітна ракетна бригада <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
-
 var enemy = L.icon({
     iconUrl: 'img/rus/NEW/25.png',
     iconSize: [24, 31],
@@ -2416,7 +2439,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([47.41151, 35.88787], { icon:enemy });
+var enemy = L.marker([47.72036, 36.76755], { icon:enemy });
 var popup = enemy.bindPopup('136-та окрема мотострілецька бригада <br><b>в/ч 63354</b></br>').openPopup()
 popup.addTo(map);
 
