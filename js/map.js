@@ -1639,8 +1639,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([49.15493, 38.11621], { icon:enemy });
-var popup = enemy.bindPopup('35-а окрема гвардійська мотострілецька бригада <br><b>в/ч 41659</b></br>').openPopup()
+var enemy = L.marker([48.10007, 37.70147], { icon:enemy });
+var popup = enemy.bindPopup('35-а окрема мотострілецька бригада <br><b>в/ч 41659</b></br>').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -1895,8 +1895,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.21139, 37.73027], { icon:enemy });
-var popup = enemy.bindPopup('110-а окрема гвардійська мотострілецька бригада <br><b>в/ч 08826</b></br>').openPopup()
+var enemy = L.marker([48.06193, 37.72465], { icon:enemy });
+var popup = enemy.bindPopup('110-а окрема мотострілецька бригада <br><b>в/ч 08826</b></br>').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2785,7 +2785,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/5.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.57692, 37.94360], { icon:friendly });
+var friendly = L.marker([48.56349, 37.91066], { icon:friendly });
 var popup = friendly.bindPopup('210-й окремий батальйон спеціального призначення').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -2876,7 +2876,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/5.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.51945, 37.79245], { icon:friendly });
+var friendly = L.marker([48.80780, 38.22126], { icon:friendly });
 var popup = friendly.bindPopup('4-та бригада оперативного призначення НГУ').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3056,7 +3056,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.54556, 37.93940], { icon:friendly });
+var friendly = L.marker([48.71050, 37.87622], { icon:friendly });
 var popup = friendly.bindPopup('5-та окрема штурмова бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3091,7 +3091,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/10.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.74399, 38.15741], { icon:friendly });
+var friendly = L.marker([48.75394, 38.07857], { icon:friendly });
 var popup = friendly.bindPopup('10-та окрема гірсько-штурмова бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3270,7 +3270,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.17212, 37.73958], { icon:friendly });
+var friendly = L.marker([48.15661, 37.73023], { icon:friendly });
 var popup = friendly.bindPopup('42-й окрема стрілецька бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3614,7 +3614,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.34883, 37.88395], { icon:friendly });
+var friendly = L.marker([48.18058, 37.67100], { icon:friendly });
 var popup = friendly.bindPopup('109-та окрема бригада ТРО').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
