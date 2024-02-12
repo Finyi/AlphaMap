@@ -2750,7 +2750,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/5.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.56436, 37.90953], { icon:friendly });
+var friendly = L.marker([49.58376, 37.84361], { icon:friendly });
 var popup = friendly.bindPopup('3-й окремий батальйон спеціального призначення Міжнародного Легіону').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3130,7 +3130,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([49.62016, 37.87983], { icon:friendly });
+var friendly = L.marker([49.63383, 37.89536], { icon:friendly });
 var popup = friendly.bindPopup('41-а окрема механізована бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3270,8 +3270,8 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.15661, 37.73023], { icon:friendly });
-var popup = friendly.bindPopup('42-й окрема стрілецька бригада').openPopup()
+var friendly = L.marker([48.14746, 37.70943], { icon:friendly });
+var popup = friendly.bindPopup('42-а окрема стрілецька бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
     iconUrl: 'img/ua/NEW/2.png',
