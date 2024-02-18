@@ -1346,7 +1346,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/2.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.17348, 37.78550], { icon:enemy });
+var enemy = L.marker([48.17243, 37.77773], { icon:enemy });
 var popup = enemy.bindPopup('109-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1847,7 +1847,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.18485, 37.70272], { icon:enemy });
+var enemy = L.marker([48.14523, 37.72452], { icon:enemy });
 var popup = enemy.bindPopup('132-а окрема гвардійська мотострілецька бригада <br><b>в/ч 08803</b></br>').openPopup()
 popup.addTo(map);
 
@@ -1855,8 +1855,8 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.20951, 37.67984], { icon:enemy });
-var popup = enemy.bindPopup('114-а гвардійська мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
+var enemy = L.marker([48.15514, 37.73083], { icon:enemy });
+var popup = enemy.bindPopup('114-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
 popup.addTo(map);
 
 var enemy = L.icon({
@@ -2351,7 +2351,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.20164, 37.70881], { icon:enemy });
+var enemy = L.marker([48.13999, 37.75984], { icon:enemy });
 var popup = enemy.bindPopup('15-а окрема мотострілецька бригада <br><b>в/ч 90600</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2551,7 +2551,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.11750, 37.79185], { icon:enemy });
+var enemy = L.marker([48.11894, 37.73194], { icon:enemy });
 var popup = enemy.bindPopup('1-ша окрема мотострілецька бригада <br><b>в/ч 08801</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2599,7 +2599,7 @@ var enemy = L.icon({
     iconUrl: 'img/rus/NEW/6.png',
     iconSize: [24, 31],
 });
-var enemy = L.marker([48.10191, 37.67555], { icon:enemy });
+var enemy = L.marker([48.18673, 37.75396], { icon:enemy });
 var popup = enemy.bindPopup('74-та окрема мотострілецька бригада <br><b>в/ч 21005</b></br>').openPopup()
 popup.addTo(map);
 
@@ -2799,7 +2799,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/32.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.13303, 37.73572], { icon:friendly });
+var friendly = L.marker([48.12903, 37.62814], { icon:friendly });
 var popup = friendly.bindPopup('Загін спеціального призначення Національної Гвардії України "Омега-5"').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -2915,7 +2915,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/12.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.74207, 36.84909], { icon:friendly });
+var friendly = L.marker([47.74742, 36.81905], { icon:friendly });
 var popup = friendly.bindPopup('4-та окрема танкова бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3105,7 +3105,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.14265, 37.71169], { icon:friendly });
+var friendly = L.marker([48.13773, 37.65062], { icon:friendly });
 var popup = friendly.bindPopup('3-тя окрема штурмова бригада').openPopup()
 popup.addTo(map);
 
@@ -3382,7 +3382,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/9.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([48.16667, 37.71379], { icon:friendly });
+var friendly = L.marker([48.16072, 37.64903], { icon:friendly });
 var popup = friendly.bindPopup('47-ма окрема механізована бригада').openPopup()
 popup.addTo(map);
 var friendly = L.icon({
@@ -3705,7 +3705,7 @@ var friendly = L.icon({
     iconUrl: 'img/ua/NEW/15.png',
     iconSize: [32, 32],
 });
-var friendly = L.marker([47.44861, 35.94237], { icon:friendly });
+var friendly = L.marker([47.44743, 35.90847], { icon:friendly });
 var popup = friendly.bindPopup('82-а окрема десантно-штурмова бригада').openPopup()
 popup.addTo(map);
 
