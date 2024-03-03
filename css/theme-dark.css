@@ -961,7 +961,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		display: none;
 	}
 	.light__img{
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1178040847091110028/data-light.png?ex=6574b308&is=65623e08&hm=d45823e8ecb2c89cc7fb3adcaa25f17b9d793348f38415e49320dc7a367d71a0&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1213825620530962483/data-light.png?ex=65f6e233&is=65e46d33&hm=c4917e3d099a1db8a4fb4323199781a4adaa431c8f24501b577ccc5249fcf9c7&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1107,7 +1107,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border-radius: 6px;
 		border: none;
 		background-color: #434343;
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1178039306699423884/search-light.png?ex=6574b199&is=65623c99&hm=0efbcf669e8c7fc1e262219b2c72020f5f3e45f81d5e56e215d934d9b26539fe&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1213825110859845682/search-light.png?ex=65f6e1ba&is=65e46cba&hm=6bd642b86de38d40eb3e40360aabe5f7c74ba82d5a12edda083467e20c4d1cd3&");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1219,7 +1219,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	.leaflet-compass .compass-icon {
 		margin: 0px;
-		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1175537664196350142/compass-arrow.png?ex=656b97c3&is=655922c3&hm=c3475f6d28e00933bbf374782a57ecc6c59647a117ab6d130a4a47b8269ebfa1&");
+		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1213824942391427072/compass-arrow.png?ex=65f6e192&is=65e46c92&hm=355570cfa8f700c4592c3ec5c516862a3d87a9dcff411dbf0400094b28efd7d4&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1254,7 +1254,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.polyline-measure-unicode-icon {
 		content: '';
 		font-size: 0px;
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1178048224154615828/ruler-light.png?ex=6574b9e7&is=656244e7&hm=4395c9120c3ef78f41376f63a4298260a5facd10161be4af400e60892683d9b5&");
+		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1213824529273716776/ruler-light.png?ex=65f6e12f&is=65e46c2f&hm=47c7411d345f4d26960ddfbb800ab903a6e09030d58b4a5062fe125c9ade41f5&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
