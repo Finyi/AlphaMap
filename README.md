@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://cdn.discordapp.com/attachments/902207809385533481/1160664965980622929/AlphaMap.png?ex=65357c7c&is=6523077c&hm=88afce40b4019a13991022ef1fd3c8eabd113b953ec6af43040532606d03e54a&" alt="Project Logo">
+      <img src="https://cdn.discordapp.com/attachments/902207809385533481/1219008230852919436/AlphaMap.png?ex=6609bce2&is=65f747e2&hm=7866a0d09e1d8fe28c7f1700e3d8f839f4d004400e61157f11de5381c4e68ce2&" alt="Project Logo">
 </p>
 
 
