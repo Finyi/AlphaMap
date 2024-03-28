@@ -1098,7 +1098,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		border-radius: 6px;
 		border: none;
 		background-color: rgba(255, 255, 255, 0.71);
-		background-image: url("https://cdn.discordapp.com/attachments/902207809385533481/1213825088810389574/search.png?ex=65f6e1b4&is=65e46cb4&hm=0d9f400bf8217e6ca4770920d2f17fe830a6a4633bb981f943f92d40ce78e3ba&");
+		background-image: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040658726715392/search.png?ex=66186860&is=6605f360&hm=31817d8413ebb97fbb35f71d38362ab48bd4405c79b7019b09e9f86573517d82&");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1210,7 +1210,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 	.leaflet-compass .compass-icon {
 		margin: 0px;
-		background: url("https://cdn.discordapp.com/attachments/902207809385533481/1213824942391427072/compass-arrow.png?ex=65f6e192&is=65e46c92&hm=355570cfa8f700c4592c3ec5c516862a3d87a9dcff411dbf0400094b28efd7d4&");
+		background: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040620411621396/compass-arrow.png?ex=66186856&is=6605f356&hm=a26ebac4ec94f436b79f295140701f8601648d5c4d0c5939346f63fd0985a502&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -1245,7 +1245,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	.polyline-measure-unicode-icon {
 		content: '';
 		font-size: 0px;
-		background-image: url("https://media.discordapp.net/attachments/902207809385533481/1213824539448844309/ruler.jpg?ex=65f6e131&is=65e46c31&hm=14875099b13df633e210bdfb7a0a9ae9680806426e7a63f585c058414fc90b78&=&format=webp");
+		background-image: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040593635184781/ruler.png?ex=66186850&is=6605f350&hm=930754482b0528da8a561b2c005c5830795b49d4eb56e73115e764f2d4f0561e&");
 		background-size: no-repeat;
 		background-position: center;
 		background-size: cover;
