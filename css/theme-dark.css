@@ -739,323 +739,37 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .close img{
 	width: 18px;
 }
-
-
-	.data_content,
-	input[type="checkbox"] {
-	  display: none;
-	}
-	
-	input[type="checkbox"]:checked ~ .data_content {
-	  -webkit-backdrop-filter: blur(12px);
-	  backdrop-filter: blur(12px);
-	  display: block;
-	  position: absolute;
-	  width: 345px;
-	  height: 377px;
-	  left: 60px;
-	  border-radius: 8px;
-	  background: hsla(0, 0%, 0%, 0.463);
-	  background-blend-mode: overlay,normal;
-	  box-shadow: 0 1px 12px rgba(0,0,0,0.65);
-	  margin-top: -528px;
-	  z-index: 400;
-	  transition: all .2s;
-	}
-	.data_content>section{
-		width: 100%;
-		height: 62px;
-		border-bottom: solid 1px #373737;
-	}
-	h1{
-		font-size: 12px;
-		font-family: 'Montserrat', sans-serif;
-		padding: 7px;
-		text-align: center;
-		font-weight: 500;;
-		color: #f0f0f0
-	}
-	.block-23{
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -9px;
-		width: 34px;  
-		height: 27px;
-		border-radius: 3px;
-		border: 2px dashed rgba(11, 39, 42, 0.743);
-		background-color: rgba(48, 179, 194, 0.743);
-	}
-	.block-24{
-		position: absolute;
-		display: block;  
-		left: 0;
-		right: 45px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -9px;
-		width: 34px;  
-		height: 27px;
-		border-radius: 3px;
-		border: 2px dashed rgba(72, 22, 14, 0.743);
-		background-color: rgba(194, 62, 42, 0.743);
-	}
-	.block-25{
-		position: absolute;
-		display: block;  
-		left: 45px;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -9px;
-		width: 34px;  
-		height: 27px;
-		border-radius: 3px;
-		border: 2px dashed rgba(216, 90, 90, 0.813);
-		background-color: rgba(255, 99, 99, 0.343);
-	}
-	h2{
-		font-size: 10px;
-		font-family: 'Montserrat', sans-serif;
-		padding: 7px;
-		text-align: center;
-		font-weight: 500;
-		color: #f0f0f0
-	}
-	.block-26{
-		position: absolute;
-		display: block;
-		left: 0;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -9px;
-		width: 34px;  
-		height: 27px;
-		border-radius: 3px;
-		border: 2px solid #aa0000;
-		background-color: #aa11112c;
-	}
-	.block-27{
-		float: left;
-		position: absolute;
-		display: block;
-		margin-left: 10px;
-		margin-top: 10px;
-		width: 31px;
-		border-bottom: solid 2px #ff0000;
-		background-color: #ffffff00;
-	}
-	.ghgtexti{
-		font-size: 12px;
-		font-family: 'Montserrat', sans-serif;
-		margin-right: 80px;
-		margin-top: 5px;
-		text-align: center;
-		font-weight: 500;
-		color: #f0f0f0;
-	}
-	.block-28{
-		float: left;
-		position: absolute;
-		display: block;
-		margin-left: 10px;
-		margin-top: 10px;
-		width: 31px;
-		border-bottom: dashed 2px #ff0000;
-		background-color: #ffffff00;
-	}
-	.ghgtexti2{
-		font-size: 12px;
-		font-family: 'Montserrat', sans-serif;
-		margin-right: 160px;
-		margin-top: 18px;
-		text-align: center;
-		font-weight: 500;
-		color: #f0f0f0;
-	}
-	.nuclearimg{
-		position: absolute;
-		display: block;
-		width: 32px;
-		left: 0;
-		right: 90px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -12px;
-	}
-	.airportimg{
-		position: absolute;
-		display: block;
-		width: 32px;
-		left: 0;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -12px;
-	}
-	.airfieldimg{
-		position: absolute;
-		display: block;
-		width: 32px;
-		left: 90px;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -12px;
-	}
-	.gjhgbimg{
-		position: absolute;
-		display: block;
-		width: 25px;
-		left: 0;
-		right: 40px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -12px;
-	}
-	.btlhhimg{
-		position: absolute;
-		display: block;
-		width: 28px;
-		left: 40px;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: -12px;
-	}
-
-	.close_data_button{
-		cursor: pointer;
-		position: relative;
-		bottom: 370px;
-		margin-left: 320px;
-	}
-	.close_data_button img{
-		display: block;
-		width: 16px;
-		filter: invert(1);
-	}
-
-	
-	
-	.btn {
-	  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
-      border-radius: 6px;
-	  width: 32px;
-	  height: 32px;
-	  display: inline-block;
-	  position: relative;
-	  padding: 0px 0px;
-	  background-color: #434343;
-	  cursor: pointer;
-	  z-index: 800;
-	  top: -275px;
-	  right: -10px;
-	  transition: all .2s;
-	}
-	.btn:hover{
-		background-color: #333333;
-	}
-	.btn img{
-		display: none;
-	}
-	.light__img{
-		background-image: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040730704904273/data-light.png?ex=66186871&is=6605f371&hm=671200b6eadc3107130b041c0ae931c799116023f896d2c511d9a069434d8aea&");
-		background-size: no-repeat;
-		background-position: center;
-		background-size: cover;
-		width: 30px;
-		height: 30px;
-	}
-	@media  screen and (max-width: 1660px) {
-		.close{
-			bottom: 290px;
-		}
-	}
-	@media  screen and (max-width: 1550px) {
-		.close{
-			bottom: 300px;
-		}
-	}
-	@media  screen and (max-width: 1488px) {
-		.close{
-			bottom: 344px;
-		}
-	}
-	@media  screen and (max-width: 1435px) {
-		.close{
-			bottom: 360px;
-		}
-	}
-	@media  screen and (max-width: 1439px) {
-		.close{
-			bottom: 350px;
-		}
-	}	
-	
-	@media screen and (max-width: 1080px) {
-		input[type="checkbox"]:checked ~ .data_content {
-			width: 270px;
-			margin-top: -612px;
-		}
-		.ghgtexti{
-			margin-right: 20px;
-		}
-		.ghgtexti2{
-			margin-right: 90px;
-		}
-		.block-26{
-			margin-top: -15px;
-		}
-		.close_data_button{
-			margin-left: 248px;
-		}
-		.basemapImg div{
-			background-size: 86px 86px;
-			width: 86px;
-			height: 86px;
-		}
-	}
-
-	.gi4hb0 {
-		display: block;
-		position: relative;
-		background-color: #FFF;
-		width: 500px;
-		margin-right: auto;
-        margin-left: auto;
-		border-radius: 5px;
-		box-shadow: 2.5px 4.33px 22px 0 rgba(16, 15, 15, 0.237);
-		height: 45px;
+	.night-switcher{
+		outline: none !important;
 		z-index: 500;
-	}
-
-	
-	.night__switcher{
-		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+		float: right;
+		position: relative;
 		border-radius: 8px;
-		border: 0;
-		padding: 0;	
-		width: 32px;
+		border: none;
+		width: 68px;
 		height: 32px;
 		display: inline-block;
 		position: relative;
 		background-color: #434343;
 		cursor: pointer;
-		z-index: 800;
-		top: -320px;
-		right: 25px;
+		box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+		top: -188px;
+		right: 31px;
 		transition: all .2s;
-		border: none;
 	}
-	.night__switcher:hover{
-		border: 0px;
+	.night-switcher:hover{
+		outline: none;
+		border: none;
 		background-color: #333333;
 	}
 	.dark_svg{
 		display: none;
 	}
+	.light_svg{
+		margin-bottom: 2px;
+		vertical-align: auto;
+	}
+
 	/* l.geocoder */
 	.leaflet-control-geocoder {
 		border-radius: 6px;
@@ -1063,7 +777,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		min-width: 32px;
 		min-height: 32px;
 		filter: drop-shadow(0px 1px 7px rgba(0, 0, 0, 0.65));
-		transition: all .2s;
+		transition: all .6s;
 	  }
 	  
 	  .leaflet-touch .leaflet-control-geocoder {
@@ -1100,25 +814,24 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		font-size: 120%;
 		border: 0;
 		background-color: transparent;
-		width: 246px;
+		width: 255px;
 	  }
 	  
 	  .leaflet-control-geocoder-icon {
-		border-radius: 6px;
+		border-radius:16px;
 		border: none;
 		background-color: #434343;
-		background-image: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040693837103235/search-light.png?ex=66186868&is=6605f368&hm=f74efaca995a220270735f09d23f5c5c5198990155980173770ac8f61a05346c&");
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>');
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;
-		width: 30px;
-		height: 30px;
+		width: 32px;
+		height: 32px;
 		cursor: pointer;
 	  }
 	  
 	  .leaflet-touch .leaflet-control-geocoder-icon {
-		width: 30px;
-		height: 30px;
+		width: 56px;
+		height: 32px;
 	  }
 	  
 	  .leaflet-control-geocoder-throbber .leaflet-control-geocoder-icon {
@@ -1179,72 +892,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	  }
 	  .leaflet-control-geocoder-alternatives li:hover,
 	  .leaflet-control-geocoder-selected {
-		background-color: rgba(255, 255, 255, 0.399);
+		background-color: rgba(255, 255, 255, 0.783);
 	  }
 	  .leaflet-control-geocoder-address-detail {
 	  }
 	  .leaflet-control-geocoder-address-context {
 		color: #000000d2;
 	  }
-
-
-    /* l.compass */
-	.leaflet-control.leaflet-compass {
-		position:relative;
-		color:#1978cf;
-		-moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		border-radius: 0px 0px 6px 6px;
-		/*background-color: rgba(0, 0, 0, 0.25);*/
-		background-color: #434343;
-		/*background: none;*/
-		box-shadow: 0 4px 7px rgba(0,0,0,0.65);
-		margin-left: 10px;
-		margin-top: -14px;
-		border-top: 1px solid #2b2b2b;
-		transition: all .2s;
-	}
-	.leaflet-control.leaflet-compass:hover{
-		background-color: #333333;
-	}
-	.leaflet-compass .compass-button {
-		display:block;
-		float:left;
-		width:32px;
-		height:32px;
-		border-radius:9px;
-	}
-	.leaflet-compass .compass-button.active {
-		background: #333333;
-	}
-	.leaflet-compass .compass-icon {
-		margin: 0px;
-		background: url("https://cdn.discordapp.com/attachments/1220680469327118407/1223040620411621396/compass-arrow.png?ex=66186856&is=6605f356&hm=a26ebac4ec94f436b79f295140701f8601648d5c4d0c5939346f63fd0985a502&");
-		background-size: no-repeat;
-		background-position: center;
-		background-size: cover;
-		height: 32px;
-		width: 32px;
-	}
-	
-	.leaflet-compass .compass-digit {
-	}
-	
-	.leaflet-compass .compass-alert {
-		position:absolute;
-		right:-223px;
-		bottom:-38px;
-		width: 210px;
-		padding:22px;
-		font-family: 'JetBrains Mono';
-		font-weight: 300;
-		line-height:.95em;
-		color: #f0f0f0;
-		border: 0px solid #ffffff;	
-		background-color: #434343;
-		border-radius: 8px;
-		transition: all .2s;
-	}
 
 /* l.polylinemeasure */
 	a.polyline-measure-controlOnBgColor, a.polyline-measure-controlOnBgColor:hover {
@@ -1497,21 +1151,4 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		display: block;
 		position: relative;
 		z-index: -1;
-	  }
-
-
-	  /* markercluster */
-	  .leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
-		-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
-		-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
-		-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
-		transition: transform 0.3s ease-out, opacity 0.3s ease-in;
-	}
-	
-	.leaflet-cluster-spider-leg {
-		/* stroke-dashoffset (duration and function) should match with leaflet-marker-icon transform in order to track it exactly */
-		-webkit-transition: -webkit-stroke-dashoffset 0.3s ease-out, -webkit-stroke-opacity 0.3s ease-in;
-		-moz-transition: -moz-stroke-dashoffset 0.3s ease-out, -moz-stroke-opacity 0.3s ease-in;
-		-o-transition: -o-stroke-dashoffset 0.3s ease-out, -o-stroke-opacity 0.3s ease-in;
-		transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
-	}	  
+	  }  
