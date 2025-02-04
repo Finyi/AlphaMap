@@ -1,110 +1,46 @@
 var map = L.map('map').setView([49.0139, 31.2858], 7);
 
-layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 16,
-    minZoom: 6,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map),
+layer: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 15,minZoom: 6, attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'}).addTo(map),
   
 map.locate({setView: true, maxZoom: 10});
 L.control.scale().addTo(map);
-L.control.mapCenterCoord({
-    position: 'bottomright'
-}).addTo(map);
+L.control.mapCenterCoord({position: 'bottomright'}).addTo(map);
 var geocoder = L.Control.geocoder({
-  defaultMarkGeocode: false,
-  position: 'bottomleft'
-})
-  .on('markgeocode', function(e) {
-    var bbox = e.geocode.bbox;
-    var poly = L.polygon([
-      bbox.getSouthEast(),
-      bbox.getNorthEast(),
-      bbox.getNorthWest(),
-      bbox.getSouthWest()
-    ]).addTo(map);
-    map.fitBounds(poly.getBounds());
-  })
-  .addTo(map);
-
+    defaultMarkGeocode: false})
+    .on('markgeocode', function(e) {
+      var bbox = e.geocode.bbox;
+      var poly = L.polygon([bbox.getSouthEast(),bbox.getNorthEast(),bbox.getNorthWest(),bbox.getSouthWest()]).addTo(map);map.fitBounds(poly.getBounds());
+}).addTo(map)
     new L.basemapsSwitcher([
   {
-     layer: L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}', {
-       attribution: '&copy; Google',
-       subdomains:['mt0','mt1','mt2','mt3'],
-       minZoom: 6,
-       maxZoom: 16,
-       id: 'testing',
-    }),
-    icon: 'img/google.png',
-    name: 'Google Maps'
-  },
-  {
-     layer: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-       minZoom: 6,
-       maxZoom: 16,
-       className: 'map-tiles'
-    }),
-    icon: 'img/ESRI.png',
-    name: 'Esri TopoMap'    
-  },
-  {
-    layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	  maxZoom: 16,
+    layer: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	  maxZoom: 15,
       minZoom: 6,
       className: 'map-tiles',
-	  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	  attribution: ''
     }).addTo(map),
-    icon: 'img/OSM.png',
-    name: 'OSM'
+    icon: '',
+    name: 'Т'
   },
   {
-     layer: L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-       attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-       minZoom: 6,
-       maxZoom: 16,
-       className: 'map-tiles'
+    layer: L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+      maxZoom: 15,
+      minZoom: 6,
+      subdomains:['mt0','mt1','mt2','mt3']
     }),
-    icon: 'img/CyclOSM.png',
-    name: 'CyclOSM'
-  },
-], { position: 'bottomright' }).addTo(map);
-L.geoJSON(occupation2, {
-    style: {
-        fillColor: '#aa1111',
-        fillOpacity: 0.1,
-        weight: 2,
-        opacity: 0.8,
-        color: '#aa0000'
-    }
-}).addTo(map);
-L.geoJSON(line, {
-    style: {
-    color: '#DC143C',
-    weight: 2,
-    dashArray: '7, 7',
-    dashOffset: '0' 
-    }
-}).addTo(map);
-L.geoJSON(line78, {
-    style: {
-    color: '#ff0000',
-    weight: 1,
-    }
-}).addTo(map);
-L.geoJSON(line78)
-L.control.polylineMeasure({
-    position: 'bottomleft'
-}).addTo(map);
-map.addControl( new L.Control.Compass({
-    position: 'bottomleft'
-}) );
+    icon: '',
+    name: 'С'
+  }],
+{ position: 'bottomright' }).addTo(map);
+
+const stripePattern = new L.StripePattern({weight: 3, spaceWeight: 7, color: '#aa0000', opacity: 0.8, angle: 45 });stripePattern.addTo(map);
+L.geoJSON(occupation, {style: {fillPattern: stripePattern, fillColor: '#aa1111',weight: 2,opacity: 0.8,color: '#aa0000'}}).addTo(map);
+L.geoJSON(op, {style: {dashArray: '5,6', color: '#ff2300'}}).addTo(map);
+L.geoJSON(lb, {style: {dashArray: '5,6', color: '#0064ff'}}).addTo(map);
+L.control.polylineMeasure({position: 'bottomleft'}).addTo(map);
 
 map.zoomControl.setPosition('bottomleft');
-L.control.watermark = function(opts) {
-    return new L.Control.Watermark(opts);
-}
+L.control.watermark = function(opts){return new L.Control.Watermark(opts)};
 
 var osm = new L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 16, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
 var miniMap = new L.Control.MiniMap(osm, {position: 'topright'}).addTo(map);
@@ -114,3668 +50,555 @@ var kmz = L.kmzLayer().addTo(map);
 kmz.on('load', function(e) {
   control.addOverlay(e.layer, e.name);
 });
-// Додати видалені файли KMZ як шари (якщо це сторонні сервери, на них ПОВИНЕН бути включений CORS)
 kmz.load('data/territory.kmz')
-
-// Russian Army Corps (NATO - Images)
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/43.png',
-    iconSize: [24, 41],
-});
-var enemy = L.marker([51.24773, 37.86026], { icon:enemy });
-var popup = enemy.bindPopup('Угруповання військ "Захід" <p>військовий округ Збройних сил РФ, розташований на північному заході Росії. Штаб знаходиться в Санкт-Петербурзі.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ZVO_Russia_medium_emblem.svg/100px-ZVO_Russia_medium_emblem.svg.png"></center>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/15.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.45704, 38.80131], { icon:enemy });
-var popup = enemy.bindPopup('3-й армійський корпус').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/43.png',
-    iconSize: [24, 41],
-});
-var enemy = L.marker([47.26141, 39.64176], { icon:enemy });
-var popup = enemy.bindPopup('Угруповання військ "Південь"').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/15.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.14077, 32.87916], { icon:enemy });
-var popup = enemy.bindPopup('22-й армійський корпус').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/15.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.94981, 37.94094], { icon:enemy });
-var popup = enemy.bindPopup('1-й армійський корпус').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/15.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.56383, 39.30067], { icon:enemy });
-var popup = enemy.bindPopup('2-й армійський корпус').openPopup()
-popup.addTo(map);
-
-
-
-
-
-
-
-// Armies of the Russian (NATO - Images)
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.20487, 39.58563], { icon:enemy });
-var popup = enemy.bindPopup('2-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.95954, 38.99254], { icon:enemy });
-var popup = enemy.bindPopup('20-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.78421, 38.47069], { icon:enemy });
-var popup = enemy.bindPopup('8-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.10267, 37.53051], { icon:enemy });
-var popup = enemy.bindPopup('29-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.19670, 37.32674], { icon:enemy });
-var popup = enemy.bindPopup('5-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.35854, 36.65228], { icon:enemy });
-var popup = enemy.bindPopup('35-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.96844, 34.10294], { icon:enemy });
-var popup = enemy.bindPopup('18-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.67005, 33.52787], { icon:enemy });
-var popup = enemy.bindPopup('49-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([50.03884, 38.02917], { icon:enemy });
-var popup = enemy.bindPopup('6-а загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.84951, 35.33821], { icon:enemy });
-var popup = enemy.bindPopup('58-ма загальновійськова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/23.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.49601, 38.70621], { icon:enemy });
-var popup = enemy.bindPopup('1-ша танкова армія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/13.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.28324, 38.92267], { icon:enemy });
-var popup = enemy.bindPopup('41-ша загальновійськова армія').openPopup()
-popup.addTo(map);
-
-
-
-
-
-
-
-// Russian army divisions (NATO - Images)
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/36.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.24958, 39.73343], { icon:enemy });
-var popup = enemy.bindPopup('51-а дивізія протиповітряної оборони').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.22427, 38.30229], { icon:enemy });
-var popup = enemy.bindPopup('3-я мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/20.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.63285, 38.35945], { icon:enemy });
-var popup = enemy.bindPopup('106-а гвардійська повітряно-десантна дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.00537, 37.76894], { icon:enemy });
-var popup = enemy.bindPopup('20-та гвардійська мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/36.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.56687, 33.54401], { icon:enemy });
-var popup = enemy.bindPopup('31-а дивізія протиповітряної оборони').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/34.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.68705, 33.57327], { icon:enemy });
-var popup = enemy.bindPopup('27-а змішана авіаційна дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.48589, 34.27597], { icon:enemy });
-var popup = enemy.bindPopup('70-а мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/20.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.64845, 38.18985], { icon:enemy });
-var popup = enemy.bindPopup('98-а гвардійська повітряно-десантна дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.47417, 36.82720], { icon:enemy });
-var popup = enemy.bindPopup('127-а мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/22.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.76829, 38.16032], { icon:enemy });
-var popup = enemy.bindPopup('47-ма танкова дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.71083, 38.17268], { icon:enemy });
-var popup = enemy.bindPopup('2-га мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.90647, 38.28770], { icon:enemy });
-var popup = enemy.bindPopup('18-та гвардійська мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/22.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.13191, 38.27328], { icon:enemy });
-var popup = enemy.bindPopup('90-та танкова дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/20.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.35238, 33.56529], { icon:enemy });
-var popup = enemy.bindPopup('7-ма десантно-штурмова дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.94461, 37.55865], { icon:enemy });
-var popup = enemy.bindPopup('150-та мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.18645, 36.17249], { icon:enemy });
-var popup = enemy.bindPopup('42-мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.26065, 35.74471], { icon:enemy });
-var popup = enemy.bindPopup('19-а мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/22.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.42033, 38.14041], { icon:enemy });
-var popup = enemy.bindPopup('4-та танкова дивізія').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/10.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.02459, 38.17886], { icon:enemy });
-var popup = enemy.bindPopup('144-та мотострілецька дивізія').openPopup()
-popup.addTo(map);
-
-
-
-
-// Russian Army Regiments (NATO - Images)
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.74570, 37.43814], { icon:enemy });
-var popup = enemy.bindPopup('113-й мотострілковий полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.71189, 33.04743], { icon:enemy });
-var popup = enemy.bindPopup('328-й десантно-штурмовий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([50.39112, 36.86840], { icon:enemy });
-var popup = enemy.bindPopup('1009-й мотострілецький полк<br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/48.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.23996, 38.09200], { icon:enemy });
-var popup = enemy.bindPopup('10-й окремий ремонтно-відновлювальний полк <br><b>в/ч 25356</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.74954, 37.68963], { icon:enemy });
-var popup = enemy.bindPopup('1537-й зенітний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.30792, 41.78530], { icon:enemy });
-var popup = enemy.bindPopup('559-й гвардійський бомбардувальний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/31.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.44697, 39.42435], { icon:enemy });
-var popup = enemy.bindPopup('55-й окремий гвардійський гелікоптерний полк <br><b>в/ч 35666</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.96041, 38.00523], { icon:enemy });
-var popup = enemy.bindPopup('3-й змішаний авіаційний полк <br><b>в/ч 75386</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.05740, 38.23997], { icon:enemy });
-var popup = enemy.bindPopup('960-й гвардійський штурмовий авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.07716, 38.07372], { icon:enemy });
-var popup = enemy.bindPopup('856-й гвардійський самохідний артилерійський полк <br><b>в/ч 23857</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.06765, 38.03089], { icon:enemy });
-var popup = enemy.bindPopup('488-й гвардійський мотострілковий полк <br><b>в/ч 12721</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.04330, 38.04196], { icon:enemy });
-var popup = enemy.bindPopup('254-й гвардійський мотострілковий полк <br><b>в/ч 91704</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/7.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.01127, 38.19998], { icon:enemy });
-var popup = enemy.bindPopup('1140-й гвардійський артилерійський полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.03759, 38.28444], { icon:enemy });
-var popup = enemy.bindPopup('4-й гвардійський зенітний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.11857, 38.17483], { icon:enemy });
-var popup = enemy.bindPopup('400-й гвардійський самохідний артилерійський полк <br><b>в/ч 15871</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.16493, 38.16135], { icon:enemy });
-var popup = enemy.bindPopup('1438-й мотострілецький полк<br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.33891, 38.05621], { icon:enemy });
-var popup = enemy.bindPopup('99-й гвардійський самохідний артилерійський полк <br><b>в/ч 91727</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.37936, 38.05160], { icon:enemy });
-var popup = enemy.bindPopup('1232-й гвардійський мотострілецький полк <br><b>в/ч 29656</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.41974, 38.15689], { icon:enemy });
-var popup = enemy.bindPopup('538-й гвардійський зенітний ракетний полк <br><b>в/ч 51383</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.52691, 37.98077], { icon:enemy });
-var popup = enemy.bindPopup('1431-й гвардійський мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.58861, 37.97836], { icon:enemy });
-var popup = enemy.bindPopup('7-й окремий гвардійський мотострілецький полк <br><b>в/ч 06414</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([50.20668, 38.10608], { icon:enemy });
-var popup = enemy.bindPopup('245-й гвардійський мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.71638, 38.06900], { icon:enemy });
-var popup = enemy.bindPopup('1117-й зенітний ракетний полк <br><b>в/ч 51382</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.66260, 37.97725], { icon:enemy });
-var popup = enemy.bindPopup('1-й гвардійський танковий полк <br><b>в/ч 58198</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.68704, 38.05733], { icon:enemy });
-var popup = enemy.bindPopup('147-й гвардійський самохідний артилерійський полк <br><b>в/ч 73966</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.69756, 37.95965], { icon:enemy });
-var popup = enemy.bindPopup('467-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.73685, 37.90644], { icon:enemy });
-var popup = enemy.bindPopup('272-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.78542, 37.90884], { icon:enemy });
-var popup = enemy.bindPopup('347-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.83906, 38.16015], { icon:enemy });
-var popup = enemy.bindPopup('1432-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.80736, 38.15638], { icon:enemy });
-var popup = enemy.bindPopup('1427-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.91290, 38.31396], { icon:enemy });
-var popup = enemy.bindPopup('22-й гвардійський зенітний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.83777, 37.77430], { icon:enemy });
-var popup = enemy.bindPopup('79-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.91968, 38.29216], { icon:enemy });
-var popup = enemy.bindPopup('275-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.93868, 38.24564], { icon:enemy });
-var popup = enemy.bindPopup('280-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.07437, 38.41146], { icon:enemy });
-var popup = enemy.bindPopup('1005-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.90817, 38.41816], { icon:enemy });
-var popup = enemy.bindPopup('1443-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.82512, 38.37456], { icon:enemy });
-var popup = enemy.bindPopup('204-й мотострілецький полк (ЛНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.66053, 38.09904], { icon:enemy });
-var popup = enemy.bindPopup('5-й гвардійський зенітний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.70199, 38.01294], { icon:enemy });
-var popup = enemy.bindPopup('6-й мотострілецький полк (ЛНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.65536, 37.99240], { icon:enemy });
-var popup = enemy.bindPopup('1102-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/7.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.66010, 38.01373], { icon:enemy });
-var popup = enemy.bindPopup('1065-й гвардійський артилерійський полк <br><b>в/ч 62297</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.33577, 37.98746], { icon:enemy });
-var popup = enemy.bindPopup('1168-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.25004, 37.79258], { icon:enemy });
-var popup = enemy.bindPopup('1454-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.48709, 38.83066], { icon:enemy });
-var popup = enemy.bindPopup('1015-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.01576, 38.24100], { icon:enemy });
-var popup = enemy.bindPopup('107-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.19934, 37.96600], { icon:enemy });
-var popup = enemy.bindPopup('358-й гвардійський зенітний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.05244, 37.80789], { icon:enemy });
-var popup = enemy.bindPopup('87-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.06054, 37.67190], { icon:enemy });
-var popup = enemy.bindPopup('117-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.06986, 37.66714], { icon:enemy });
-var popup = enemy.bindPopup('1453-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.00526, 37.73684], { icon:enemy });
-var popup = enemy.bindPopup('504-й танковий полк <br><b>в/ч 84839</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.96315, 37.78507], { icon:enemy });
-var popup = enemy.bindPopup('933-й зенітний ракетний полк <br><b>в/ч 15269</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.95872, 37.59796], { icon:enemy });
-var popup = enemy.bindPopup('163-й гвардійський танковий полк <br><b>в/ч 84839</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.91674, 37.56311], { icon:enemy });
-var popup = enemy.bindPopup('381-й гвардійський артилерійський полк <br><b>в/ч 24390</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.59152, 37.47213], { icon:enemy });
-var popup = enemy.bindPopup('89-й танковий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.71259, 37.39145], { icon:enemy });
-var popup = enemy.bindPopup('123-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.70390, 37.22537], { icon:enemy });
-var popup = enemy.bindPopup('116-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72771, 37.03852], { icon:enemy });
-var popup = enemy.bindPopup('131-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.71591, 36.81029], { icon:enemy });
-var popup = enemy.bindPopup('218-й танковий полк <br><b>в/ч 82588</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.69448, 36.74772], { icon:enemy });
-var popup = enemy.bindPopup('247-й гвардійський десантно-штурмовий полк <br><b>в/ч 54801</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72837, 36.66558], { icon:enemy });
-var popup = enemy.bindPopup('394-й гвардійський мотострілковий полк <br><b>в/ч 25573</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.63521, 36.69399], { icon:enemy });
-var popup = enemy.bindPopup('143-й гвардійський мотострілковий полк <br><b>в/ч 21634</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.65446, 36.57280], { icon:enemy });
-var popup = enemy.bindPopup('114-й гвардійський мотострілковий полк <br><b>в/ч 24776</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/17.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.75298, 33.18094], { icon:enemy });
-var popup = enemy.bindPopup('177-й окремий полк морської піхоти <br><b>в/ч 87852</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.46715, 36.23600], { icon:enemy });
-var popup = enemy.bindPopup('1472-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.37955, 36.03189], { icon:enemy });
-var popup = enemy.bindPopup('50-й гвардійський самохідний артилерійський полк <br><b>в/ч 53185</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.42222, 35.77766], { icon:enemy });
-var popup = enemy.bindPopup('104-й гвардійський десантно-штурмовий полк <br><b>в/ч 32515</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.46306, 35.73183], { icon:enemy });
-var popup = enemy.bindPopup('237-й гвардійський десантно-штурмовий полк <br><b>в/ч 12865</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.42266, 35.82247], { icon:enemy });
-var popup = enemy.bindPopup('1152-й мотострілецький полк <br><b>в/ч 65384</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40651, 35.85345], { icon:enemy });
-var popup = enemy.bindPopup('291-й мотострілецький полк <br><b>в/ч 65384</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.38600, 35.79131], { icon:enemy });
-var popup = enemy.bindPopup('1430-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/27.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.25168, 35.69475], { icon:enemy });
-var popup = enemy.bindPopup('40-й полк радіаційного, хімічного та біологічного захисту <br><b>в/ч 16383</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.47365, 35.46867], { icon:enemy });
-var popup = enemy.bindPopup('125-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.41984, 35.26646], { icon:enemy });
-var popup = enemy.bindPopup('481-й зенінтний ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.37476, 35.02922], { icon:enemy });
-var popup = enemy.bindPopup('387-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.47092, 34.51286], { icon:enemy });
-var popup = enemy.bindPopup('1153-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.22569, 33.99771], { icon:enemy });
-var popup = enemy.bindPopup('1199-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.98482, 33.87634], { icon:enemy });
-var popup = enemy.bindPopup('1233-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.79289, 33.49045], { icon:enemy });
-var popup = enemy.bindPopup('359-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.60006, 33.49560], { icon:enemy });
-var popup = enemy.bindPopup('12-й зенітний ракетний полк <br><b>в/ч 85702</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.77912, 33.56280], { icon:enemy });
-var popup = enemy.bindPopup('917-й змішаний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/32.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.21769, 33.38359], { icon:enemy });
-var popup = enemy.bindPopup('68-й окремий морський інженерний полк Чорноморського флоту <br><b>в/ч 86863</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.11454, 33.97591], { icon:enemy });
-var popup = enemy.bindPopup('37-й змішаний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.02028, 35.35091], { icon:enemy });
-var popup = enemy.bindPopup('18-й гвардійський зенітний ракетний полк <br><b>в/ч 85388</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.44520, 34.21829], { icon:enemy });
-var popup = enemy.bindPopup('24-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/31.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.69284, 34.41982], { icon:enemy });
-var popup = enemy.bindPopup('39-й окремий вертолітний полк <br><b>в/ч 46453</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.16051, 33.61645], { icon:enemy });
-var popup = enemy.bindPopup('111-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.25644, 33.86055], { icon:enemy });
-var popup = enemy.bindPopup('3-й гвардійський зенітний ракетний полк <br><b>в/ч 94021</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.34989, 33.21922], { icon:enemy });
-var popup = enemy.bindPopup('214-й танковий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.60038, 33.22424], { icon:enemy });
-var popup = enemy.bindPopup('26-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/27.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.39229, 33.17493], { icon:enemy });
-var popup = enemy.bindPopup('7-й полк радіаційного, хімічного та біологічного захисту <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.49520, 32.98405], { icon:enemy });
-var popup = enemy.bindPopup('1253-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.50371, 32.83848], { icon:enemy });
-var popup = enemy.bindPopup('28-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.59013, 32.79728], { icon:enemy });
-var popup = enemy.bindPopup('1141-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.27946, 32.64896], { icon:enemy });
-var popup = enemy.bindPopup('1044-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.23982, 32.27749], { icon:enemy });
-var popup = enemy.bindPopup('404-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.64614, 37.94858], { icon:enemy });
-var popup = enemy.bindPopup('331-й парашутно-десантний полк <br><b>в/ч 71211</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.21953, 38.30624], { icon:enemy });
-var popup = enemy.bindPopup('55-й мотострілковий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.73275, 37.83777], { icon:enemy });
-var popup = enemy.bindPopup('1-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.64813, 37.94781], { icon:enemy });
-var popup = enemy.bindPopup('26-й гвардійський танковий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.37114, 37.96875], { icon:enemy });
-var popup = enemy.bindPopup('12-й гвардійський танковий полк <br><b>в/ч 31985</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.91089, 38.25474], { icon:enemy });
-var popup = enemy.bindPopup('11-й танковий полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.25727, 38.88130], { icon:enemy });
-var popup = enemy.bindPopup('1007-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/24.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([51.65115, 36.19411], { icon:enemy });
-var popup = enemy.bindPopup('14-й гвардійський винищувальний авіаційний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([51.31495, 34.66393], { icon:enemy });
-var popup = enemy.bindPopup('380-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([52.37219, 33.48871], { icon:enemy });
-var popup = enemy.bindPopup('352-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.85677, 37.57427], { icon:enemy });
-var popup = enemy.bindPopup('102-й мотострілецький полк <br><b>в/ч 91706</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.89314, 38.29611], { icon:enemy });
-var popup = enemy.bindPopup('78-й моторизований полк спеціального призначення "Північ-Ахмат" <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.71663, 36.72626], { icon:enemy });
-var popup = enemy.bindPopup('71-й гвардійський мотострілковий полк <br><b>в/ч 16544</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40544, 35.57510], { icon:enemy });
-var popup = enemy.bindPopup('292-й самохідний артилерійський полк <br><b>в/ч 37271</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.58246, 36.25591], { icon:enemy });
-var popup = enemy.bindPopup('64-а окрема гвардійська мотострілецька бригада <br><b>в/ч 51460</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.36801, 35.64205], { icon:enemy });
-var popup = enemy.bindPopup('95-й мотострілецький полк (ДНР) <br><b>в/ч 08818</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.99567, 38.13354], { icon:enemy });
-var popup = enemy.bindPopup('127-й окремий мотострілецький полк (ДНР) <br><b>в/ч 08818</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.09838, 38.01613], { icon:enemy });
-var popup = enemy.bindPopup('358 гвардійський ракетний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.92218, 37.52724], { icon:enemy });
-var popup = enemy.bindPopup('103-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.17243, 37.77773], { icon:enemy });
-var popup = enemy.bindPopup('109-й мотострілецький полк (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/4.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.08728, 37.83485], { icon:enemy });
-var popup = enemy.bindPopup('944-й гвардійський самохідний артилерійський полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.08212, 37.75520], { icon:enemy });
-var popup = enemy.bindPopup('255-й гвардійський мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.20024, 38.08702], { icon:enemy });
-var popup = enemy.bindPopup('237-й танковий полк <br><b>в/ч 34670</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.25879, 38.03038], { icon:enemy });
-var popup = enemy.bindPopup('752-й мотострілецький полк <br><b>в/ч 34670</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.61610, 37.96090], { icon:enemy });
-var popup = enemy.bindPopup('217-й парашутно-десантний полк <br><b>в/ч 62295</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/17.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.08969, 37.67323], { icon:enemy });
-var popup = enemy.bindPopup('9-й окремий полк морської піхоти  <br><b>в/ч 08819</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.68841, 37.94214], { icon:enemy });
-var popup = enemy.bindPopup('6-й окремий мотострілецький полк (ЛНР) <br><b>в/ч 69647</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.64098, 37.91227], { icon:enemy });
-var popup = enemy.bindPopup('56-й парашутно-десантний полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.45496, 35.56000], { icon:enemy });
-var popup = enemy.bindPopup('503-й мотострілецький полк <br><b>в/ч 75394</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40741, 35.71655], { icon:enemy });
-var popup = enemy.bindPopup('129-й мотострілецький полк').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40442, 35.80376], { icon:enemy });
-var popup = enemy.bindPopup('70-й мотострілецький полк <br><b>в/ч 71718</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.42730, 35.97756], { icon:enemy });
-var popup = enemy.bindPopup('108-й десантно-штурмовий полк <br><b>в/ч 42091</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.49717, 35.43065], { icon:enemy });
-var popup = enemy.bindPopup('429-й мотострілецький полк <br><b>в/ч 01860</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.11498, 32.91298], { icon:enemy });
-var popup = enemy.bindPopup('1096-й окремий зенітний ракетний полк <br><b>в/ч 83576</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/7.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.61989, 32.72286], { icon:enemy });
-var popup = enemy.bindPopup('8-й артилерійський полк <br><b>в/ч 87714</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/19.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.69238, 38.06574], { icon:enemy });
-var popup = enemy.bindPopup('137-й парашутно-десантний полк <br><b>в/ч 41450</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.41237, 37.97802], { icon:enemy });
-var popup = enemy.bindPopup('423-й мотострілецький полк <br><b>в/ч 91701</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.70347, 32.98688], { icon:enemy });
-var popup = enemy.bindPopup('385-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.66112, 37.99235], { icon:enemy });
-var popup = enemy.bindPopup('9-й мотострілецький полк <br><b>в/ч 08819</b></br>').openPopup()
-popup.addTo(map);
-
-
-
-
-
-
-
-// Russian Army Brigades/Battalions/Combat Teams (NATO - Images)
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.73154, 33.10850], { icon:enemy });
-var popup = enemy.bindPopup('144-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([50.61233, 36.52542], { icon:enemy });
-var popup = enemy.bindPopup('24-а мобільна зенітна ракетна бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([50.80946, 37.17379], { icon:enemy });
-var popup = enemy.bindPopup('26-а ракетна бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.71877, 39.87282], { icon:enemy });
-var popup = enemy.bindPopup('40-а ракетна бригада <br><b>в/ч 33166</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/50.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.35825, 40.03727], { icon:enemy });
-var popup = enemy.bindPopup('19-а окрема бригада радіоелектронної боротьби <br><b>в/ч 62829</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/49.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.25768, 39.84604], { icon:enemy });
-var popup = enemy.bindPopup('175-а бригада управління <br><b>в/ч 01957</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.23064, 38.84972], { icon:enemy });
-var popup = enemy.bindPopup('47-а ракетна бригада <br><b>в/ч 33166</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/33.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.62145, 40.06611], { icon:enemy });
-var popup = enemy.bindPopup('99-а окрема бригада матеріально-технічного забезпечення <br><b>в/ч 72153</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/47.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.73597, 37.74010], { icon:enemy });
-var popup = enemy.bindPopup('743-й окремий гвардійський батальйон зв;зку <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/46.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.77270, 37.71915], { icon:enemy });
-var popup = enemy.bindPopup('Окрема рота БПЛА <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.14100, 36.75270], { icon:enemy });
-var popup = enemy.bindPopup('11-а окрема берегова ракетно-артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/45.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.21198, 37.14117], { icon:enemy });
-var popup = enemy.bindPopup('629-й окремий інженерно-саперний батальйон <br><b>в/ч 96404</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/42.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.99849, 38.21654], { icon:enemy });
-var popup = enemy.bindPopup('1259-й окремий протитанковий артилерійський дивізіон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/28.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.00294, 38.10694], { icon:enemy });
-var popup = enemy.bindPopup('59-й окремий танковий батальйон <br><b>в/ч 94018</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/28.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.99469, 38.14934], { icon:enemy });
-var popup = enemy.bindPopup('124-й окремий танковий батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.05112, 38.20478], { icon:enemy });
-var popup = enemy.bindPopup('30-й окремий розвідувальний батальйон <br><b>в/ч 17654</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.10007, 37.70147], { icon:enemy });
-var popup = enemy.bindPopup('35-а окрема мотострілецька бригада <br><b>в/ч 41659</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.21507, 38.20684], { icon:enemy });
-var popup = enemy.bindPopup('3-я окрема гвардійська бригада спеціального призначення <br><b>в/ч 21208</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.29686, 38.16114], { icon:enemy });
-var popup = enemy.bindPopup('297 зенітна ракетна бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/42.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.32305, 38.04291], { icon:enemy });
-var popup = enemy.bindPopup('159-й окремий протитанковий артилерійський дивізіон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.33357, 38.00497], { icon:enemy });
-var popup = enemy.bindPopup('137-й окремий розвідувальний батальйон <br><b>в/ч 21555</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.57917, 38.16599], { icon:enemy });
-var popup = enemy.bindPopup('49-а зенітна ракетна бригада <br><b>в/ч 21555</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.55892, 38.07029], { icon:enemy });
-var popup = enemy.bindPopup('288-а артилерійська бригада <br><b>в/ч 30683</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/11.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.83398, 37.88352], { icon:enemy });
-var popup = enemy.bindPopup('96-а окрема розвідувальна бригада <br><b>в/ч 52634</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.21686, 37.69684], { icon:enemy });
-var popup = enemy.bindPopup('30-а окрема мотострілецька бригада <br><b>в/ч 45863</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.81445, 37.97098], { icon:enemy });
-var popup = enemy.bindPopup('45-а артилерійська бригада великої потужності <br><b>в/ч 31969</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.82685, 38.38537], { icon:enemy });
-var popup = enemy.bindPopup('2-а окрема гвардійська бригада спеціального призначення <br><b>в/ч 64044</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.84410, 38.52133], { icon:enemy });
-var popup = enemy.bindPopup('16-а окрема гвардійська бригада спеціального призначення <br><b>в/ч 54607</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/3.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.52081, 38.73333], { icon:enemy });
-var popup = enemy.bindPopup('79-а гвардійська реактивна артилерійська бригада <br><b>в/ч 53956</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.14741, 38.91478], { icon:enemy });
-var popup = enemy.bindPopup('28-а зенітна ракетна бригада <br><b>в/ч 71316</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.01327, 38.37233], { icon:enemy });
-var popup = enemy.bindPopup('385-а гвардійська артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/28.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.77302, 38.33405], { icon:enemy });
-var popup = enemy.bindPopup('4-й окремий танковий батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.71686, 38.03707], { icon:enemy });
-var popup = enemy.bindPopup('123-а окрема гвардійська мотострілецька бригада <br><b>в/ч 73438</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.62579, 38.00025], { icon:enemy });
-var popup = enemy.bindPopup('60-й окремий мотострілковий батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.51169, 37.99124], { icon:enemy });
-var popup = enemy.bindPopup('85-а окрема мотострілецька бригада (ЛНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/2.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.55159, 38.01175], { icon:enemy });
-var popup = enemy.bindPopup('374-й окремий стрілецький батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.46439, 38.15071], { icon:enemy });
-var popup = enemy.bindPopup('1442-й мотострілецький полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.52166, 38.06969], { icon:enemy });
-var popup = enemy.bindPopup('68-й гвардійський танковий полк <br><b>в/ч 91714</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/21.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.43222, 37.99604], { icon:enemy });
-var popup = enemy.bindPopup('21-й гвардійський танковий полк <br><b>в/ч 87441</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/7.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.48239, 38.08205], { icon:enemy });
-var popup = enemy.bindPopup('27-й артилерійський полк <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/39.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.50156, 38.02377], { icon:enemy });
-var popup = enemy.bindPopup('141-й спеціальний моторизований полк імені Ахмата Кадирова "Північ" Росгвардії <br><b>в/ч 4156</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.47389, 38.07793], { icon:enemy });
-var popup = enemy.bindPopup('173-й окремий гвардійський розвідувальний батальйон <br><b>в/ч 54392</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.14523, 37.72452], { icon:enemy });
-var popup = enemy.bindPopup('132-а окрема гвардійська мотострілецька бригада <br><b>в/ч 08803</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.15514, 37.73083], { icon:enemy });
-var popup = enemy.bindPopup('114-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.20606, 37.79254], { icon:enemy });
-var popup = enemy.bindPopup('207-й окремий стрілецький батальйон (ДНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.20411, 37.72448], { icon:enemy });
-var popup = enemy.bindPopup('277-й окремий стрілецький батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/44.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.33782, 38.40666], { icon:enemy });
-var popup = enemy.bindPopup('52-й окремий зенітний ракетний дивізіон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.10371, 38.74037], { icon:enemy });
-var popup = enemy.bindPopup('50-а окрема бригада оперативного призначення <br><b>в/ч 3660</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.06193, 37.72465], { icon:enemy });
-var popup = enemy.bindPopup('110-а окрема мотострілецька бригада <br><b>в/ч 08826</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/42.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.07677, 37.77855], { icon:enemy });
-var popup = enemy.bindPopup('487-й окремий противотанковий дивізіон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.09552, 37.66178], { icon:enemy });
-var popup = enemy.bindPopup('80-й окремий гвардійський розвідувальний батальйон <br><b>в/ч 08806</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/28.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.02903, 37.71709], { icon:enemy });
-var popup = enemy.bindPopup('10-й танковий батальйон <br><b>в/ч 08810</b></br>').openPopup()
-popup.addTo(map)
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.06504, 37.68578], { icon:enemy });
-var popup = enemy.bindPopup('14-а гвардійська окрема артилерійська бригада <br><b>в/ч 08802</b></br>').openPopup()
-popup.addTo(map)
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/41.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.84807, 37.99278], { icon:enemy });
-var popup = enemy.bindPopup('Окрема рота РЕБ <br><b>в/ч 08817</b></br>').openPopup()
-popup.addTo(map)
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/40.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.97941, 37.77288], { icon:enemy });
-var popup = enemy.bindPopup('Окремий ремонтно-відновлювальний батальйон "Конго" <br><b>в/ч 08813</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/5.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.00445, 37.83297], { icon:enemy });
-var popup = enemy.bindPopup('23-й окремий зенітний ракетний дивізіон <br><b>в/ч 08817</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/38.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.58504, 37.99991], { icon:enemy });
-var popup = enemy.bindPopup('58-й окремий батальйон спеціального призначення <br><b>в/ч 08827</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.94290, 37.49741], { icon:enemy });
-var popup = enemy.bindPopup('5-а окрема мотострілецька бригада <br><b>в/ч 08805</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.55592, 37.97280], { icon:enemy });
-var popup = enemy.bindPopup('140-а зенітна ракетна бригада <br><b>в/ч 32390</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.78971, 37.49398], { icon:enemy });
-var popup = enemy.bindPopup('39-а окрема мотострілецька бригада <br><b>в/ч 35390</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.66799, 37.40416], { icon:enemy });
-var popup = enemy.bindPopup('200-а артилерійська бригада <br><b>в/ч 48271</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.68593, 37.34520], { icon:enemy });
-var popup = enemy.bindPopup('23-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.56825, 37.31609], { icon:enemy });
-var popup = enemy.bindPopup('35-та гвардійська зенітна ракетна бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72222, 37.13877], { icon:enemy });
-var popup = enemy.bindPopup('36-а окрема гвардійська мотострілецька бригада <br><b>в/ч 06705</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.65134, 37.13207], { icon:enemy });
-var popup = enemy.bindPopup('22-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.66105, 37.07251], { icon:enemy });
-var popup = enemy.bindPopup('34-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.69708, 36.67228], { icon:enemy });
-var popup = enemy.bindPopup('34-а окрема мотострілецька бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.50891, 36.82051], { icon:enemy });
-var popup = enemy.bindPopup('77-й окремий розвідувальний батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/3.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.53569, 36.91011], { icon:enemy });
-var popup = enemy.bindPopup('338-а гвардійська реактивна артилерійська бригада <br><b>в/ч 57367</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.39063, 37.04841], { icon:enemy });
-var popup = enemy.bindPopup('8-а зенітна ракетна бригада <br><b>в/ч 36411</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.76803, 36.76884], { icon:enemy });
-var popup = enemy.bindPopup('102-а окрема бригада оперативного призначення <br><b>в/ч 6752</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40735, 36.41607], { icon:enemy });
-var popup = enemy.bindPopup('71-а гвардійська зенітна ракетна бригада <br><b>в/ч 01879</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.54397, 36.28235], { icon:enemy });
-var popup = enemy.bindPopup('165-а гвардійська артилерійська бригада <br><b>в/ч 02901</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40610, 36.11807], { icon:enemy });
-var popup = enemy.bindPopup('45-а окрема гвардійська бригада спеціального призначення повітрянодесантних військ <br><b>в/ч 28337</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.40433, 35.94830], { icon:enemy });
-var popup = enemy.bindPopup('417-й окремий розвідувальний батальйон <br><b>в/ч 13242</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.33504, 35.94830], { icon:enemy });
-var popup = enemy.bindPopup('291-а гвардійська артилерійська бригада <br><b>в/ч 64670</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/39.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.34042, 35.79706], { icon:enemy });
-var popup = enemy.bindPopup('249-й окремий спеціальний моторизований батальйон "Південь-Ахмат" Росгвардії <br><b>в/ч 4157</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.36223, 35.84676], { icon:enemy });
-var popup = enemy.bindPopup('1-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.39690, 35.78487], { icon:enemy });
-var popup = enemy.bindPopup('3-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.41142, 35.83122], { icon:enemy });
-var popup = enemy.bindPopup('11-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/38.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.29731, 35.63004], { icon:enemy });
-var popup = enemy.bindPopup('358-й окремий батальйон оперативного призначення <br><b>в/ч 6776</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/11.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.73951, 35.35160], { icon:enemy });
-var popup = enemy.bindPopup('100-а окрема розвідувальна бригада <br><b>в/ч 23511</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.18808, 35.56686], { icon:enemy });
-var popup = enemy.bindPopup('67 зенітна ракетна бригада <br><b>в/ч 32383</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.82931, 34.35459], { icon:enemy });
-var popup = enemy.bindPopup('90-а зенітна ракетна бригада <br><b>в/ч 54821</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/33.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.75082, 33.84768], { icon:enemy });
-var popup = enemy.bindPopup('133-та окрема бригада матеріально-технічного забезпечення Чорноморського флоту <br><b>в/ч 73998</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([44.88227, 34.07272], { icon:enemy });
-var popup = enemy.bindPopup('112-а окрема бригада оперативного призначення <br><b>в/ч 6914</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.48577, 32.73170], { icon:enemy });
-var popup = enemy.bindPopup('15-а окрема берегова ракетна бригада <br><b>в/ч 80365</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.71037, 33.33252], { icon:enemy });
-var popup = enemy.bindPopup('1-а гвардійська ракетна бригада <br><b>в/ч 31853</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([45.64597, 33.97110], { icon:enemy });
-var popup = enemy.bindPopup('Загін БАРС-30 <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/37.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.33543, 34.02294], { icon:enemy });
-var popup = enemy.bindPopup('77-а гвардійська зенітна ракетна бригада <br><b>в/ч 33742</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/29.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.52793, 33.49731], { icon:enemy });
-var popup = enemy.bindPopup('162-й окремий розвідувальний батальйон <br><b>в/ч 54377</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/28.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.47842, 33.43964], { icon:enemy });
-var popup = enemy.bindPopup('104-й окремий танковий батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.58553, 33.21510], { icon:enemy });
-var popup = enemy.bindPopup('227-ма артилерійська бригада <br><b>в/ч 13714</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/26.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.54198, 32.91092], { icon:enemy });
-var popup = enemy.bindPopup('171-й окремий десантно-штурмовий батальйон <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.49898, 32.66373], { icon:enemy });
-var popup = enemy.bindPopup('Бригадна тактична група зі складу 7-ї російської військової бази </b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.69838, 36.69828], { icon:enemy });
-var popup = enemy.bindPopup('ПВК "Шторм Z" </b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.59100, 36.80248], { icon:enemy });
-var popup = enemy.bindPopup('305-та артилерійська бригада <br><b>в/ч 39255</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.46686, 37.96051], { icon:enemy });
-var popup = enemy.bindPopup('72-га окрема мотострілецька бригада <br><b>в/ч ?').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/8.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.49875, 38.00137], { icon:enemy });
-var popup = enemy.bindPopup('ПВК "Шторм Z"').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/9.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.59747, 37.95356], { icon:enemy });
-var popup = enemy.bindPopup('31-ша окрема десантно-штурмова бригада <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.78023, 38.29096], { icon:enemy });
-var popup = enemy.bindPopup('88-а окрема мотострілецька бригада (ЛНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.92986, 38.30812], { icon:enemy });
-var popup = enemy.bindPopup('12-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.93914, 38.34173], { icon:enemy });
-var popup = enemy.bindPopup('14-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.99565, 38.28323], { icon:enemy });
-var popup = enemy.bindPopup('16-й загін БАРС <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.10470, 38.09638], { icon:enemy });
-var popup = enemy.bindPopup('120-та артилерійська бригада <br><b>в/ч 59361</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.13999, 37.75984], { icon:enemy });
-var popup = enemy.bindPopup('15-а окрема мотострілецька бригада <br><b>в/ч 90600</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.54916, 38.10711], { icon:enemy });
-var popup = enemy.bindPopup('244-та артилерійська бригада <br><b>в/ч 41603</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.69443, 36.80446], { icon:enemy });
-var popup = enemy.bindPopup('60-а окрема мотострілецька бригада <br><b>в/ч 16871</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.14230, 38.15277], { icon:enemy });
-var popup = enemy.bindPopup('236-я гвардійська артилерійська бригада <br><b>в/ч 53195</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.51774, 37.97562], { icon:enemy });
-var popup = enemy.bindPopup('27-а окрема гвардійська мотострілецька бригада <br><b>в/ч 61899</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.49209, 35.99928], { icon:enemy });
-var popup = enemy.bindPopup('38-ма окрема мотострілецька бригада <br><b>в/ч 21720</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.49284, 32.56245], { icon:enemy });
-var popup = enemy.bindPopup('61-а окрема бригада морської піхоти <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.77830, 37.73306], { icon:enemy });
-var popup = enemy.bindPopup('138-а окрема гвардійська мотострілецька бригада <br><b>в/ч 02511</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.62702, 37.94931], { icon:enemy });
-var popup = enemy.bindPopup('200-а окрема мотострілецька бригада <br><b>в/ч 08275</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.74029, 37.97836], { icon:enemy });
-var popup = enemy.bindPopup('9-а гвардійська артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.78492, 37.79846], { icon:enemy });
-var popup = enemy.bindPopup('25-а окрема гвардійська мотострілецька бригада <br><b>в/ч 297604</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72036, 36.76755], { icon:enemy });
-var popup = enemy.bindPopup('136-та окрема мотострілецька бригада <br><b>в/ч 63354</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/11.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.78606, 37.53445], { icon:enemy });
-var popup = enemy.bindPopup('14-а окрема гвардійська бригада спеціального призначення <br><b>в/ч 74854</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72772, 36.97792], { icon:enemy });
-var popup = enemy.bindPopup('37-ма окрема мотострілецька бригада <br><b>в/ч 69647</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.72567, 36.67502], { icon:enemy });
-var popup = enemy.bindPopup('336-та окрема бригада морської піхоти <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.50129, 35.97851], { icon:enemy });
-var popup = enemy.bindPopup('22-а окрема бригада спеціального призначення <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/11.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.51097, 36.08082], { icon:enemy });
-var popup = enemy.bindPopup('69-а окрема бригада прикриття <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/9.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.54897, 37.98643], { icon:enemy });
-var popup = enemy.bindPopup('83-я окрема гвардійська десантно-штурмова бригада <br><b>в/ч 71289</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.41769, 36.00237], { icon:enemy });
-var popup = enemy.bindPopup('45-а окрема гвардійська бригада спеціального призначення').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.51502, 32.51275], { icon:enemy });
-var popup = enemy.bindPopup('80-та окрема мотострілецька бригада <br><b>в/ч 34667</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.71477, 33.08919], { icon:enemy });
-var popup = enemy.bindPopup('810-та окрема бригада морської піхоти <br><b>в/ч 13140</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.90757, 38.31563], { icon:enemy });
-var popup = enemy.bindPopup('127-ма окрема мотострілецька бригада (ЛНР) <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.69164, 38.08016], { icon:enemy });
-var popup = enemy.bindPopup('10-та артилерійська бригада (ЛНР) <br><b>в/ч 08802</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.75273, 36.95565], { icon:enemy });
-var popup = enemy.bindPopup('40-ва окрема бригада морської піхоти <br><b>в/ч 10103</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/16.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.02937, 37.64174], { icon:enemy });
-var popup = enemy.bindPopup('2-й батальйон територіальної оборони <br><b>в/ч -</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.11894, 37.73194], { icon:enemy });
-var popup = enemy.bindPopup('1-ша окрема мотострілецька бригада <br><b>в/ч 08801</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/18.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.04050, 37.73804], { icon:enemy });
-var popup = enemy.bindPopup('238-ма артилерійська бригада <br><b>в/ч ?</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.52881, 32.54545], { icon:enemy });
-var popup = enemy.bindPopup('126-та окрема бригада берегової оборони <br><b>в/ч 12676</b>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/1.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.76192, 37.29953], { icon:enemy });
-var popup = enemy.bindPopup('155-та окрема бригада морської піхоти <br><b>в/ч 30926</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/11.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.74862, 33.26231], { icon:enemy });
-var popup = enemy.bindPopup('127-ма окрема розвідувальна бригада <br><b>в/ч 67606</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.74204, 33.13957], { icon:enemy });
-var popup = enemy.bindPopup('205-та окрема мотострілецька бригада <br><b>в/ч 74814</b>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.18673, 37.75396], { icon:enemy });
-var popup = enemy.bindPopup('74-та окрема мотострілецька бригада <br><b>в/ч 21005</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/25.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([49.05722, 39.20609], { icon:enemy });
-var popup = enemy.bindPopup('448-ма ракетна бригада <br><b>в/ч 35535</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/3.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.15698, 37.01637], { icon:enemy });
-var popup = enemy.bindPopup('439-а гвардійська ракетно-артилерійська бригада <br><b>в/ч ?</b>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.09562, 37.71802], { icon:enemy });
-var popup = enemy.bindPopup('55-та окрема мотострілецька бригада <br><b>в/ч 55115</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/6.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.44497, 37.94695], { icon:enemy });
-var popup = enemy.bindPopup('57-ма окрема мотострілецька бригада <br><b>в/ч </b>46102</br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/9.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([48.56959, 37.96978], { icon:enemy });
-var popup = enemy.bindPopup('11-а окрема десантно-штурмова бригада" <br><b>в/ч 32364</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/14.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([47.70693, 36.94101], { icon:enemy });
-var popup = enemy.bindPopup('5-та окрема танкова бригада <br><b>в/ч 46108</b></br>').openPopup()
-popup.addTo(map);
-
-var enemy = L.icon({
-    iconUrl: 'img/rus/NEW/12.png',
-    iconSize: [24, 31],
-});
-var enemy = L.marker([46.63901, 32.83264], { icon:enemy });
-var popup = enemy.bindPopup('10-а окрема бригада спеціального призначення <br><b>в/ч 51532</b></br>').openPopup()
-popup.addTo(map);
-
-
-
-// --------------------------------------------------------------------------------------------------------------------------------- \\
-
-
-
-
-
-// forces of the Ukrainian army
-
-//  Operational Command
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/20.png',
-    iconSize: [24, 31],
-});
-var friendly = L.marker([50.59261, 26.22231], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Захід» <p>Оперативне командування сухопутних військ ЗСУ у західній частині України, на території 8 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/%D0%9E%D0%9A_%D0%97%D0%B0%D1%85%D1%96%D0%B4_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%97%D0%B0%D1%85%D1%96%D0%B4_%D0%BA.svg.png"></center>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/20.png',
-    iconSize: [24, 31],
-});
-var friendly = L.marker([51.49197, 31.30074], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Північ» <p>Оперативне командування сухопутних військ ЗСУ у північній частині України, на території 6 областей та міста Києва.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%BD%D1%96%D1%87_%D0%BA.svg.png"></center>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/20.png',
-    iconSize: [24, 31],
-});
-var friendly = L.marker([46.47901, 30.57770], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Південь» <p>Оперативне командування сухопутних військ ЗСУ у південній частині України, на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%9F%D1%96%D0%B2%D0%B4%D0%B5%D0%BD%D1%8C_%D0%BA.svg.png"></center>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/20.png',
-    iconSize: [24, 31],
-});
-var friendly = L.marker([48.46040, 35.00931], { icon:friendly });
-var popup = friendly.bindPopup('Оперативне командування «Схід» <p>Оперативне командування сухопутних військ ЗСУ у східній частині України, на території 5 областей.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/%D0%9E%D0%9A_%D0%A1%D1%85%D1%96%D0%B4_%D0%BA.svg/100px-%D0%9E%D0%9A_%D0%A1%D1%85%D1%96%D0%B4_%D0%BA.svg.png"></center>').openPopup()
-popup.addTo(map);
-
-
-
-// Army aviation
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/26.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.65356, 32.56725], { icon:friendly });
-var popup = friendly.bindPopup('10-та морська авіаційна бригада <br>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/21.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.93629, 32.09948], { icon:friendly });
-var popup = friendly.bindPopup('11-та окрема бригада армійської авіації «Херсон» <br>').openPopup()
-popup.addTo(map);
-
-
-
-// Anti-aircraft groups // Rocket groups
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/13.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.58390, 37.63813], { icon:friendly });
-var popup = friendly.bindPopup('27-а реактивна артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/22.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.57809, 35.77354], { icon:friendly });
-var popup = friendly.bindPopup('39-й зенітний ракетний полк <br>').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/7.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.70550, 32.60399], { icon:friendly });
-var popup = friendly.bindPopup('208-ма зенітна ракетна бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/13.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.63240, 37.79778], { icon:friendly });
-var popup = friendly.bindPopup('107-ма реактивна артилерійська бригада').openPopup()
-popup.addTo(map);
-
-
-
-// Grouping of special operations forces
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/5.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.58376, 37.84361], { icon:friendly });
-var popup = friendly.bindPopup('3-й окремий батальйон спеціального призначення Міжнародного Легіону').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/33.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.93434, 37.95467], { icon:friendly });
-var popup = friendly.bindPopup('12-а бригада оперативного призначення НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/33.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.94471, 38.12565], { icon:friendly });
-var popup = friendly.bindPopup('5-а окрема Слобожанська бригада НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/5.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.85280, 38.09200], { icon:friendly });
-var popup = friendly.bindPopup('3-й батальйон оперативного призначення').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/4.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.57110, 37.81958], { icon:friendly });
-var popup = friendly.bindPopup('Підрозділ Центру Спеціальних Операцій "Альфа"').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/5.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.56349, 37.91066], { icon:friendly });
-var popup = friendly.bindPopup('210-й окремий батальйон спеціального призначення').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.54690, 37.91056], { icon:friendly });
-var popup = friendly.bindPopup('120-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/32.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.12455, 37.58710], { icon:friendly });
-var popup = friendly.bindPopup('Загін спеціального призначення Національної Гвардії України "Омега-5"').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.74172, 36.59932], { icon:friendly });
-var popup = friendly.bindPopup('74-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.52204, 35.44344], { icon:friendly });
-var popup = friendly.bindPopup('130-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/34.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.46398, 35.82230], { icon:friendly });
-var popup = friendly.bindPopup('78-й окремий полк спеціального призначення').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/33.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.52433, 36.00546], { icon:friendly });
-var popup = friendly.bindPopup('27-а окрема Печерська бригада НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/32.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.60165, 36.04717], { icon:friendly });
-var popup = friendly.bindPopup('12-те головне управління департаменту військової контррозвідки СБУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/6.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.65986, 32.48280], { icon:friendly });
-var popup = friendly.bindPopup('73-й морський центр спеціальних операцій').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/5.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.64745, 32.62240], { icon:friendly });
-var popup = friendly.bindPopup('16-й окремий батальйон НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/4.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.70582, 32.71162], { icon:friendly });
-var popup = friendly.bindPopup('Центр спеціальних операцій «А» СБУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.77755, 38.07424], { icon:friendly });
-var popup = friendly.bindPopup('132-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.99700, 37.83451], { icon:friendly });
-var popup = friendly.bindPopup('140-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/5.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.80780, 38.22126], { icon:friendly });
-var popup = friendly.bindPopup('4-та бригада оперативного призначення НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/11.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.81480, 33.25836], { icon:friendly });
-var popup = friendly.bindPopup('131-й окремий розвідувальний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/19.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.51000, 37.90455], { icon:friendly });
-var popup = friendly.bindPopup('Спецпідрозділ «Kraken»').openPopup()
-popup.addTo(map);
-
-
-
-// Grouping of tank forces
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/38.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.96504, 37.44707], { icon:friendly });
-var popup = friendly.bindPopup('12-й окремий танковий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/12.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.23914, 37.70903], { icon:friendly });
-var popup = friendly.bindPopup('1-ша окрема танкова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/12.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.74742, 36.81905], { icon:friendly });
-var popup = friendly.bindPopup('4-та окрема танкова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/12.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.70933, 37.59882], { icon:friendly });
-var popup = friendly.bindPopup('3-тя окрема танкова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/12.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.59563, 37.84893], { icon:friendly });
-var popup = friendly.bindPopup('17-та окрема танкова бригада').openPopup()
-popup.addTo(map);
-
-
-
-// Group of artillery forces
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.60902, 37.85460], { icon:friendly });
-var popup = friendly.bindPopup('26-а окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/35.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.32167, 37.84069], { icon:friendly });
-var popup = friendly.bindPopup('64-й окремий артилерійський дивізіон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.85228, 37.20795], { icon:friendly });
-var popup = friendly.bindPopup('15-та окрема бригада артилерійської розвідки').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/35.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.79350, 36.82034], { icon:friendly });
-var popup = friendly.bindPopup('66-й окремий артилерійський дивізіон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.66571, 36.24553], { icon:friendly });
-var popup = friendly.bindPopup('47-а окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.99161, 33.29990], { icon:friendly });
-var popup = friendly.bindPopup('406-та окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.45203, 35.88281], { icon:friendly });
-var popup = friendly.bindPopup('44-та окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.00135, 37.43557], { icon:friendly });
-var popup = friendly.bindPopup('55-та окрема артилерійська бригадa').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.71149, 37.74250], { icon:friendly });
-var popup = friendly.bindPopup('43-тя окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.48090, 37.59882], { icon:friendly });
-var popup = friendly.bindPopup('40-ва окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/3.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.37583, 37.84189], { icon:friendly });
-var popup = friendly.bindPopup('45-та окрема артилерійська бригада').openPopup()
-popup.addTo(map);
-
-
-
-// Group of assault forces
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32]
-});
-var friendly = L.marker([47.46764, 35.88675], { icon:friendly });
-var popup = friendly.bindPopup('14-а штурмова бригада НГУ').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/18.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.50007, 35.77354], { icon:friendly });
-var popup = friendly.bindPopup('2-й гірничо-штурмовий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.43984, 35.86126], { icon:friendly });
-var popup = friendly.bindPopup('71-ша окрема єгерська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/36.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.52709, 37.94961], { icon:friendly });
-var popup = friendly.bindPopup('24-й окремий штурмовий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/18.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.51193, 35.60909], { icon:friendly });
-var popup = friendly.bindPopup('15-й окремий гірничо-штурмовий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.71050, 37.87622], { icon:friendly });
-var popup = friendly.bindPopup('5-та окрема штурмова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/18.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.81808, 38.24444], { icon:friendly });
-var popup = friendly.bindPopup('108-й окремий гірсько-штурмовий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/18.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.77030, 38.13930], { icon:friendly });
-var popup = friendly.bindPopup('109-й окремий гірсько-штурмовий батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/10.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.45852, 35.85573], { icon:friendly });
-var popup = friendly.bindPopup('128-ма окрема гірсько-штурмова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.85757, 38.18504], { icon:friendly });
-var popup = friendly.bindPopup('46-й окремий штурмовий батальйон «Донбас»').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/10.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.75394, 38.07857], { icon:friendly });
-var popup = friendly.bindPopup('10-та окрема гірсько-штурмова бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.33021, 37.93030], { icon:friendly });
-var popup = friendly.bindPopup('68-ма окрема єгерська бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.99651, 37.50175], { icon:friendly });
-var popup = friendly.bindPopup('3-тя окрема штурмова бригада').openPopup()
-popup.addTo(map);
-
-
-
-// Groups of mechanized and motorized infantry forces
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.87473, 36.25763], { icon:friendly });
-var popup = friendly.bindPopup('416-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.65302, 37.86472], { icon:friendly });
-var popup = friendly.bindPopup('88-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.63383, 37.89536], { icon:friendly });
-var popup = friendly.bindPopup('41-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.38271, 37.88670], { icon:friendly });
-var popup = friendly.bindPopup('44-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.27525, 37.92068], { icon:friendly });
-var popup = friendly.bindPopup('66-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.33105, 37.83829], { icon:friendly });
-var popup = friendly.bindPopup('43-тя окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.21928, 37.94849], { icon:friendly });
-var popup = friendly.bindPopup('19-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.15353, 37.97390], { icon:friendly });
-var popup = friendly.bindPopup('49-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.20697, 37.62457], { icon:friendly });
-var popup = friendly.bindPopup('45-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.11897, 37.99973], { icon:friendly });
-var popup = friendly.bindPopup('42-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.09450, 37.96944], { icon:friendly });
-var popup = friendly.bindPopup('21-ша окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.06071, 37.95399], { icon:friendly });
-var popup = friendly.bindPopup('23-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/37.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.75066, 37.07199], { icon:friendly });
-var popup = friendly.bindPopup('58-а окрема мотопіхотна бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.73621, 37.99278], { icon:friendly });
-var popup = friendly.bindPopup('35-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.70280, 37.91948], { icon:friendly });
-var popup = friendly.bindPopup('41-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/37.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.69153, 37.87468], { icon:friendly });
-var popup = friendly.bindPopup('56-а окрема мотопіхотна бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/39.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.67217, 37.88120], { icon:friendly });
-var popup = friendly.bindPopup('21-й окремий мотопіхотний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.63467, 37.86043], { icon:friendly });
-var popup = friendly.bindPopup('14-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/37.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.77367, 37.65701], { icon:friendly });
-var popup = friendly.bindPopup('57-а окрема мотопіхотна бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.59077, 37.82996], { icon:friendly });
-var popup = friendly.bindPopup('420-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.56566, 37.89691], { icon:friendly });
-var popup = friendly.bindPopup('22-а окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.41223, 37.91451], { icon:friendly });
-var popup = friendly.bindPopup('46-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.09774, 37.59453], { icon:friendly });
-var popup = friendly.bindPopup('142-й окремий стрілецька бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/37.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.05623, 37.55573], { icon:friendly });
-var popup = friendly.bindPopup('59-а окрема мотопіхотна бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/37.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.81206, 37.40519], { icon:friendly });
-var popup = friendly.bindPopup('12-й окремий мотопіхотний батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.75557, 37.02667], { icon:friendly });
-var popup = friendly.bindPopup('52-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.79371, 36.99007], { icon:friendly });
-var popup = friendly.bindPopup('69-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.76386, 36.93732], { icon:friendly });
-var popup = friendly.bindPopup('26-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/36.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.77807, 36.86274], { icon:friendly });
-var popup = friendly.bindPopup('3-й механізований батальйон окремої президентської бригади').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.73121, 36.53641], { icon:friendly });
-var popup = friendly.bindPopup('23-я окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.55333, 35.81200], { icon:friendly });
-var popup = friendly.bindPopup('117-я окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.53082, 35.90075], { icon:friendly });
-var popup = friendly.bindPopup('33-я окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.50782, 35.46181], { icon:friendly });
-var popup = friendly.bindPopup('2-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.54295, 35.37241], { icon:friendly });
-var popup = friendly.bindPopup('11-й окремий стрілецький батальйон').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.57551, 37.89794], { icon:friendly });
-var popup = friendly.bindPopup('24-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.76982, 36.70927], { icon:friendly });
-var popup = friendly.bindPopup('31-ша окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.42379, 37.89794], { icon:friendly });
-var popup = friendly.bindPopup('32-га окрема механізована бригадa').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.16063, 37.60431], { icon:friendly });
-var popup = friendly.bindPopup('47-ма окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.79765, 38.18092], { icon:friendly });
-var popup = friendly.bindPopup('54-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.97126, 38.00377], { icon:friendly });
-var popup = friendly.bindPopup('63-тя окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.10652, 37.93081], { icon:friendly });
-var popup = friendly.bindPopup('60-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.18078, 37.62826], { icon:friendly });
-var popup = friendly.bindPopup('53-тя окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.01710, 37.94918], { icon:friendly });
-var popup = friendly.bindPopup('67-ма окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.74642, 37.69572], { icon:friendly });
-var popup = friendly.bindPopup('30-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.51105, 35.67570], { icon:friendly });
-var popup = friendly.bindPopup('116-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.76084, 37.72242], { icon:friendly });
-var popup = friendly.bindPopup('14-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.53117, 37.90798], { icon:friendly });
-var popup = friendly.bindPopup('92-га окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.46743, 37.92360], { icon:friendly });
-var popup = friendly.bindPopup('28-ма окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.14898, 37.59015], { icon:friendly });
-var popup = friendly.bindPopup('110-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.76533, 37.69366], { icon:friendly });
-var popup = friendly.bindPopup('115-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.51237, 37.95339], { icon:friendly });
-var popup = friendly.bindPopup('93-тя окрема механізована бригада «Холодний Яр»').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.77935, 37.25189], { icon:friendly });
-var popup = friendly.bindPopup('72-га окрема механізована бригада').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/9.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.45276, 35.83637], { icon:friendly });
-var popup = friendly.bindPopup('65-та окрема механізована бригада').openPopup()
-popup.addTo(map);
-
-
-
-// TRO Group
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([50.00035, 37.66422], { icon:friendly });
-var popup = friendly.bindPopup('107-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/29.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.97988, 38.02162], { icon:friendly });
-var popup = friendly.bindPopup('54-й окремий батальйон ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.56552, 37.88288], { icon:friendly });
-var popup = friendly.bindPopup('181-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.48766, 37.85030], { icon:friendly });
-var popup = friendly.bindPopup('117-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.39308, 37.85511], { icon:friendly });
-var popup = friendly.bindPopup('228-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.22343, 37.64791], { icon:friendly });
-var popup = friendly.bindPopup('129-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.00675, 37.52037], { icon:friendly });
-var popup = friendly.bindPopup('116-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.75915, 36.65314], { icon:friendly });
-var popup = friendly.bindPopup('110-а окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.22172, 33.76167], { icon:friendly });
-var popup = friendly.bindPopup('121-ша окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.96337, 38.06540], { icon:friendly });
-var popup = friendly.bindPopup('100-та окрема бригада ТРO').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.18849, 37.96978], { icon:friendly });
-var popup = friendly.bindPopup('111-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.63364, 36.27359], { icon:friendly });
-var popup = friendly.bindPopup('102-га окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.54256, 35.78161], { icon:friendly });
-var popup = friendly.bindPopup('106-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.75789, 33.03082], { icon:friendly });
-var popup = friendly.bindPopup('126-та окрема бригадa ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.63606, 32.05244], { icon:friendly });
-var popup = friendly.bindPopup('124-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.51387, 35.92435], { icon:friendly });
-var popup = friendly.bindPopup('108-ма окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.19014, 37.61217], { icon:friendly });
-var popup = friendly.bindPopup('109-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.59314, 37.87854], { icon:friendly });
-var popup = friendly.bindPopup('127-ма окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([50.26630, 35.94521], { icon:friendly });
-var popup = friendly.bindPopup('113-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.32951, 37.89691], { icon:friendly });
-var popup = friendly.bindPopup('105-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.43774, 37.90721], { icon:friendly });
-var popup = friendly.bindPopup('103-тя окрема бригада ТРО').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/2.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.98393, 38.05630], { icon:friendly });
-var popup = friendly.bindPopup('112-та окрема бригада ТРО').openPopup()
-popup.addTo(map);
-
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/14.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.68201, 32.78286], { icon:friendly });
-var popup = friendly.bindPopup('38-а окрема бригада морської піхоти').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/14.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.68168, 32.73428], { icon:friendly });
-var popup = friendly.bindPopup('37-а окрема бригада морської піхоти').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/14.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.74886, 32.97289], { icon:friendly });
-var popup = friendly.bindPopup('36-та окрема бригада морської піхоти').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/24.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.98816, 32.10823], { icon:friendly });
-var popup = friendly.bindPopup('145-й окремий ремонтно-відновлювальний полк').openPopup()
-popup.addTo(map);
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/25.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.68171, 32.53876], { icon:friendly });
-var popup = friendly.bindPopup('19-й окремий полк радіо та радіотехнічної розвідки спеціального призначення').openPopup()
-popup.addTo(map);
-
-
-
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/17.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.61104, 37.88987], { icon:friendly });
-var popup = friendly.bindPopup('77-а окрема аеромобільна бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/15.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.47234, 35.91491], { icon:friendly });
-var popup = friendly.bindPopup('82-а окрема десантно-штурмова бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/14.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.80244, 33.15906], { icon:friendly });
-var popup = friendly.bindPopup('35-та окрема бригада морської піхоти').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/15.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.94972, 37.43480], { icon:friendly });
-var popup = friendly.bindPopup('79-та окрема десантно-штурмова бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEUTRAL/RUS.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([50.28320, 36.94410], { icon:friendly });
-var popup = friendly.bindPopup('Російський добровольчий корпус').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/15.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.52283, 37.93631], { icon:friendly });
-var popup = friendly.bindPopup('80-та окрема десантно-штурмова бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/17.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.13764, 38.03209], { icon:friendly });
-var popup = friendly.bindPopup('25-та окрема повітрянодесантна бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/15.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([49.00632, 37.97776], { icon:friendly });
-var popup = friendly.bindPopup('95-та окрема десантно-штурмова бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/17.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([48.92213, 38.23663], { icon:friendly });
-var popup = friendly.bindPopup('81-ша окрема аеромобільна бригада').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/16.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([46.78625, 32.98645], { icon:friendly });
-var popup = friendly.bindPopup('501-й батальйон морської піхоти').openPopup()
-popup.addTo(map);
-
-var friendly = L.icon({
-    iconUrl: 'img/ua/NEW/17.png',
-    iconSize: [32, 32],
-});
-var friendly = L.marker([47.96911, 37.47303], { icon:friendly });
-var popup = friendly.bindPopup('46-та окрема аеромобільна бригада').openPopup()
-popup.addTo(map);
+var afrf = [
+    { coords: [51.24773, 37.86026], icon: 'img/rus/NEW/43.png', size: [24, 41], popup: 'Army Group "West" <p>військовий округ Збройних сил РФ, розташований на північному заході Росії. Штаб знаходиться в Санкт-Петербурзі.</p> <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ZVO_Russia_medium_emblem.svg/100px-ZVO_Russia_medium_emblem.svg.png"></center>' },
+    { coords: [47.26141, 39.64176], icon: 'img/rus/NEW/43.png', size: [24, 41], popup: 'Army Group "South"' },
+    { coords: [50.59408, 36.58842], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '44th Army Corps' },
+    { coords: [48.32381, 38.40589], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '3rd Army Corps' },
+    { coords: [46.14077, 32.87916], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '22nd Army Corps' },
+    { coords: [47.94981, 37.94094], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '1st Army Corps' },
+    { coords: [48.56383, 39.30067], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '2nd Army Corps' },
+    { coords: [47.11979, 37.57839], icon: 'img/rus/NEW/15.png', size: [24, 31], popup: '68th Army Corps' },
+    { coords: [49.20487, 39.58563], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '2nd combined army' },
+    { coords: [48.95954, 38.99254], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '20th combined army' },
+    { coords: [47.78421, 38.47069], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '8th combined army' },
+    { coords: [47.10267, 37.53051], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '29th combined army' },
+    { coords: [47.19670, 37.32674], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '5th combined army' },
+    { coords: [47.35854, 36.65228], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '35th combined army' },
+    { coords: [44.96844, 34.10294], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '18th combined army' },
+    { coords: [46.67005, 33.52787], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '49th combined army' },
+    { coords: [50.03884, 38.02917], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '6th combined army' },
+    { coords: [46.84951, 35.33821], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '58th Combined Arms Army' },
+    { coords: [49.28324, 38.92267], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '41st Combined Arms Army' },
+    { coords: [47.05346, 37.29481], icon: 'img/rus/NEW/13.png', size: [24, 31], popup: '36th Combined Arms Army' },
+    { coords: [49.49601, 38.70621], icon: 'img/rus/NEW/23.png', size: [24, 31], popup: '1st Tank Army' },
+    { coords: [47.24958, 39.73343], icon: 'img/rus/NEW/36.png', size: [24, 31], popup: '51st Air Defense Division' },
+    { coords: [49.22427, 38.30229], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '3rd motorized rifle division' },
+    { coords: [48.66204, 38.19646], icon: 'img/rus/NEW/52.png', size: [24, 31], popup: '106th guards airborne division' },
+    { coords: [48.00537, 37.76894], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '20th guards motorized rifle division' },
+    { coords: [44.56687, 33.54401], icon: 'img/rus/NEW/36.png', size: [24, 31], popup: '31st Air Defense Division' },
+    { coords: [44.68705, 33.57327], icon: 'img/rus/NEW/34.png', size: [24, 31], popup: '27th mixed aviation division' },
+    { coords: [45.48589, 34.27597], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '70th motorized rifle division' },
+    { coords: [48.59991, 37.99244], icon: 'img/rus/NEW/20.png', size: [24, 31], popup: '98th Guards Airborne Division' },
+    { coords: [47.47417, 36.82720], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '127th motorized rifle division' },
+    { coords: [49.51568, 38.16341], icon: 'img/rus/NEW/22.png', size: [24, 31], popup: '47th tank division' },
+    { coords: [49.71083, 38.17268], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '2nd motorized rifle division' },
+    { coords: [50.75869, 37.87004], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '18th motorized rifle division' },
+    { coords: [49.13191, 38.27328], icon: 'img/rus/NEW/22.png', size: [24, 31], popup: '90th tank division' },
+    { coords: [46.35238, 33.56529], icon: 'img/rus/NEW/20.png', size: [24, 31], popup: '7th Airborne Assault Division' },
+    { coords: [47.94461, 37.55865], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '150th motorized rifle division' },
+    { coords: [47.18645, 36.17249], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '42nd motorized rifle division' },
+    { coords: [47.26065, 35.74471], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '19th motorized rifle division' },
+    { coords: [49.42033, 38.14041], icon: 'img/rus/NEW/22.png', size: [24, 31], popup: '4th Panzer Division' },
+    { coords: [49.22525, 38.20427], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '144th motorized rifle division' },
+    { coords: [48.19453, 38.27482], icon: 'img/rus/NEW/10.png', size: [24, 31], popup: '6th motorized rifle division' },
+    { coords: [50.29891, 36.92402], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '138th separate motorized rifle brigade' },
+    { coords: [49.83873, 37.96171], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '79th motorized rifle regiment' },
+    { coords: [49.77187, 37.76937], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '7th motorized rifle regiment' },
+    { coords: [49.80949, 37.91219], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '137th separate motorized rifle brigade' },
+    { coords: [49.63825, 37.90502], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '347th motorized rifle regiment' },
+    { coords: [50.32064, 36.57108], icon: 'img/rus/NEW/26.png', size: [24, 31], popup: '139th separate motorized rifle battalion' },
+    { coords: [50.29787, 36.39599], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '9th motorized rifle regiment' },
+    { coords: [50.31634, 36.94299], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '41st motorized rifle regiment' },
+    { coords: [49.28777, 38.01664], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '21st Separate Guards Motorized Rifle Brigade' },
+    { coords: [49.27584, 38.05758], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '252nd motorized rifle regiment' },
+    { coords: [49.12531, 38.14736], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '228th motorized rifle regiment' },
+    { coords: [49.06698, 38.21242], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1308th motorized rifle regiment' },
+    { coords: [49.08834, 38.13475], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1452nd motorized rifle regiment' },
+    { coords: [48.94218, 38.48459], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1005th motorized rifle regiment' },
+    { coords: [48.46729, 38.78036], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '52nd motorized rifle regiment' },
+    { coords: [48.90757, 38.31563], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '127th separate motorized rifle brigade (LPR)' },
+    { coords: [48.73533, 38.20410], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '123rd Separate Guards Motorized Rifle Brigade' },
+    { coords: [48.88382, 38.38743], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '206th motorized rifle regiment (LPR)' },
+    { coords: [48.88303, 38.32632], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '208th motorized rifle regiment (LPR)' },
+    { coords: [48.63969, 38.03879], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1428th motorized rifle regiment' },
+    { coords: [48.63519, 37.99570], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1008th motorized rifle regiment' },
+    { coords: [48.61596, 37.89627], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '200th separate motorized rifle brigade' },
+    { coords: [48.57709, 37.98720], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '4th separate motorized rifle brigade (LPR)' },
+    { coords: [48.60054, 38.01621], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '105th motorized rifle regiment (DPR)' },
+    { coords: [48.46729, 38.78036], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '52nd motorized rifle regiment' },
+    { coords: [48.30892, 38.26625], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '54th motorized rifle regiment' },
+    { coords: [48.52898, 38.01883], icon: 'img/rus/NEW/2.png', size: [24, 31], popup: '374th separate rifle battalion' },
+    { coords: [48.05985, 38.24877], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '115th motorized rifle regiment (DPR)' },
+    { coords: [48.03121, 38.14676], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '119th motorized rifle regiment (DPR)' },
+    { coords: [47.98334, 38.19697], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '133rd motorized rifle regiment (DPR)' },
+    { coords: [47.96780, 37.70645], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1231st motorized rifle regiment' },
+    { coords: [48.09721, 37.77563], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '33rd motorized rifle regiment' },
+    { coords: [48.12041, 37.77563], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1004th motorized rifle regiment' },
+    { coords: [48.14678, 37.81975], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '110th separate motorized rifle brigade (DPR)' },
+    { coords: [48.27357, 37.92077], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '101st motorized rifle regiment (DPR)' },
+    { coords: [48.20956, 37.72572], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1140th motorized rifle regiment' },
+    { coords: [48.25158, 37.68384], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '30th separate motorized rifle brigade' },
+    { coords: [48.27775, 37.55912], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '15th separate motorized rifle brigade' },
+    { coords: [48.22254, 37.59822], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '114th separate motorized rifle brigade (DPR)' },
+    { coords: [48.15703, 37.58564], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '35th separate motorized rifle brigade' },
+    { coords: [48.10884, 37.63324], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '1st separate motorized rifle brigade' },
+    { coords: [48.10442, 37.82867], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '57th motorized rifle regiment' },
+    { coords: [48.07829, 37.76597], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '87th motorized rifle regiment (DPR)' },
+    { coords: [48.09498, 37.72053], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1439th motorized rifle regiment' },
+    { coords: [48.04134, 37.60457], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '111th motorized rifle regiment (DPR)' },
+    { coords: [47.92480, 37.65924], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '103rd motorized rifle regiment' },
+    { coords: [47.85449, 37.48303], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '255th Guards Motorized Rifle Regiment' },
+    { coords: [47.80387, 37.58972], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1442nd motorized rifle regiment' },
+    { coords: [47.79260, 37.55127], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1465th motorized rifle regiment' },
+    { coords: [47.76431, 37.58577], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1219th motorized rifle regiment' },
+    { coords: [47.31567, 36.70910], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '291st motorized rifle regiment' },
+    { coords: [47.47446, 36.65211], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '121st motorized rifle regiment' },
+    { coords: [47.36918, 36.17798], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '71st Guards Motor Rifle Regiment' },
+    { coords: [47.42678, 36.10451], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '136th separate motorized rifle brigade' },
+    { coords: [47.37133, 35.87843], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1429th motorized rifle regiment' },
+    { coords: [47.34714, 35.83363], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1152nd motorized rifle regiment' },
+    { coords: [47.43996, 35.83311], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '70th motorized rifle regiment' },
+    { coords: [47.40741, 35.71655], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '129th motorized rifle regiment (DPR)' },
+    { coords: [47.23807, 35.68256], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1472nd motorized rifle regiment' },
+    { coords: [47.26493, 35.62480], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1198th motorized rifle regiment' },
+    { coords: [47.48951, 35.67432], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '503rd motorized rifle regiment' },
+    { coords: [46.61440, 33.23742], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '387th motorized rifle regiment' },
+    { coords: [46.61440, 33.23742], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '404th motorized rifle regiment' },
+    { coords: [46.62015, 32.94594], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '385th motorized rifle regiment' },
+    { coords: [46.66010, 32.91847], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1445th motorized rifle regiment' },
+    { coords: [46.47505, 32.96568], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '28th motorized rifle regiment' },
+    { coords: [46.32334, 33.01598], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1253rd motorized rifle regiment' },
+    { coords: [46.47044, 32.82784], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '95th motorized rifle regiment (DPR)' },
+    { coords: [46.39442, 32.60777], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1044th motorized rifle regiment' },
+    { coords: [47.74570, 37.43814], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '113th motorized rifle regiment (DPR)' },
+    { coords: [50.30712, 36.89853], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1009th motorized rifle regiment' },
+    { coords: [49.06765, 38.03089], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '488th Guards Motorized Rifle Regiment' },
+    { coords: [49.04330, 38.04196], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '254th Guards Motorized Rifle Regiment' },
+    { coords: [49.16493, 38.16135], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1438th motorized rifle regiment' },
+    { coords: [49.37936, 38.05160], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1232nd Guards Motorized Rifle Regiment' },
+    { coords: [49.52691, 37.98077], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1431st Guards Motorized Rifle Regiment' },
+    { coords: [50.47548, 35.67570], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '245th Guards Motorized Rifle Regiment' },
+    { coords: [49.75061, 37.88841], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '467th motorized rifle regiment' },
+    { coords: [49.73685, 37.90644], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '272nd motorized rifle regiment' },
+    { coords: [49.83906, 38.16015], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1432nd motorized rifle regiment' },
+    { coords: [49.80736, 38.15638], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1427th motorized rifle regiment' },
+    { coords: [49.91968, 38.29216], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '275th motorized rifle regiment' },
+    { coords: [49.93868, 38.24564], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '280th motorized rifle regiment' },
+    { coords: [48.90817, 38.41816], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1443rd motorized rifle regiment' },
+    { coords: [48.82512, 38.37456], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '204th motorized rifle regiment (LPR)' },
+    { coords: [48.70199, 38.01294], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '6th motorized rifle regiment (LPR)' },
+    { coords: [48.65536, 37.99240], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1102nd motorized rifle regiment' },
+    { coords: [48.33577, 37.98746], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1168th motorized rifle regiment' },
+    { coords: [48.25004, 37.79258], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1454th motorized rifle regiment' },
+    { coords: [48.48709, 38.83066], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1015th motorized rifle regiment' },
+    { coords: [48.01576, 38.24100], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '107th motorized rifle regiment (DPR)' },
+    { coords: [48.06986, 37.66714], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1453rd motorized rifle regiment' },
+    { coords: [47.71259, 37.39145], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '123rd motorized rifle regiment (DPR)' },
+    { coords: [47.70390, 37.22537], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '116th motorized rifle regiment (DPR)' },
+    { coords: [47.72771, 37.03852], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '131st motorized rifle regiment (DPR)' },
+    { coords: [47.71591, 36.81029], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '218th tank regiment' },
+    { coords: [47.72837, 36.66558], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '394th Guards Motorized Rifle Regiment' },
+    { coords: [47.63521, 36.69399], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '143rd Guards Motorized Rifle Regiment' },
+    { coords: [47.65446, 36.57280], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '114th Guards Motorized Rifle Regiment' },
+    { coords: [47.65446, 36.57280], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1430th motorized rifle regiment' },
+    { coords: [47.47365, 35.46867], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '125th motorized rifle regiment (DPR)' },
+    { coords: [47.47092, 34.51286], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1153rd motorized rifle regiment' },
+    { coords: [47.22569, 33.99771], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1199th motorized rifle regiment' },
+    { coords: [46.98482, 33.87634], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1233rd motorized rifle regiment' },
+    { coords: [46.79289, 33.49045], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '359th motorized rifle regiment' },
+    { coords: [45.53191, 34.31305], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '24th motorized rifle regiment' },
+    { coords: [46.16051, 33.61645], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '111th motorized rifle regiment' },
+    { coords: [46.60038, 33.22424], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '26th motorized rifle regiment' },
+    { coords: [48.21953, 38.30624], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '55th motorized rifle regiment' },
+    { coords: [49.73275, 37.83777], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1st motorized rifle regiment' },
+    { coords: [49.25727, 38.88130], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '1007th motorized rifle regiment' },
+    { coords: [51.34756, 34.64882], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '380th motorized rifle regiment' },
+    { coords: [52.37219, 33.48871], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '352nd motorized rifle regiment' },
+    { coords: [47.85677, 37.57427], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '102nd motorized rifle regiment' },
+    { coords: [47.40544, 35.57510], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '292nd self-propelled artillery regiment' },
+    { coords: [47.58246, 36.25591], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '64th Separate Guards Motorized Rifle Brigade' },
+    { coords: [47.99567, 38.13354], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '127th separate motorized rifle regiment (DPR)' },
+    { coords: [47.92218, 37.52724], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '103rd motorized rifle regiment (DPR)' },
+    { coords: [48.17243, 37.77773], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '109th motorized rifle regiment (DPR)' },
+    { coords: [49.25879, 38.03038], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '752nd motorized rifle regiment' },
+    { coords: [48.68841, 37.94214], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '6th separate motorized rifle regiment (LPR)' },
+    { coords: [47.49717, 35.43065], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '429th motorized rifle regiment' },
+    { coords: [49.41237, 37.97802], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '423rd motorized rifle regiment' },
+    { coords: [48.51169, 37.99124], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '85th separate motorized rifle brigade (LPR)' },
+    { coords: [48.14523, 37.72452], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '132nd Separate Guards Motorized Rifle Brigade (DPR)' },
+    { coords: [47.98817, 37.54303], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '5th separate motorized rifle brigade (DPR)' },
+    { coords: [47.78971, 37.49398], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '39th separate motorized rifle brigade' },
+    { coords: [47.72222, 37.13877], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '36th Separate Guards Motorized Rifle Brigade' },
+    { coords: [47.69708, 36.67228], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '34th separate motorized rifle brigade' },
+    { coords: [47.34042, 35.79706], icon: 'img/rus/NEW/39.png', size: [24, 31], popup: '249th separate special motorized battalion "South-Akhmat" of the Russian Guard' },
+    { coords: [48.46686, 37.96051], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '72nd separate motorized rifle brigade' },
+    { coords: [48.78023, 38.29096], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '88th separate motorized rifle brigade (LPR)' },
+    { coords: [47.69443, 36.80446], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '60th separate motorized rifle brigade' },
+    { coords: [49.51774, 37.97562], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '27th Separate Guards Motorized Rifle Brigade' },
+    { coords: [47.49209, 35.99928], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '38th separate motorized rifle brigade' },
+    { coords: [49.78492, 37.79846], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '25th Separate Guards Motorized Rifle Brigade' },
+    { coords: [47.72772, 36.97792], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '37th separate motorized rifle brigade' },
+    { coords: [46.51502, 32.51275], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '80th separate motorized rifle brigade' },
+    { coords: [48.18673, 37.75396], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '74th separate motorized rifle brigade' },
+    { coords: [48.14069, 37.77271], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '55th separate motorized rifle brigade' },
+    { coords: [48.44497, 37.94695], icon: 'img/rus/NEW/6.png', size: [24, 31], popup: '57th separate motorized rifle brigade' },
+    { coords: [50.36372, 36.84909], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '80th Guards Tank Red Banner Regiment' },
+    { coords: [50.34541, 36.84557], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '153rd tank regiment' },
+    { coords: [49.37114, 37.96875], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '13th Guards Tank Regiment' },
+    { coords: [48.48375, 38.03188], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '80th Guards Tank Regiment' },
+    { coords: [48.18673, 37.75396], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '74th separate motorized rifle brigade' },
+    { coords: [48.16199, 37.63813], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '6th Guards Tank Regiment' },
+    { coords: [48.16956, 37.69928], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '239th Guards Tank Regiment' },
+    { coords: [48.01642, 37.60706], icon: 'img/rus/NEW/28.png', size: [24, 31], popup: '10th tank battalion' },
+    { coords: [47.24431, 35.72196], icon: 'img/rus/NEW/28.png', size: [24, 31], popup: '124th separate tank battalion' },
+    { coords: [49.66260, 37.97725], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '1st Guards Tank Regiment' },
+    { coords: [47.95872, 37.59796], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '163rd Guards Tank Regiment' },
+    { coords: [46.34989, 33.21922], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '214th tank regiment' },
+    { coords: [49.59650, 37.89571], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '26th Guards Tank Regiment' },
+    { coords: [49.91089, 38.25474], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '11th tank regiment' },
+    { coords: [49.20024, 38.08702], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '237th tank regiment' },
+    { coords: [48.77302, 38.33405], icon: 'img/rus/NEW/28.png', size: [24, 31], popup: '4th separate tank battalion' },
+    { coords: [48.52166, 38.06969], icon: 'img/rus/NEW/21.png', size: [24, 31], popup: '68th Guards Tank Regiment' },
+    { coords: [46.47842, 33.43964], icon: 'img/rus/NEW/28.png', size: [24, 31], popup: '104th separate tank battalion' },
+    { coords: [47.70693, 36.94101], icon: 'img/rus/NEW/14.png', size: [24, 31], popup: '5th separate tank brigade' },
+    { coords: [49.95259, 37.87434], icon: 'img/rus/NEW/48.png', size: [24, 31], popup: '45th engineering and sapper regiment' },
+    { coords: [49.74132, 37.92472], icon: 'img/rus/NEW/48.png', size: [24, 31], popup: '30th engineering and sapper regiment' },
+    { coords: [45.21769, 33.38359], icon: 'img/rus/NEW/32.png', size: [24, 31], popup: '68th Separate Marine Engineer Regiment of the Black Sea Fleet' },
+    { coords: [44.62145, 40.06611], icon: 'img/rus/NEW/33.png', size: [24, 31], popup: '99th separate logistics brigade' },
+    { coords: [45.21198, 37.14117], icon: 'img/rus/NEW/45.png', size: [24, 31], popup: '629th separate engineering and sapper battalion' },
+    { coords: [48.99849, 38.21654], icon: 'img/rus/NEW/42.png', size: [24, 31], popup: '1259th separate anti-tank artillery division' },
+    { coords: [49.32305, 38.04291], icon: 'img/rus/NEW/42.png', size: [24, 31], popup: '159th separate anti-tank artillery division' },
+    { coords: [48.07677, 37.77855], icon: 'img/rus/NEW/42.png', size: [24, 31], popup: '487th separate anti-tank division' },
+    { coords: [44.75082, 33.84768], icon: 'img/rus/NEW/33.png', size: [24, 31], popup: '133rd separate logistics brigade of the Black Sea Fleet' },
+    { coords: [50.36797, 36.66515], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '9th Artillery Brigade' },
+    { coords: [49.65566, 37.92163], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '744th self-propelled artillery regiment' },
+    { coords: [49.38377, 38.00514], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '275th self-propelled artillery regiment' },
+    { coords: [49.01327, 38.37233], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '385th Guards Artillery Brigade' },
+    { coords: [48.56174, 38.01257], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '182nd Guards Artillery Regiment' },
+    { coords: [48.23216, 38.19689], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '17th heavy artillery brigade' },
+    { coords: [48.05143, 38.00342], icon: 'img/rus/NEW/3.png', size: [24, 31], popup: '232nd Guards Rocket Artillery Brigade' },
+    { coords: [47.66894, 37.08590], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '30th Artillery Brigade' },
+    { coords: [47.68082, 36.70343], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '872nd self-propelled artillery regiment' },
+    { coords: [47.57201, 36.48182], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '165th Guards Artillery Brigade' },
+    { coords: [47.35051, 36.07618], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '1140th Guards Artillery Regiment' },
+    { coords: [46.57591, 32.74681], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '1141st Guards Artillery Regiment' },
+    { coords: [49.05098, 38.16204], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '856th Guards Self-propelled Artillery Regiment' },
+    { coords: [49.11857, 38.17483], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '400th Guards Self-propelled Artillery Regiment' },
+    { coords: [49.33891, 38.05621], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '99th Guards Self-propelled Artillery Regiment' },
+    { coords: [49.68704, 38.05733], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '147th Guards Self-propelled Artillery Regiment' },
+    { coords: [47.98791, 37.58818], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '381st Guards Artillery Regiment' },
+    { coords: [47.37955, 36.03189], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '50th Guards Self-propelled Artillery Regiment' },
+    { coords: [48.08728, 37.83485], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '944th Guards Self-propelled Artillery Regiment' },
+    { coords: [46.61989, 32.72286], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '8th artillery regiment' },
+    { coords: [49.55892, 38.07029], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '288th Artillery Brigade' },
+    { coords: [49.81445, 37.97098], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '45th heavy artillery brigade' },
+    { coords: [48.48239, 38.08205], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '27th artillery regiment' },
+    { coords: [48.06504, 37.68578], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '14th Guards Separate Artillery Brigade' },
+    { coords: [47.66799, 37.40416], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '200th Artillery Brigade' },
+    { coords: [47.33504, 35.94830], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '291st Guards Artillery Brigade' },
+    { coords: [46.58553, 33.21510], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '227th Artillery Brigade' },
+    { coords: [47.59100, 36.80248], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '305th Artillery Brigade' },
+    { coords: [49.10470, 38.09638], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '120th Artillery Brigade' },
+    { coords: [49.54916, 38.10711], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '244th Artillery Brigade' },
+    { coords: [49.14230, 38.15277], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '236th Guards Artillery Brigade' },
+    { coords: [48.04050, 37.73804], icon: 'img/rus/NEW/18.png', size: [24, 31], popup: '238th Artillery Brigade' },
+    { coords: [50.35614, 36.59735], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '234th Guards Assault Regiment' },
+    { coords: [48.59456, 37.89652], icon: 'img/rus/NEW/9.png', size: [24, 31], popup: '31st separate amphibious assault brigade' },
+    { coords: [47.42745, 36.05610], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '247th Guards Assault Regiment' },
+    { coords: [47.44045, 36.00048], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '104th Guards Assault Regiment' },
+    { coords: [47.33202, 35.91825], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '237th Guards Assault Regiment' },
+    { coords: [47.38097, 35.91602], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '56th Parachute Regiment' },
+    { coords: [46.42076, 33.07056], icon: 'img/rus/NEW/26.png', size: [24, 31], popup: '171st separate amphibious assault battalion' },
+    { coords: [46.74110, 33.36445], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '328th Airborne Assault Regiment' },
+    { coords: [48.66010, 38.01373], icon: 'img/rus/NEW/7.png', size: [24, 31], popup: '1065th Guards Artillery Regiment' },
+    { coords: [47.41984, 35.26646], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '481st anti-aircraft missile regiment' },
+    { coords: [48.64614, 37.94858], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '331st Parachute Regiment' },
+    { coords: [48.64049, 37.96995], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '217th Parachute Regiment' },
+    { coords: [47.42730, 35.97756], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '108th Airborne Assault Regiment' },
+    { coords: [48.69238, 38.06574], icon: 'img/rus/NEW/19.png', size: [24, 31], popup: '137th Parachute Regiment' },
+    { coords: [48.54897, 37.98643], icon: 'img/rus/NEW/9.png', size: [24, 31], popup: '83rd Separate Guards Assault Brigade' },
+    { coords: [48.56959, 37.96978], icon: 'img/rus/NEW/9.png', size: [24, 31], popup: '11st Separate Guards Assault Brigade' },
+    { coords: [50.17860, 38.12651], icon: 'img/rus/NEW/47.png', size: [24, 31], popup: '692nd separate communications battalion' },
+    { coords: [45.23996, 38.09200], icon: 'img/rus/NEW/48.png', size: [24, 31], popup: '10th separate repair and restoration regiment' },
+    { coords: [47.25168, 35.69475], icon: 'img/rus/NEW/27.png', size: [24, 31], popup: '40th regiment of radiation, chemical and biological protection' },
+    { coords: [46.39229, 33.17493], icon: 'img/rus/NEW/27.png', size: [24, 31], popup: '7th regiment of radiation, chemical and biological protection' },
+    { coords: [47.35825, 40.03727], icon: 'img/rus/NEW/50.png', size: [24, 31], popup: '19th separate radio electronic warfare brigade' },
+    { coords: [47.25768, 39.84604], icon: 'img/rus/NEW/49.png', size: [24, 31], popup: '175th management brigade' },
+    { coords: [44.73597, 37.74010], icon: 'img/rus/NEW/47.png', size: [24, 31], popup: '743rd Separate Guards Communications Battalion' },
+    { coords: [44.77270, 37.71915], icon: 'img/rus/NEW/46.png', size: [24, 31], popup: '? A separate company of UAVs' },
+    { coords: [47.84807, 37.99278], icon: 'img/rus/NEW/41.png', size: [24, 31], popup: '? Separate company REB' },
+    { coords: [48.08969, 37.67323], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '9th separate marine infantry brigade' },
+    { coords: [47.83353, 37.64577], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '40th Separate Brigade of Marines' },
+    { coords: [46.69408, 33.21133], icon: 'img/rus/NEW/17.png', size: [24, 31], popup: '177th Separate Regiment of Marines' },
+    { coords: [46.65003, 33.03349], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '61st Separate Brigade of Marines' },
+    { coords: [47.72567, 36.67502], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '336th separate marine infantry brigade' },
+    { coords: [46.71477, 33.08919], icon: 'img/rus/NEW/4.png', size: [24, 31], popup: '810th separate brigade of marines' },
+    { coords: [46.52881, 32.54545], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '126th separate coastal defense brigade' },
+    { coords: [47.85333, 37.50205], icon: 'img/rus/NEW/1.png', size: [24, 31], popup: '155th Separate Brigade of Marines' },
+    { coords: [50.17860, 38.12651], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '5th anti-aircraft missile brigade' },
+    { coords: [49.25984, 38.20242], icon: 'img/rus/NEW/44.png', size: [24, 31], popup: '1143rd separate anti-aircraft missile division' },
+    { coords: [49.08472, 38.30452], icon: 'img/rus/NEW/44.png', size: [24, 31], popup: '228th separate anti-aircraft missile division' },
+    { coords: [49.03759, 38.28444], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '4th Guards Anti-Aircraft Missile Regiment' },
+    { coords: [49.03778, 38.20436], icon: 'img/rus/NEW/44.png', size: [24, 31], popup: '673rd separate anti-aircraft missile division' },
+    { coords: [49.03097, 38.42889], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '53rd Guards Anti-Aircraft Missile Brigade' },
+    { coords: [49.45150, 39.12025], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '448th Missile Brigade' },
+    { coords: [48.62199, 38.13663], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '5th Guards Anti-Aircraft Missile Regiment' },
+    { coords: [48.45861, 38.27388], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '1st Guards Anti-Aircraft Missile Regiment' },
+    { coords: [48.08387, 38.39756], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '38th anti-aircraft missile brigade' },
+    { coords: [47.89399, 37.98120], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '78th anti-aircraft missile brigade' },
+    { coords: [47.96315, 37.78507], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '933rd anti-aircraft missile regiment' },
+    { coords: [48.00445, 37.83297], icon: 'img/rus/NEW/44.png', size: [24, 31], popup: '23rd separate anti-aircraft missile division' },
+    { coords: [47.38435, 37.07336], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '8th anti-aircraft missile brigade' },
+    { coords: [47.56639, 36.85244], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '1171st anti-aircraft missile regiment' },
+    { coords: [46.53985, 33.39878], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '3rd Guards Anti-Aircraft Missile Regiment' },
+    { coords: [50.80946, 37.17379], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '26th Missile Brigade' },
+    { coords: [44.74954, 37.68963], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '1537th anti-aircraft missile regiment' },
+    { coords: [49.41974, 38.15689], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '538th Guards Anti-Aircraft Missile Regiment' },
+    { coords: [49.71638, 38.06900], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '1117th anti-aircraft missile regiment' },
+    { coords: [49.91290, 38.31396], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '22nd Guards Anti-Aircraft Missile Regiment' },
+    { coords: [45.02028, 35.35091], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '18th Guards Anti-Aircraft Missile Regiment' },
+    { coords: [48.09838, 38.01613], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '358th Guards Missile Regiment' },
+    { coords: [46.11498, 32.91298], icon: 'img/rus/NEW/5.png', size: [24, 31], popup: '1096th separate anti-aircraft missile regiment' },
+    { coords: [47.71877, 39.87282], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '40th Missile Brigade' },
+    { coords: [47.23064, 38.84972], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '47th Missile Brigade' },
+    { coords: [45.14100, 36.75270], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '11th Separate Coastal Missile Artillery Brigade' },
+    { coords: [49.29686, 38.16114], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '297th anti-aircraft missile brigade' },
+    { coords: [49.57917, 38.16599], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '49th anti-aircraft missile brigade' },
+    { coords: [49.52081, 38.73333], icon: 'img/rus/NEW/3.png', size: [24, 31], popup: '79th Guards Rocket Artillery Brigade' },
+    { coords: [49.14741, 38.91478], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '28th anti-aircraft missile brigade' },
+    { coords: [47.55592, 37.97280], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '140th anti-aircraft missile brigade' },
+    { coords: [47.56825, 37.31609], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '35th Guards Anti-Aircraft Missile Brigade' },
+    { coords: [47.53569, 36.91011], icon: 'img/rus/NEW/3.png', size: [24, 31], popup: '338th Guards Rocket Artillery Brigade' },
+    { coords: [47.40735, 36.41607], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '71st Guards Anti-Aircraft Missile Brigade' },
+    { coords: [47.18808, 35.56686], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '67th anti-aircraft missile brigade' },
+    { coords: [46.82931, 34.35459], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '90th anti-aircraft missile brigade' },
+    { coords: [45.48577, 32.73170], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '15th Separate Coastal Missile Brigade' },
+    { coords: [45.71037, 33.33252], icon: 'img/rus/NEW/25.png', size: [24, 31], popup: '1st Guards Missile Brigade' },
+    { coords: [46.33543, 34.02294], icon: 'img/rus/NEW/37.png', size: [24, 31], popup: '77th Guards Anti-Aircraft Missile Brigade' },
+    { coords: [47.15698, 37.01637], icon: 'img/rus/NEW/3.png', size: [24, 31], popup: '439th Guards Missile Artillery Brigade' },
+    { coords: [48.95211, 40.29506], icon: 'img/rus/NEW/31.png', size: [24, 31], popup: '31st Fighter Aviation Regiment' },
+    { coords: [48.30792, 41.78530], icon: 'img/rus/NEW/24.png', size: [24, 31], popup: '559th Guards Bomber Aviation Regiment' },
+    { coords: [45.44697, 39.42435], icon: 'img/rus/NEW/31.png', size: [24, 31], popup: '55th Separate Guards Helicopter Regiment' },
+    { coords: [44.96041, 38.00523], icon: 'img/rus/NEW/24.png', size: [24, 31], popup: '3rd mixed aviation regiment' },
+    { coords: [46.05740, 38.23997], icon: 'img/rus/NEW/24.png', size: [24, 31], popup: '960th Guards Assault Aviation Regiment' },
+    { coords: [44.77912, 33.56280], icon: 'img/rus/NEW/24.png', size: [24, 31], popup: '917th mixed aviation regiment' },
+    { coords: [45.11454, 33.97591], icon: 'img/rus/NEW/24.png', size: [24, 31], popup: '37th mixed aviation regiment' },
+    { coords: [45.69284, 34.41982], icon: 'img/rus/NEW/31.png', size: [24, 31], popup: '39th separate helicopter regiment' },
+    { coords: [51.65115, 36.19411], icon: 'img/rus/NEW/23.png', size: [24, 31], popup: '14th Guards Fighter Aviation Regiment' },
+    { coords: [49.93017, 38.29954], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '46th separate reconnaissance battalion' },
+    { coords: [49.88792, 38.31439], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '20th separate reconnaissance battalion' },
+    { coords: [49.66349, 38.05037], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '136th separate reconnaissance battalion' },
+    { coords: [49.33122, 38.12616], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '24th Separate Special Purpose Guards Brigade' },
+    { coords: [49.30187, 38.02978], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '84th separate reconnaissance battalion' },
+    { coords: [49.05871, 38.10410], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '148th separate reconnaissance battalion' },
+    { coords: [49.04622, 38.23448], icon: 'img/rus/NEW/8.png', size: [24, 31], popup: '78th Special Purpose Motorized Regiment "North-Akhmat"' },
+    { coords: [49.02417, 38.13217], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '175th separate reconnaissance battalion' },
+    { coords: [49.29398, 38.89074], icon: 'img/rus/NEW/51.png', size: [24, 31], popup: '29th separate special purpose company ' },
+    { coords: [49.93674, 38.29130], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '79th separate reconnaissance battalion' },
+    { coords: [49.66360, 38.19719], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '215th separate reconnaissance battalion' },
+    { coords: [48.43003, 38.07424], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '173rd Separate Guards Reconnaissance Battalion' },
+    { coords: [47.98334, 38.68379], icon: 'img/rus/NEW/51.png', size: [24, 31], popup: '420th separate special purpose naval reconnaissance station' },
+    { coords: [48.07295, 37.72722], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '80th Separate Guards Reconnaissance Battalion' },
+    { coords: [47.89209, 37.54500], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '174th separate reconnaissance battalion' },
+    { coords: [47.77308, 37.46424], icon: 'img/rus/NEW/11.png', size: [24, 31], popup: '14th Separate Guards Special Purpose Brigade' },
+    { coords: [47.36714, 35.54214], icon: 'img/rus/NEW/38.png', size: [24, 31], popup: '358th separate operational battalion' },
+    { coords: [46.66072, 32.88397], icon: 'img/rus/NEW/11.png', size: [24, 31], popup: '127th separate reconnaissance brigade' },
+    { coords: [49.09825, 38.19097], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '30th separate reconnaissance battalion' },
+    { coords: [49.21507, 38.20684], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '3rd Separate Guards Special Purpose Brigade' },
+    { coords: [49.33357, 38.00497], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '137th separate reconnaissance battalion' },
+    { coords: [49.83398, 37.88352], icon: 'img/rus/NEW/11.png', size: [24, 31], popup: '96th separate reconnaissance brigade' },
+    { coords: [49.82685, 38.38537], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '2nd Separate Guards Special Purpose Brigade' },
+    { coords: [49.84410, 38.52133], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '16th Separate Guards Special Purpose Brigade' },
+    { coords: [48.10371, 38.74037], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '50th separate brigade of operational assignment' },
+    { coords: [48.09552, 37.66178], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '80th Separate Guards Reconnaissance Battalion' },
+    { coords: [48.58504, 37.99991], icon: 'img/rus/NEW/38.png', size: [24, 31], popup: '58th separate special purpose battalion' },
+    { coords: [47.50891, 36.82051], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '77th separate reconnaissance battalion' },
+    { coords: [46.76803, 36.76884], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '102nd separate brigade of operational assignment' },
+    { coords: [47.46909, 36.04262], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '45th Separate Special Guards Brigade of Airborne Troops' },
+    { coords: [47.40433, 35.94830], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '417th separate reconnaissance battalion' },
+    { coords: [46.73951, 35.35160], icon: 'img/rus/NEW/11.png', size: [24, 31], popup: '100th separate reconnaissance brigade' },
+    { coords: [44.88227, 34.07272], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '112th separate brigade of operational assignment' },
+    { coords: [46.52793, 33.49731], icon: 'img/rus/NEW/29.png', size: [24, 31], popup: '162nd separate reconnaissance battalion' },
+    { coords: [47.43741, 35.96040], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '22nd separate brigade of special purpose' },
+    { coords: [47.51097, 36.08082], icon: 'img/rus/NEW/11.png', size: [24, 31], popup: '69th separate cover brigade' },
+    { coords: [47.41769, 36.00237], icon: 'img/rus/NEW/12.png', size: [24, 31], popup: '45th Separate Guards Special Purpose Brigade' },
+];
+var afu = [
+    { coords: [51.49197, 31.30074], icon: 'img/ua/NEW/20.png', size: [24, 31], popup: 'Operational Command "West"' },
+    { coords: [46.47901, 30.57770], icon: 'img/ua/NEW/20.png', size: [24, 31], popup: 'Operational Command "North"' },
+    { coords: [46.47901, 30.57770], icon: 'img/ua/NEW/20.png', size: [24, 31], popup: 'Operational Command "South"' },
+    { coords: [48.46040, 35.00931], icon: 'img/ua/NEW/20.png', size: [24, 31], popup: 'Operational Command "East"' },
+    { coords: [46.65356, 32.56725], icon: 'img/ua/NEW/26.png', size: [32, 32], popup: '10th Naval Aviation Brigade' },
+    { coords: [46.93629, 32.09948], icon: 'img/ua/NEW/21.png', size: [32, 32], popup: '11th Separate Army Aviation Brigade "Kherson"' },
+    { coords: [49.58390, 37.63813], icon: 'img/ua/NEW/13.png', size: [32, 32], popup: '27th rocket artillery brigade' },
+    { coords: [47.57809, 35.77354], icon: 'img/ua/NEW/22.png', size: [32, 32], popup: '39th anti-aircraft missile regiment' },
+    { coords: [46.70550, 32.60399], icon: 'img/ua/NEW/7.png', size: [32, 32], popup: '208th anti-aircraft missile brigade' },
+    { coords: [48.63240, 37.79778], icon: 'img/ua/NEW/13.png', size: [32, 32], popup: '107th rocket artillery brigade' },
+    { coords: [50.22648, 36.76412], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '101st separate brigade of protection of the General Staff' },
+    { coords: [49.58376, 37.84361], icon: 'img/ua/NEW/5.png', size: [32, 32], popup: '3rd separate special purpose battalion of the International Legion' },
+    { coords: [48.93434, 37.95467], icon: 'img/ua/NEW/33.png', size: [32, 32], popup: '12th brigade of operational assignment' },
+    { coords: [48.94471, 38.12565], icon: 'img/ua/NEW/33.png', size: [32, 32], popup: '5th separate Slobozhan brigade' },
+    { coords: [48.85280, 38.09200], icon: 'img/ua/NEW/5.png', size: [32, 32], popup: '3rd operational battalion' },
+    { coords: [48.57110, 37.81958], icon: 'img/ua/NEW/4.png', size: [32, 32], popup: 'Subdivision of the Special Operations Center "Alfa"' },
+    { coords: [48.58021, 37.84129], icon: 'img/ua/NEW/5.png', size: [32, 32], popup: '210th separate special purpose battalion' },
+    { coords: [48.54690, 37.91056], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '120th separate reconnaissance battalion' },
+    { coords: [47.74172, 36.59932], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '74th separate reconnaissance battalion' },
+    { coords: [47.52204, 35.44344], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '130th separate reconnaissance battalion' },
+    { coords: [47.46398, 35.82230], icon: 'img/ua/NEW/34.png', size: [32, 32], popup: '78th separate special purpose regiment' },
+    { coords: [47.52433, 36.00546], icon: 'img/ua/NEW/33.png', size: [32, 32], popup: '27th Separate Pechersk Brigade' },
+    { coords: [47.60165, 36.04717], icon: 'img/ua/NEW/32.png', size: [32, 32], popup: '12th Main Directorate of the Department of Military Counterintelligence of the SBU' },
+    { coords: [46.65986, 32.48280], icon: 'img/ua/NEW/6.png', size: [32, 32], popup: '73rd Naval Special Operations Center' },
+    { coords: [46.64745, 32.62240], icon: 'img/ua/NEW/5.png', size: [32, 32], popup: '16th separate battalion' },
+    { coords: [46.70582, 32.71162], icon: 'img/ua/NEW/4.png', size: [32, 32], popup: 'Special Operations Center "A" of the SBU' },
+    { coords: [48.77755, 38.07424], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '132nd separate reconnaissance battalion' },
+    { coords: [48.99700, 37.83451], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '140th separate reconnaissance battalion' },
+    { coords: [48.80780, 38.22126], icon: 'img/ua/NEW/5.png', size: [32, 32], popup: '4th brigade of operational assignment of NSU' },
+    { coords: [46.81480, 33.25836], icon: 'img/ua/NEW/11.png', size: [32, 32], popup: '131st separate reconnaissance battalion' },
+    { coords: [49.51000, 37.90455], icon: 'img/ua/NEW/19.png', size: [32, 32], popup: 'Special unit "Kraken"' },
+    { coords: [47.97260, 37.40664], icon: 'img/ua/NEW/38.png', size: [32, 32], popup: '12th separate tank battalion' },
+    { coords: [48.28151, 37.77125], icon: 'img/ua/NEW/12.png', size: [32, 32], popup: '1st separate tank brigade' },
+    { coords: [47.77193, 36.81776], icon: 'img/ua/NEW/12.png', size: [32, 32], popup: '4th separate tank brigade' },
+    { coords: [49.70933, 37.59882], icon: 'img/ua/NEW/12.png', size: [32, 32], popup: '3rd separate tank brigade' },
+    { coords: [48.59563, 37.84893], icon: 'img/ua/NEW/12.png', size: [32, 32], popup: '17th separate tank brigade' },
+    { coords: [48.59549, 37.81468], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '26th separate artillery brigade' },
+    { coords: [48.32167, 37.84069], icon: 'img/ua/NEW/35.png', size: [32, 32], popup: '64th separate artillery division' },
+    { coords: [47.85228, 37.20795], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '15th separate brigade of artillery reconnaissance' },
+    { coords: [47.79350, 36.82034], icon: 'img/ua/NEW/35.png', size: [32, 32], popup: '66th separate artillery division' },
+    { coords: [47.66571, 36.24553], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '47th separate artillery brigade' },
+    { coords: [46.99161, 33.29990], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '406th separate artillery brigade' },
+    { coords: [47.51610, 35.85285], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '44th separate artillery brigade' },
+    { coords: [48.00135, 37.43557], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '55th separate artillery brigade' },
+    { coords: [49.71149, 37.74250], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '43rd separate artillery brigade' },
+    { coords: [49.48090, 37.59882], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '40th separate artillery brigade' },
+    { coords: [49.37583, 37.84189], icon: 'img/ua/NEW/3.png', size: [32, 32], popup: '45th separate artillery brigade' },
+    { coords: [47.46764, 35.88675], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '14th assault brigade' },
+    { coords: [47.50007, 35.77354], icon: 'img/ua/NEW/18.png', size: [32, 32], popup: '2nd Mining Assault Battalion' },
+    { coords: [50.27384, 36.91080], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '71st separate hunting brigade' },
+    { coords: [48.51754, 37.92738], icon: 'img/ua/NEW/36.png', size: [32, 32], popup: '24th separate assault battalion' },
+    { coords: [47.54218, 35.56532], icon: 'img/ua/NEW/18.png', size: [32, 32], popup: '15th separate mining and assault battalion' },
+    { coords: [48.71050, 37.87622], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '5th separate assault brigade' },
+    { coords: [48.81808, 38.24444], icon: 'img/ua/NEW/18.png', size: [32, 32], popup: '108th separate mountain assault battalion' },
+    { coords: [48.78269, 38.11003], icon: 'img/ua/NEW/18.png', size: [32, 32], popup: '109th separate mountain assault battalion' },
+    { coords: [47.47933, 35.84496], icon: 'img/ua/NEW/10.png', size: [32, 32], popup: '128th Separate Mountain Assault Brigade' },
+    { coords: [48.85757, 38.18504], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '46th Separate Assault Battalion "Donbas"' },
+    { coords: [48.75394, 38.07857], icon: 'img/ua/NEW/10.png', size: [32, 32], popup: '10th Separate Mountain Assault Brigade' },
+    { coords: [49.29569, 37.52642], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '68th separate hunting brigade' },
+    { coords: [49.36190, 37.90412], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '3rd separate assault brigade' },
+    { coords: [49.87473, 36.25763], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '416th separate rifle battalion' },
+    { coords: [49.65302, 37.86472], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '88th separate mechanized brigade' },
+    { coords: [49.62864, 37.83331], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '41st separate mechanized brigade' },
+    { coords: [49.38271, 37.88670], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '44th separate mechanized brigade' },
+    { coords: [49.27525, 37.92068], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '66th separate mechanized brigade' },
+    { coords: [49.67932, 37.84816], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '43rd separate mechanized brigade' },
+    { coords: [49.21928, 37.94849], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '19th separate rifle battalion' },
+    { coords: [49.15353, 37.97390], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '49th separate rifle battalion' },
+    { coords: [48.19627, 37.51599], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '45th separate rifle battalion' },
+    { coords: [49.11897, 37.99973], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '42nd separate mechanized brigade' },
+    { coords: [49.09450, 37.96944], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '21st separate mechanized brigade' },
+    { coords: [49.06071, 37.95399], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '23rd separate rifle battalion' },
+    { coords: [47.75066, 37.07199], icon: 'img/ua/NEW/37.png', size: [32, 32], popup: '58th Separate Motorized Infantry Brigade' },
+    { coords: [48.73621, 37.99278], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '35th separate rifle battalion' },
+    { coords: [48.70280, 37.91948], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '41st separate rifle battalion' },
+    { coords: [48.69153, 37.87468], icon: 'img/ua/NEW/37.png', size: [32, 32], popup: '56th Separate Motorized Infantry Brigade' },
+    { coords: [48.67217, 37.88120], icon: 'img/ua/NEW/39.png', size: [32, 32], popup: '21st separate motorized infantry battalion' },
+    { coords: [48.63467, 37.86043], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '14th separate rifle battalion' },
+    { coords: [50.24891, 36.86377], icon: 'img/ua/NEW/37.png', size: [32, 32], popup: '57th Separate Motorized Infantry Brigade' },
+    { coords: [48.59077, 37.82996], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '420th separate rifle battalion' },
+    { coords: [48.54555, 37.88713], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '22nd separate mechanized brigade' },
+    { coords: [48.41223, 37.91451], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '46th separate rifle battalion' },
+    { coords: [48.07983, 37.50707], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '142nd separate rifle brigade' },
+    { coords: [48.05623, 37.55573], icon: 'img/ua/NEW/37.png', size: [32, 32], popup: '59th Separate Motorized Infantry Brigade' },
+    { coords: [47.83462, 37.31180], icon: 'img/ua/NEW/37.png', size: [32, 32], popup: '12th separate motorized infantry battalion' },
+    { coords: [47.75557, 37.02667], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '52nd separate rifle battalion' },
+    { coords: [47.79371, 36.99007], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '69th separate rifle battalion' },
+    { coords: [47.76386, 36.93732], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '26th separate rifle battalion' },
+    { coords: [47.73121, 36.53641], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '23rd separate mechanized brigade' },
+    { coords: [47.55333, 35.81200], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '117th separate mechanized brigade' },
+    { coords: [47.53082, 35.90075], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '33rd separate mechanized brigade' },
+    { coords: [47.50782, 35.46181], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '2nd separate rifle battalion' },
+    { coords: [47.54295, 35.37241], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '11th separate rifle battalion' },
+    { coords: [48.58764, 37.86219], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '24th separate mechanized brigade' },
+    { coords: [47.76982, 36.70927], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '31st separate mechanized brigade' },
+    { coords: [49.42379, 37.89794], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '32nd separate mechanized brigade' },
+    { coords: [48.23808, 37.49033], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '47th separate mechanized brigade' },
+    { coords: [48.80402, 38.14269], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '54th separate mechanized brigade' },
+    { coords: [48.97126, 38.00377], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '63rd separate mechanized brigade' },
+    { coords: [49.10652, 37.93081], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '60th separate mechanized brigade' },
+    { coords: [51.09846, 35.05737], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '53rd separate mechanized brigade' },
+    { coords: [49.01710, 37.94918], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '67th separate mechanized brigade' },
+    { coords: [49.74642, 37.69572], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '30th separate mechanized brigade' },
+    { coords: [49.76012, 37.65985], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '116th separate mechanized brigade' },
+    { coords: [49.76084, 37.72242], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '14th separate mechanized brigade' },
+    { coords: [49.53117, 37.90798], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '92nd separate mechanized brigade' },
+    { coords: [48.46743, 37.92360], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '28th separate mechanized brigade' },
+    { coords: [48.30252, 37.51831], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '110th separate mechanized brigade' },
+    { coords: [49.76533, 37.69366], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '115th separate mechanized brigade' },
+    { coords: [48.51237, 37.95339], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '93rd separate mechanized brigade' },
+    { coords: [47.77935, 37.25189], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '72nd separate mechanized brigade' },
+    { coords: [47.47086, 35.84719], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '65th separate mechanized brigade' },
+    { coords: [50.00035, 37.66422], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '107th Territorial Defense Brigade' },
+    { coords: [48.97988, 38.02162], icon: 'img/ua/NEW/29.png', size: [32, 32], popup: '54th Territorial Defense Battalion' },
+    { coords: [48.54056, 37.92704], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '181st Territorial Defense Brigade' },
+    { coords: [48.48766, 37.85030], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '117th Territorial Defense Brigade' },
+    { coords: [48.39308, 37.85511], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '228th Territorial Defense Brigade' },
+    { coords: [48.27391, 37.51325], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '129th Territorial Defense Brigade' },
+    { coords: [48.02067, 37.52063], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '116th Territorial Defense Brigade' },
+    { coords: [47.75915, 36.65314], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '110th Territorial Defense Brigade' },
+    { coords: [47.22172, 33.76167], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '121st Territorial Defense Brigade' },
+    { coords: [48.28311, 37.67160], icon: 'img/ua/NEW/9.png', size: [32, 32], popup: '100th separate mechanized brigade' },
+    { coords: [49.18849, 37.96978], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '111st Territorial Defense Brigade' },
+    { coords: [47.63364, 36.27359], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '102nd Territorial Defense Brigade' },
+    { coords: [47.54256, 35.78161], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '106th Territorial Defense Brigade' },
+    { coords: [46.75789, 33.03082], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '126th Territorial Defense Brigade' },
+    { coords: [46.63606, 32.05244], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '124th Territorial Defense Brigade' },
+    { coords: [47.51387, 35.92435], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '108th Territorial Defense Brigade' },
+    { coords: [48.26794, 37.32828], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '109th Territorial Defense Brigade' },
+    { coords: [48.59070, 37.85730], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '127th Territorial Defense Brigade' },
+    { coords: [50.26630, 35.94521], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '113rd Territorial Defense Brigade' },
+    { coords: [49.32951, 37.89691], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '105th Territorial Defense Brigade' },
+    { coords: [51.00407, 35.26477], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '103rd Territorial Defense Brigade' },
+    { coords: [48.54095, 37.94281], icon: 'img/ua/NEW/2.png', size: [32, 32], popup: '112th Territorial Defense Brigade' },
+    { coords: [46.68201, 32.78286], icon: 'img/ua/NEW/14.png', size: [32, 32], popup: '38th Separate Brigade of Marines' },
+    { coords: [46.68168, 32.73428], icon: 'img/ua/NEW/14.png', size: [32, 32], popup: '37th Separate Brigade of Marines' },
+    { coords: [50.29268, 36.98959], icon: 'img/ua/NEW/14.png', size: [32, 32], popup: '36th Separate Brigade of Marines' },
+    { coords: [46.98816, 32.10823], icon: 'img/ua/NEW/24.png', size: [32, 32], popup: '145th separate repair and restoration regiment' },
+    { coords: [46.68171, 32.53876], icon: 'img/ua/NEW/25.png', size: [32, 32], popup: '19th separate special purpose radio and radio technical intelligence regiment' },
+    { coords: [49.40475, 37.85623], icon: 'img/ua/NEW/17.png', size: [32, 32], popup: '77th Separate Aeromobile Brigade' },
+    { coords: [50.29929, 37.04204], icon: 'img/ua/NEW/15.png', size: [32, 32], popup: '82nd Separate Airborne Assault Brigade' },
+    { coords: [46.80244, 33.15906], icon: 'img/ua/NEW/14.png', size: [32, 32], popup: '35th Separate Brigade of Marines' },
+    { coords: [47.94972, 37.43480], icon: 'img/ua/NEW/15.png', size: [32, 32], popup: '79th Separate Airborne Assault Brigade' },
+    { coords: [48.01724, 37.48634], icon: 'img/ua/NEW/15.png', size: [32, 32], popup: '80th Separate Airborne Assault Brigade' },
+    { coords: [48.09817, 37.50166], icon: 'img/ua/NEW/15.png', size: [32, 32], popup: '25th Separate Airborne Brigade' },
+    { coords: [49.00632, 37.97776], icon: 'img/ua/NEW/15.png', size: [32, 32], popup: '95th Separate Airborne Assault Brigade' },
+    { coords: [48.92213, 38.23663], icon: 'img/ua/NEW/17.png', size: [32, 32], popup: '81st Separate Aeromobile Brigade' },
+    { coords: [46.78625, 32.98645], icon: 'img/ua/NEW/16.png', size: [32, 32], popup: '501st Marine Corps Battalion' },
+    { coords: [47.98622, 37.44201], icon: 'img/ua/NEW/17.png', size: [32, 32], popup: '46th Separate Aeromobile Brigade' },
+];
+var afrfCluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 89,
+    spiderfyOnMaxZoom: true,
+    iconCreateFunction: function (cluster) {
+        return L.divIcon({
+            html: `<img src="img/rus/NEW/cluster.png" width="32" height="32">`,
+            className: 'custom-cluster-icon',
+            iconSize: [32, 32]
+        });
+    }
+});
+
+var afuCluster = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 80,
+    spiderfyOnMaxZoom: true,
+    iconCreateFunction: function (cluster) {
+        return L.divIcon({
+            html: `<img src="img/ua/NEW/cluster.png" width="32" height="32">`,
+            className: 'custom-cluster-icon',
+            iconSize: [32, 32]
+        });
+    }
+});
+function addMarkersToCluster(data, clusterGroup) {
+    data.forEach(({ coords, icon, size, popup }) => {
+        var marker = L.marker(coords, { icon: L.icon({ iconUrl: icon, iconSize: size }) })
+            .bindPopup(popup);
+        clusterGroup.addLayer(marker);
+    });
+}
+addMarkersToCluster(afrf, afrfCluster);
+addMarkersToCluster(afu, afuCluster);
+map.addLayer(afrfCluster);
+map.addLayer(afuCluster);
